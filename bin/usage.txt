@@ -1,0 +1,10 @@
+help-gen - Generate validators for help.com services
+
+  usage: help-gen [options] <config.json>
+
+  options:
+    -h, --help                    show help and usage
+    -v, --version                 show version
+
+  example:
+    $ help-gen example/config.json

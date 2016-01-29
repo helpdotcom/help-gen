@@ -1,0 +1,17 @@
+{
+  "name": "CreateOrg",
+  "properties": [
+    {
+      "name": "room",
+      "type": "object",
+      "path": "room",
+      "required": true
+    },
+    {
+      "name": "roomId",
+      "type": "string",
+      "path": "room.id",
+      "required": true
+    }
+  ]
+}
