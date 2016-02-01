@@ -15,4 +15,7 @@ module.exports = function biscuits(obj, cb) {
       cb(new TypeError('Missing required param (room.id) for name roomId'))
     })
   }
+  return setImmediate(() => {
+    cb(null, obj)
+  })
 }

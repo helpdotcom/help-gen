@@ -5,4 +5,7 @@ module.exports = function biscuits(obj, cb) {
       cb(new TypeError('obj must be an object'))
     })
   }
+  return setImmediate(() => {
+    cb(null, obj)
+  })
 }
