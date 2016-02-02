@@ -1,7 +1,7 @@
 'use strict'
 
 const test = require('tap').test
-const generate = require('../')
+const generate = require('../').validator
 const fs = require('fs')
 const path = require('path')
 
