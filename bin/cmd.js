@@ -35,5 +35,5 @@ if (!config.properties) {
   throw new Error('config.json must have a properties property')
 }
 
-const res = Gen(config.name, config.properties)
+const res = Gen.validator(config.name, config.properties)
 console.log(res)
