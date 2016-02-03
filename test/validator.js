@@ -38,6 +38,52 @@ test('generate', (t) => {
 
   t.equal(out, fixture('nested.js'))
 
+  out = generate('biscuits', [
+    {
+      name: 'room'
+    , type: 'object'
+    , path: 'room'
+    , required: true
+    }
+  , {
+      name: 'roomId'
+    , type: 'string'
+    , path: 'room.id'
+    , required: true
+    }
+  , {
+      name: 'createdAt'
+    , type: 'date'
+    , path: 'createdAt'
+    , required: true
+    }
+  ])
+
+  t.equal(out, fixture('date.js'))
+
+  out = generate('biscuits', [
+    {
+      name: 'room'
+    , type: 'object'
+    , path: 'room'
+    , required: true
+    }
+  , {
+      name: 'roomId'
+    , type: 'string'
+    , path: 'room.id'
+    , required: true
+    }
+  , {
+      name: 'id'
+    , type: 'uuid'
+    , path: 'id'
+    , required: true
+    }
+  ])
+
+  t.equal(out, fixture('uuid.js'))
+
   // throws with missing name
   t.throws(function() {
     generate('biscuits', [{}])
