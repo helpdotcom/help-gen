@@ -1,4 +1,5 @@
-'use strict';
+'use strict'
+
 module.exports = function biscuits(obj, cb) {
   if (!obj || typeof obj !== 'object') {
     return setImmediate(() => {
