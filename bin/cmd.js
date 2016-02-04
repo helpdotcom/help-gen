@@ -58,11 +58,11 @@ fs.readdir(inputDir, (err, files) => {
       const file = files.shift()
       const config = require(file)
       if (!config.name) {
-        throw new Error('config.json must have a name property')
+        throw new Error(`config.json must have a name property (${file})`)
       }
 
       if (!config.properties) {
-        throw new Error('config.json must have a properties property')
+        throw new Error(`config.json must have a properties property (${file})`)
       }
 
       const res = Gen.validator(config.name, config.properties)
