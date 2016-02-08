@@ -53,25 +53,25 @@ fs.readdir(inputDir, (err, files) => {
     return path.join(inputDir, file)
   })
 
-  if (cmd === 'validators') {
-    while (files.length) {
-      const file = files.shift()
-      const config = require(file)
-      if (!config.name) {
-        throw new Error(`config.json must have a name property (${file})`)
-      }
-
-      if (!config.properties) {
-        throw new Error(`config.json must have a properties property (${file})`)
-      }
-
-      const res = Gen.validator(config.name, config.properties)
-      let outFile = path.join(outputDir, path.basename(file))
-      outFile = outFile.replace(/.json$/, '.js')
-      console.log('write', outFile)
-      fs.writeFileSync(outFile, res, 'utf8')
+  while (files.length) {
+    const file = files.shift()
+    const config = require(file)
+    if (!config.name) {
+      throw new Error(`config.json must have a name property (${file})`)
     }
-  } else {
-    console.log('Implement me :]')
+
+    if (!config.properties) {
+      throw new Error(`config.json must have a properties property (${file})`)
+    }
+
+    const fn = cmd === 'validators'
+      ? Gen.validator
+      : Gen.response
+
+    const res = fn(config.name, config.properties)
+    let outFile = path.join(outputDir, path.basename(file))
+    outFile = outFile.replace(/.json$/, '.js')
+    console.log('write', outFile)
+    fs.writeFileSync(outFile, res, 'utf8')
   }
 })

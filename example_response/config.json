@@ -1,0 +1,8 @@
+{
+  "name": "Organization",
+  "properties": [
+    "id",
+    "createdAt",
+    "modifiedAt"
+  ]
+}
