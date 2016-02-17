@@ -49,10 +49,10 @@ test('memberExpression', (t) => {
   t.deepEqual(out, {
     type: 'MemberExpression'
   , object: { type: 'Identifier', name: 'obj' }
-  , property: { type: 'Literal', value: 'thing', raw: `'thing'` }
-  , computed: true
+  , property: { type: 'Identifier', name: 'thing' }
+  , computed: false
   }, `${str} evaluates properly`)
-  t.equal(gen(out), `obj['thing']`, 'generated code is correct')
+  t.equal(gen(out), `obj.thing`, 'generated code is correct')
 
   str = 'room.thing'
   out = utils.memberExpression(str)
@@ -61,13 +61,13 @@ test('memberExpression', (t) => {
   , object: {
       type: 'MemberExpression'
     , object: { type: 'Identifier', name: 'obj' }
-    , property: { type: 'Literal', value: 'room', raw: `'room'` }
-    , computed: true
+    , property: { type: 'Identifier', name: 'room' }
+    , computed: false
     }
-  , property: { type: 'Literal', value: 'thing', raw: `'thing'` }
-  , computed: true
+  , property: { type: 'Identifier', name: 'thing' }
+  , computed: false
   }, `${str} evaluates properly`)
-  t.equal(gen(out), `obj['room']['thing']`, 'generated code is correct')
+  t.equal(gen(out), `obj.room.thing`, 'generated code is correct')
 
   str = 'room.thing.id'
   out = utils.memberExpression(str)
@@ -78,18 +78,33 @@ test('memberExpression', (t) => {
     , object: {
         type: 'MemberExpression'
       , object: { type: 'Identifier', name: 'obj' }
-      , property: { type: 'Literal', value: 'room', raw: `'room'` }
-      , computed: true
+      , property: { type: 'Identifier', name: 'room' }
+      , computed: false
       }
-    , property: { type: 'Literal', value: 'thing', raw: `'thing'` }
-    , computed: true
+    , property: { type: 'Identifier', name: 'thing' }
+    , computed: false
     }
-  , property: { type: 'Literal', value: 'id', raw: `'id'` }
+  , property: { type: 'Identifier', name: 'id' }
+  , computed: false
+  }, `${str} evaluates properly`)
+  t.equal(gen(out), `obj.room.thing.id`, 'generated code is correct')
+
+
+  // now, let's verify that computed member expressions work
+  str = `room.room-id`
+  out = utils.memberExpression(str)
+  t.deepEqual(out, {
+    type: 'MemberExpression'
+  , object: {
+      type: 'MemberExpression'
+    , object: { type: 'Identifier', name: 'obj' }
+    , property: { type: 'Identifier', name: 'room' }
+    , computed: false
+    }
+  , property: { type: 'Literal', value: 'room-id', raw: `'room-id'` }
   , computed: true
   }, `${str} evaluates properly`)
-  t.equal(gen(out), `obj['room']['thing']['id']`, 'generated code is correct')
-
-
+  t.equal(gen(out), `obj.room['room-id']`, 'generated code is correct')
   t.end()
 })
 
@@ -178,11 +193,11 @@ test('notExpression', (t) => {
   , argument: {
       type: 'MemberExpression'
     , object: { type: 'Identifier', name: 'obj' }
-    , property: { type: 'Literal', value: 'room', raw: `'room'` }
-    , computed: true
+    , property: { type: 'Identifier', name: 'room' }
+    , computed: false
     }
   })
-  t.equal(gen(out), `!obj['room']`, 'generated code is correct')
+  t.equal(gen(out), `!obj.room`, 'generated code is correct')
 
   str = 'room.id'
   out = utils.notExpression(str)
@@ -196,13 +211,23 @@ test('notExpression', (t) => {
     , object: {
         type: 'MemberExpression'
       , object: { type: 'Identifier', name: 'obj' }
-      , property: { type: 'Literal', value: 'room', raw: `'room'` }
-      , computed: true
+      , property: { type: 'Identifier', name: 'room' }
+      , computed: false
       }
-    , property: { type: 'Literal', value: 'id', raw: `'id'` }
-    , computed: true
+    , property: { type: 'Identifier', name: 'id' }
+    , computed: false
     }
   })
-  t.equal(gen(out), `!obj['room']['id']`, 'generated code is correct')
+  t.equal(gen(out), `!obj.room.id`, 'generated code is correct')
+  t.end()
+})
+
+test('varNeedsBrackets', (t) => {
+  const v = utils.varNeedsBrackets
+  t.equal(v('test'), false)
+  t.equal(v('room-id'), true)
+  t.equal(v('_room-id'), true)
+  t.equal(v('room id'), true)
+  t.equal(v('7632342fds'), true)
   t.end()
 })

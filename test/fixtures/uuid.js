@@ -6,19 +6,19 @@ module.exports = function biscuits(obj, cb) {
       cb(new TypeError('obj must be an object'))
     })
   }
-  const ___4 = typeof obj['room']
-  if (!obj['room'] || typeof obj['room'] !== 'object') {
+  const ___4 = typeof obj.room
+  if (!obj.room || typeof obj.room !== 'object') {
     return setImmediate(() => {
       cb(new TypeError(`Missing or invalid required param (room) for name room. Expected object, got ${ ___4 }`))
     })
   }
-  const ___5 = typeof obj['room']['id']
-  if (typeof obj['room']['id'] !== 'string') {
+  const ___5 = typeof obj.room.id
+  if (typeof obj.room.id !== 'string') {
     return setImmediate(() => {
       cb(new TypeError(`Missing or invalid required param (room.id) for name roomId. Expected string, got ${ ___5 }`))
     })
   }
-  if (!isv4UUID(obj['id'])) {
+  if (!isv4UUID(obj.id)) {
     return setImmediate(() => {
       cb(new TypeError('Missing or invalid required param (id) for name id. Expected uuid'))
     })
