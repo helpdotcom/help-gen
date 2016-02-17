@@ -19,13 +19,34 @@ test('generate', (t) => {
   }, /props must be an array/)
 
   t.throws(function() {
-    generate('test', [{}])
-  }, /Expected property to be string, got object/)
+    generate('test', [''])
+  }, /Invalid rule. `name` is required/)
 
   let out = generate('User', [])
   t.equal(out, fixture('basic_response.js'))
 
-  out = generate('User', ['id', 'test'])
+  out = generate('User', [
+    {
+      name: 'id'
+    , type: 'uuid'
+    , path: 'id'
+    }
+  , {
+      name: 'test'
+    , type: 'string'
+    , path: 'test'
+    }
+  , {
+      name: 'roomId'
+    , type: 'uuid'
+    , path: 'room.id'
+    }
+  , {
+      name: 'roomName'
+    , type: 'string'
+    , path: 'room.name'
+    }
+  ])
   t.equal(out, fixture('multi_response.js'))
 
   t.end()
