@@ -229,5 +229,8 @@ test('varNeedsBrackets', (t) => {
   t.equal(v('_room-id'), true)
   t.equal(v('room id'), true)
   t.equal(v('7632342fds'), true)
+  t.equal(v('room_id'), false)
+  t.equal(v('room_$id'), false)
+  t.equal(v('room_#id'), true)
   t.end()
 })
