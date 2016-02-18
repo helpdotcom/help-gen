@@ -137,5 +137,16 @@ test('generate', (t) => {
     }])
   }, /Invalid rule. `required` is required/)
 
+  // Invalid type throws
+  t.throws(function() {
+    generate('biscuits', [
+      { name: 'room'
+      , type: 'biscuits'
+      , path: 'room'
+      , required: true
+      }
+    ])
+  }, /Invalid type: biscuits. Implement me/)
+
   t.end()
 })

@@ -49,5 +49,15 @@ test('generate', (t) => {
   ])
   t.equal(out, fixture('multi_response.js'))
 
+  // Invalid type throws
+  t.throws(function() {
+    generate('biscuits', [
+      { name: 'blah'
+      , type: 'biscuits'
+      , path: 'blah'
+      }
+    ])
+  }, /Invalid type: biscuits. Implement me/)
+
   t.end()
 })
