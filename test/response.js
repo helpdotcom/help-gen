@@ -61,3 +61,14 @@ test('generate', (t) => {
 
   t.end()
 })
+
+test('generate with nested object', (t) => {
+  let out = generate('Event', [
+    { name: 'roomParticipantId'
+    , type: 'uuid'
+    , path: 'room.participant.id'
+    }
+  ])
+  t.equal(out, fixture('nested_response.js'))
+  t.end()
+})
