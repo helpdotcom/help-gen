@@ -1,8 +1,23 @@
 {
   "name": "Organization",
   "properties": [
-    "id",
-    "createdAt",
-    "modifiedAt"
+    {
+      "name": "id",
+      "type": "uuid",
+      "path": "id",
+      "required": true
+    },
+    {
+      "name": "createdAt",
+      "type": "date",
+      "path": "createdAt",
+      "required": true
+    },
+    {
+      "name": "modifiedAt",
+      "type": "date",
+      "path": "modifiedAt",
+      "required": true
+    }
   ]
 }

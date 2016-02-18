@@ -1,45 +1,39 @@
 'use strict'
 
-module.exports = Organization
+module.exports = Event
 
-function Organization(opts) {
+function Event(opts) {
   opts = opts || {}
-  this.id = opts.id
-  this.createdAt = opts.createdAt
-  this.modifiedAt = opts.modifiedAt
+  this.room = opts.room || { participant: { id: undefined } }
 }
 
-Organization.fromRow = function fromRow(opts) {
-  return new Organization(opts)
+Event.fromRow = function fromRow(opts) {
+  return new Event(opts)
 }
 
-Organization.prototype.isValid = function isValid() {
+Event.prototype.isValid = function isValid() {
   const out = {
     valid: true,
     msg: ''
   }
-  if (!isv4UUID(this.id)) {
+  const ___0 = typeof this.room
+  if (!this.room || typeof this.room !== 'object') {
     out.valid = false
-    out.msg = 'property "id" is invalid. Expected type "uuid"'
+    out.msg = `property "room" is invalid. Expected type "object", got ${ ___0 }`
     return out
   }
-  if (!isDate(this.createdAt)) {
+  const ___1 = typeof this.room.participant
+  if (!this.room.participant || typeof this.room.participant !== 'object') {
     out.valid = false
-    out.msg = 'property "createdAt" is invalid. Expected type "date"'
+    out.msg = `property "room.participant" is invalid. Expected type "object", got ${ ___1 }`
     return out
   }
-  if (!isDate(this.modifiedAt)) {
+  if (!isv4UUID(this.room.participant.id)) {
     out.valid = false
-    out.msg = 'property "modifiedAt" is invalid. Expected type "date"'
+    out.msg = 'property "room.participant.id" is invalid. Expected type "uuid"'
     return out
   }
   return out
-}
-
-function isDate(d) {
-  let date = new Date(d)
-  let a = date.getDate()
-  return a === a
 }
 
 function isv4UUID(s) {
