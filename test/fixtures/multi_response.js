@@ -4,8 +4,8 @@ module.exports = User
 
 function User(opts) {
   opts = opts || {}
-  this.id = opts.id || undefined
-  this.test = opts.test || undefined
+  this.id = opts.id
+  this.test = opts.test
   this.room = opts.room || {
     id: undefined,
     name: undefined
