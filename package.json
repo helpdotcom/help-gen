@@ -10,7 +10,8 @@
     "acorn": "~2.7.0",
     "escodegen": "~1.8.0",
     "help": "~2.1.2",
-    "mkdirp": "~0.5.1"
+    "mkdirp": "~0.5.1",
+    "v8is": "~2.0.0"
   },
   "devDependencies": {
     "tap": "~5.0.0"
