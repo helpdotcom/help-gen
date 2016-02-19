@@ -41,6 +41,8 @@ const inputDir = path.resolve(args[1])
 const outputDir = path.resolve(args[2])
 mkdirp.sync(outputDir)
 
+const exts = ['.json', '.js']
+
 fs.readdir(inputDir, (err, files) => {
   if (err) {
     console.error(err.stack || err)
@@ -48,7 +50,7 @@ fs.readdir(inputDir, (err, files) => {
   }
 
   files = files.filter((file) => {
-    return path.extname(file) === '.json'
+    return Boolean(~exts.indexOf(path.extname(file)))
   }).map((file) => {
     return path.join(inputDir, file)
   })
