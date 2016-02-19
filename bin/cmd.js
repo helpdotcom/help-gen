@@ -41,7 +41,7 @@ const inputDir = path.resolve(args[1])
 const outputDir = path.resolve(args[2])
 mkdirp.sync(outputDir)
 
-const exts = ['.json', '.js']
+const exts = ['.js', '.json']
 
 fs.readdir(inputDir, (err, files) => {
   if (err) {

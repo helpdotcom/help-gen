@@ -84,6 +84,47 @@ test('generate', (t) => {
 
   t.equal(out, fixture('uuid.js'))
 
+  out = generate('biscuits', [
+    { name: 'email'
+    , type: 'regex'
+    , path: 'email'
+    , value: /\S@\S\.\S/
+    , required: true
+    }
+  , { name: 'name'
+    , type: 'string'
+    , path: 'name'
+    , required: true
+    }
+    // add another with the same exact regex
+    // to make sure we only declare each regex once
+    // :]
+  , { name: 'email2'
+    , type: 'regex'
+    , path: 'email2'
+    , value: /\S@\S\.\S/
+    , required: true
+    }
+  ])
+
+  t.equal(out, fixture('regex.js'))
+
+  out = generate('biscuits', [
+    { name: 'email'
+    , type: 'regex'
+    , path: 'email'
+    , value: '/\\S@\\S\\.\\S/im'
+    , required: true
+    }
+  , { name: 'name'
+    , type: 'string'
+    , path: 'name'
+    , required: true
+    }
+  ])
+
+  t.equal(out, fixture('regex-flags.js'))
+
   // throws with missing name
   t.throws(function() {
     generate('biscuits', [{}])
@@ -147,6 +188,17 @@ test('generate', (t) => {
       }
     ])
   }, /Invalid type: biscuits. Implement me/)
+
+  // Type regex without a value throws
+  t.throws(function() {
+    generate('biscuits', [
+      { name: 'email'
+      , type: 'regex'
+      , path: 'email'
+      , required: true
+      }
+    ])
+  }, /value must be defined for type: regex/)
 
   t.end()
 })

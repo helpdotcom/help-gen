@@ -35,14 +35,17 @@ test('PathEach - nested', (t) => {
     { name: 'roomParticipantId'
     , path: 'room'
     , type: 'object'
+    , value: null
     }
   , { name: 'roomParticipantId'
     , path: 'room.participant'
     , type: 'object'
+    , value: null
     }
   , { name: 'roomParticipantId'
     , path: 'room.participant.id'
     , type: 'uuid'
+    , value: null
     }
   ]
 
