@@ -125,6 +125,16 @@ test('generate', (t) => {
 
   t.equal(out, fixture('regex-flags.js'))
 
+  out = generate('biscuits', [
+    { name: 'email'
+    , type: 'email'
+    , path: 'email'
+    , required: true
+    }
+  ])
+
+  t.equal(out, fixture('email.js'))
+
   // throws with missing name
   t.throws(function() {
     generate('biscuits', [{}])

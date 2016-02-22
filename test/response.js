@@ -26,6 +26,15 @@ test('generate', (t) => {
   t.equal(out, fixture('basic_response.js'))
 
   out = generate('User', [
+    { name: 'email'
+    , type: 'email'
+    , path: 'email'
+    }
+  ])
+
+  t.equal(out, fixture('email_response.js'))
+
+  out = generate('User', [
     {
       name: 'id'
     , type: 'uuid'
