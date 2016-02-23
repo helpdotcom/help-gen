@@ -108,6 +108,26 @@ test('objectPath', (t) => {
   t.end()
 })
 
+test('newExpression', (t) => {
+  const id = utils.identifier('Biscuits')
+  let out = utils.newExpression(id, [])
+  t.deepEqual(out, {
+    type: 'NewExpression'
+  , callee: { type: 'Identifier', name: 'Biscuits' }
+  , arguments: []
+  }, 'ast generated correctly')
+  t.equal(gen(out), 'new Biscuits()', 'generated code is correct')
+
+  out = utils.newExpression('Biscuits', [])
+  t.deepEqual(out, {
+    type: 'NewExpression'
+  , callee: { type: 'Identifier', name: 'Biscuits' }
+  , arguments: []
+  }, 'ast generated correctly')
+  t.equal(gen(out), 'new Biscuits()', 'generated code is correct')
+  t.end()
+})
+
 test('error', (t) => {
   let out = utils.error('This is an error')
   t.deepEqual(out, {
@@ -125,6 +145,35 @@ test('error', (t) => {
     ]
   }, 'error returns properly')
   t.equal(gen(out), `new Error('This is an error')`, 'generated correct')
+  t.end()
+})
+
+test('errorTemplate', (t) => {
+  let out = utils.errorTemplate(
+    'exp '
+  , null
+  , '___0'
+  )
+  t.deepEqual(out, {
+    type: 'NewExpression'
+  , callee: { type: 'Identifier', name: 'Error' }
+  , arguments: [
+      { type: 'TemplateLiteral'
+      , expressions: [ { type: 'Identifier', name: '___0' } ]
+      , quasis: [
+          { type: 'TemplateElement'
+          , value: { raw: 'exp ', cooked: 'exp '}
+          , tail: false
+          }
+        , { type: 'TemplateElement'
+          , value: { raw: '', cooked: '' }
+          , tail: true
+          }
+        ]
+      }
+    ]
+  }, 'creates proper ast')
+  t.equal(gen(out), 'new Error(`exp ${ ___0 }`)', 'generated correct')
   t.end()
 })
 
@@ -219,6 +268,48 @@ test('notExpression', (t) => {
     }
   })
   t.equal(gen(out), `!obj.room.id`, 'generated code is correct')
+  t.end()
+})
+
+test('declareVar', (t) => {
+  let out = utils.declareVar('test', utils.identifier('undefined'))
+  t.deepEqual(out, {
+    type: 'VariableDeclaration'
+  , declarations: [
+      { type: 'VariableDeclarator'
+      , id: utils.identifier('test')
+      , init: utils.identifier('undefined')
+      }
+    ]
+  , kind: 'const'
+  }, 'ast is generated correctly')
+  t.equal(gen(out), 'const test = undefined;', 'generated code is correct')
+
+  out = utils.declareVar('test', utils.identifier('undefined'), 'let')
+  t.deepEqual(out, {
+    type: 'VariableDeclaration'
+  , declarations: [
+      { type: 'VariableDeclarator'
+      , id: utils.identifier('test')
+      , init: utils.identifier('undefined')
+      }
+    ]
+  , kind: 'let'
+  }, 'ast is generated correctly')
+  t.equal(gen(out), 'let test = undefined;', 'generated code is correct')
+
+  out = utils.declareVar('test', utils.identifier('undefined'), 'var')
+  t.deepEqual(out, {
+    type: 'VariableDeclaration'
+  , declarations: [
+      { type: 'VariableDeclarator'
+      , id: utils.identifier('test')
+      , init: utils.identifier('undefined')
+      }
+    ]
+  , kind: 'var'
+  }, 'ast is generated correctly')
+  t.equal(gen(out), 'var test = undefined;', 'generated code is correct')
   t.end()
 })
 
