@@ -13,7 +13,7 @@ module.exports = function biscuits(obj, cb) {
     })
   }
   const ___1 = typeof obj.name
-  if (typeof obj.name !== 'string') {
+  if (___1 !== 'string') {
     return setImmediate(() => {
       cb(new TypeError(`Missing or invalid required param (name) for name name. Expected string, got ${ ___1 }`))
     })

@@ -27,13 +27,13 @@ User.prototype.isValid = function isValid() {
     return out
   }
   const ___0 = typeof this.test
-  if (typeof this.test !== 'string') {
+  if (___0 !== 'string') {
     out.valid = false
     out.msg = `property "test" is invalid. Expected type "string", got ${ ___0 }`
     return out
   }
   const ___1 = typeof this.room
-  if (!this.room || typeof this.room !== 'object') {
+  if (!this.room || ___1 !== 'object') {
     out.valid = false
     out.msg = `property "room" is invalid. Expected type "object", got ${ ___1 }`
     return out
@@ -44,7 +44,7 @@ User.prototype.isValid = function isValid() {
     return out
   }
   const ___2 = typeof this.room.name
-  if (typeof this.room.name !== 'string') {
+  if (___2 !== 'string') {
     out.valid = false
     out.msg = `property "room.name" is invalid. Expected type "string", got ${ ___2 }`
     return out
