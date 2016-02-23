@@ -43,9 +43,9 @@ test('identifier', (t) => {
   t.end()
 })
 
-test('memberExpression', (t) => {
+test('objectPath', (t) => {
   let str = 'thing'
-  let out = utils.memberExpression(str)
+  let out = utils.objectPath(str)
   t.deepEqual(out, {
     type: 'MemberExpression'
   , object: { type: 'Identifier', name: 'obj' }
@@ -55,7 +55,7 @@ test('memberExpression', (t) => {
   t.equal(gen(out), `obj.thing`, 'generated code is correct')
 
   str = 'room.thing'
-  out = utils.memberExpression(str)
+  out = utils.objectPath(str)
   t.deepEqual(out, {
     type: 'MemberExpression'
   , object: {
@@ -70,7 +70,7 @@ test('memberExpression', (t) => {
   t.equal(gen(out), `obj.room.thing`, 'generated code is correct')
 
   str = 'room.thing.id'
-  out = utils.memberExpression(str)
+  out = utils.objectPath(str)
   t.deepEqual(out, {
     type: 'MemberExpression'
   , object: {
@@ -92,7 +92,7 @@ test('memberExpression', (t) => {
 
   // now, let's verify that computed member expressions work
   str = `room.room-id`
-  out = utils.memberExpression(str)
+  out = utils.objectPath(str)
   t.deepEqual(out, {
     type: 'MemberExpression'
   , object: {

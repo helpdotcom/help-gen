@@ -15,6 +15,10 @@ test('generate', (t) => {
   }, /name is required/)
 
   t.throws(function() {
+    generate.Validator()
+  }, /name is required/)
+
+  t.throws(function() {
     generate('biscuits', {})
   }, /props must be an array/)
 
@@ -39,23 +43,25 @@ test('generate', (t) => {
   t.equal(out, fixture('nested.js'))
 
   out = generate('biscuits', [
-    {
-      name: 'room'
+    { name: 'room'
     , type: 'object'
     , path: 'room'
     , required: true
     }
-  , {
-      name: 'roomId'
+  , { name: 'roomId'
     , type: 'string'
     , path: 'room.id'
     , required: true
     }
-  , {
-      name: 'createdAt'
+  , { name: 'createdAt'
     , type: 'date'
     , path: 'createdAt'
     , required: true
+    }
+  , { name: 'biscuits'
+    , type: 'string'
+    , path: 'biscuits'
+    , required: false
     }
   ])
 
