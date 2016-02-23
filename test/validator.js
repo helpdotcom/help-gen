@@ -15,6 +15,10 @@ test('generate', (t) => {
   }, /name is required/)
 
   t.throws(function() {
+    generate.Validator()
+  }, /name is required/)
+
+  t.throws(function() {
     generate('biscuits', {})
   }, /props must be an array/)
 
@@ -39,23 +43,25 @@ test('generate', (t) => {
   t.equal(out, fixture('nested.js'))
 
   out = generate('biscuits', [
-    {
-      name: 'room'
+    { name: 'room'
     , type: 'object'
     , path: 'room'
     , required: true
     }
-  , {
-      name: 'roomId'
+  , { name: 'roomId'
     , type: 'string'
     , path: 'room.id'
     , required: true
     }
-  , {
-      name: 'createdAt'
+  , { name: 'createdAt'
     , type: 'date'
     , path: 'createdAt'
     , required: true
+    }
+  , { name: 'biscuits'
+    , type: 'string'
+    , path: 'biscuits'
+    , required: false
     }
   ])
 
@@ -83,6 +89,57 @@ test('generate', (t) => {
   ])
 
   t.equal(out, fixture('uuid.js'))
+
+  out = generate('biscuits', [
+    { name: 'email'
+    , type: 'regex'
+    , path: 'email'
+    , value: /\S@\S\.\S/
+    , required: true
+    }
+  , { name: 'name'
+    , type: 'string'
+    , path: 'name'
+    , required: true
+    }
+    // add another with the same exact regex
+    // to make sure we only declare each regex once
+    // :]
+  , { name: 'email2'
+    , type: 'regex'
+    , path: 'email2'
+    , value: /\S@\S\.\S/
+    , required: true
+    }
+  ])
+
+  t.equal(out, fixture('regex.js'))
+
+  out = generate('biscuits', [
+    { name: 'email'
+    , type: 'regex'
+    , path: 'email'
+    , value: '/\\S@\\S\\.\\S/im'
+    , required: true
+    }
+  , { name: 'name'
+    , type: 'string'
+    , path: 'name'
+    , required: true
+    }
+  ])
+
+  t.equal(out, fixture('regex-flags.js'))
+
+  out = generate('biscuits', [
+    { name: 'email'
+    , type: 'email'
+    , path: 'email'
+    , required: true
+    }
+  ])
+
+  t.equal(out, fixture('email.js'))
 
   // throws with missing name
   t.throws(function() {
@@ -147,6 +204,17 @@ test('generate', (t) => {
       }
     ])
   }, /Invalid type: biscuits. Implement me/)
+
+  // Type regex without a value throws
+  t.throws(function() {
+    generate('biscuits', [
+      { name: 'email'
+      , type: 'regex'
+      , path: 'email'
+      , required: true
+      }
+    ])
+  }, /value must be defined for type: regex/)
 
   t.end()
 })

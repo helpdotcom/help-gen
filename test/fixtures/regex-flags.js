@@ -1,21 +1,21 @@
 'use strict'
 
+const ___0 = /\S@\S\.\S/im
 module.exports = function biscuits(obj, cb) {
   if (!obj || typeof obj !== 'object') {
     return setImmediate(() => {
       cb(new TypeError('obj must be an object'))
     })
   }
-  const ___0 = typeof obj.room
-  if (!obj.room || ___0 !== 'object') {
+  if (!___0.test(obj.email)) {
     return setImmediate(() => {
-      cb(new TypeError(`Missing or invalid required param (room) for name room. Expected object, got ${ ___0 }`))
+      cb(new Error(`Path "email" must match ${ ___0 }`))
     })
   }
-  const ___1 = typeof obj.room.id
+  const ___1 = typeof obj.name
   if (___1 !== 'string') {
     return setImmediate(() => {
-      cb(new TypeError(`Missing or invalid required param (room.id) for name roomId. Expected string, got ${ ___1 }`))
+      cb(new TypeError(`Missing or invalid required param (name) for name name. Expected string, got ${ ___1 }`))
     })
   }
   return setImmediate(() => {

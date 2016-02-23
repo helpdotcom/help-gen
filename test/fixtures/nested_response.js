@@ -17,13 +17,13 @@ Event.prototype.isValid = function isValid() {
     msg: ''
   }
   const ___0 = typeof this.room
-  if (!this.room || typeof this.room !== 'object') {
+  if (!this.room || ___0 !== 'object') {
     out.valid = false
     out.msg = `property "room" is invalid. Expected type "object", got ${ ___0 }`
     return out
   }
   const ___1 = typeof this.room.participant
-  if (!this.room.participant || typeof this.room.participant !== 'object') {
+  if (!this.room.participant || ___1 !== 'object') {
     out.valid = false
     out.msg = `property "room.participant" is invalid. Expected type "object", got ${ ___1 }`
     return out

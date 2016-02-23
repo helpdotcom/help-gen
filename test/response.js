@@ -15,6 +15,10 @@ test('generate', (t) => {
   }, /name is required/)
 
   t.throws(function() {
+    generate.Response()
+  }, /name is required/)
+
+  t.throws(function() {
     generate('test')
   }, /props must be an array/)
 
@@ -24,6 +28,15 @@ test('generate', (t) => {
 
   let out = generate('User', [])
   t.equal(out, fixture('basic_response.js'))
+
+  out = generate('User', [
+    { name: 'email'
+    , type: 'email'
+    , path: 'email'
+    }
+  ])
+
+  t.equal(out, fixture('email_response.js'))
 
   out = generate('User', [
     {
@@ -48,6 +61,14 @@ test('generate', (t) => {
     }
   ])
   t.equal(out, fixture('multi_response.js'))
+
+  out = generate('User', [
+    { name: 'createdAt'
+    , type: 'date'
+    , path: 'createdAt'
+    }
+  ])
+  t.equal(out, fixture('date_response.js'))
 
   // Invalid type throws
   t.throws(function() {

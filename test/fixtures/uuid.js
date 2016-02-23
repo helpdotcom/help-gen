@@ -7,13 +7,13 @@ module.exports = function biscuits(obj, cb) {
     })
   }
   const ___0 = typeof obj.room
-  if (!obj.room || typeof obj.room !== 'object') {
+  if (!obj.room || ___0 !== 'object') {
     return setImmediate(() => {
       cb(new TypeError(`Missing or invalid required param (room) for name room. Expected object, got ${ ___0 }`))
     })
   }
   const ___1 = typeof obj.room.id
-  if (typeof obj.room.id !== 'string') {
+  if (___1 !== 'string') {
     return setImmediate(() => {
       cb(new TypeError(`Missing or invalid required param (room.id) for name roomId. Expected string, got ${ ___1 }`))
     })
