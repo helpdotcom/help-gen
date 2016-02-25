@@ -10,6 +10,7 @@
     "acorn": "~2.7.0",
     "escodegen": "~1.8.0",
     "help": "~2.1.2",
+    "marky-markdown": "~7.0.0",
     "mkdirp": "~0.5.1",
     "v8is": "~2.0.0"
   },
