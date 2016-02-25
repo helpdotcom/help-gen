@@ -9,6 +9,7 @@
   "dependencies": {
     "acorn": "~2.7.0",
     "escodegen": "~1.8.0",
+    "github-slugger": "~1.0.1",
     "help": "~2.1.2",
     "marky-markdown": "~7.0.0",
     "mkdirp": "~0.5.1",
