@@ -1,0 +1,67 @@
+# Test
+
+- [List Organzations](#list-organzations)
+- [List Organzations](#list-organzations-1)
+
+
+## List Organzations
+
+Gets all organizations
+
+    GET /organization
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `id` | `uuid (v4)` | id |
+
+**Note:** Input Note
+
+#### Response
+
+```headers
+Status: 200 OK
+```
+
+```json
+{
+  "id": "5eae86ea-1913-49cd-b7d1-c7e28d0197e6"
+}
+```
+
+
+**Note:** Output Note
+
+***
+
+## List Organzations
+
+Gets all organizations
+
+    POST /organization
+
+#### Input
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `id` | `uuid (v4)` | id |
+
+**Note:** Input Note
+
+#### Response
+
+```headers
+Status: 200 OK
+```
+
+```json
+{
+  "id": "5eae86ea-1913-49cd-b7d1-c7e28d0197e6"
+}
+```
+
+
+**Note:** Output Note
+
+***

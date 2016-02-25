@@ -4,7 +4,7 @@
   "description": "Generate validators for help.com services",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.js --cov"
+    "test": "tap test/*.js test/docs/*.js --cov"
   },
   "dependencies": {
     "acorn": "~2.7.0",

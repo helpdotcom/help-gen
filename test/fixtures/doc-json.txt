@@ -1,0 +1,62 @@
+{
+  "title": "Test",
+  "routes": [
+    {
+      "title": "List Organzations",
+      "description": "Gets all organizations",
+      "method": "GET",
+      "url": "/organization",
+      "params": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "path": "id",
+          "description": "id"
+        }
+      ],
+      "request": null,
+      "response": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "path": "id",
+          "example": "5eae86ea-1913-49cd-b7d1-c7e28d0197e6"
+        }
+      ],
+      "requestNote": "Input Note",
+      "responseNote": "Output Note",
+      "exampleResponse": {
+        "id": "5eae86ea-1913-49cd-b7d1-c7e28d0197e6"
+      },
+      "originalUrl": "/organization"
+    },
+    {
+      "title": "List Organzations",
+      "description": "Gets all organizations",
+      "method": "POST",
+      "url": "/organization",
+      "request": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "path": "id",
+          "description": "id"
+        }
+      ],
+      "response": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "path": "id",
+          "example": "5eae86ea-1913-49cd-b7d1-c7e28d0197e6"
+        }
+      ],
+      "requestNote": "Input Note",
+      "responseNote": "Output Note",
+      "exampleResponse": {
+        "id": "5eae86ea-1913-49cd-b7d1-c7e28d0197e6"
+      },
+      "originalUrl": "/organization"
+    }
+  ]
+}
