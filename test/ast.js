@@ -49,6 +49,12 @@ test('array', (t) => {
   t.end()
 })
 
+test('declareFn', (t) => {
+  const out = utils.declareFn('UIMessage', ['buf'])
+  t.equal(gen(out), 'function UIMessage(buf) {\n}', 'generated code is correct')
+  t.end()
+})
+
 test('objectPath', (t) => {
   let str = 'thing'
   let out = utils.objectPath(str)
