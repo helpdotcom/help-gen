@@ -43,6 +43,12 @@ test('identifier', (t) => {
   t.end()
 })
 
+test('array', (t) => {
+  const out = utils.array([utils.literal('general')])
+  t.equal(gen(out), `['general']`, 'generated code is correct')
+  t.end()
+})
+
 test('objectPath', (t) => {
   let str = 'thing'
   let out = utils.objectPath(str)
