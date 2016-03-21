@@ -50,8 +50,14 @@ test('array', (t) => {
 })
 
 test('declareFn', (t) => {
+  const str = 'function UIMessage(buf) {\n}'
   const out = utils.declareFn('UIMessage', ['buf'])
-  t.equal(gen(out), 'function UIMessage(buf) {\n}', 'generated code is correct')
+  t.equal(gen(out), str, 'generated code is correct')
+
+  const out2 = utils.declareFn('UIMessage', [
+    utils.identifier('buf')
+  ])
+  t.equal(gen(out), str, 'generated code is correct')
   t.end()
 })
 
