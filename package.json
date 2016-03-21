@@ -7,6 +7,7 @@
     "test": "tap test/*.js test/docs/*.js --cov"
   },
   "dependencies": {
+    "@helpdotcom/buffer-utils": "~1.0.0",
     "acorn": "~2.7.0",
     "escodegen": "~1.8.0",
     "github-slugger": "~1.0.1",
