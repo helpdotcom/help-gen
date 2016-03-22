@@ -25,7 +25,7 @@
   "author": "Evan Lucas <evanlucas@me.com>",
   "repository": {
     "type": "git",
-    "url": "ssh://git@git.help.com:2222/common-backend/help-gen.git"
+    "url": "https://git.help.com/common-backend/help-gen.git"
   },
   "homepage": "https://git.help.com/common-backend/help-gen",
   "bugs": {
