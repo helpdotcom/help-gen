@@ -1,5 +1,5 @@
 {
-  "name": "@help/help-gen",
+  "name": "@helpdotcom/help-gen",
   "version": "1.0.0",
   "description": "Generate validators for help.com services",
   "main": "index.js",
@@ -25,10 +25,10 @@
   "author": "Evan Lucas <evanlucas@me.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/helpdotcom/help-gen"
+    "url": "https://git.help.com/common-backend/help-gen.git"
   },
-  "homepage": "https://github.com/helpdotcom/help-gen",
+  "homepage": "https://git.help.com/common-backend/help-gen",
   "bugs": {
-    "url": "https://github.com/helpdotcom/help-gen/issues"
+    "url": "https://git.help.com/common-backend/help-gen/issues"
   }
 }
