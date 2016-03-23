@@ -43,6 +43,24 @@ test('identifier', (t) => {
   t.end()
 })
 
+test('array', (t) => {
+  const out = utils.array([utils.literal('general')])
+  t.equal(gen(out), `['general']`, 'generated code is correct')
+  t.end()
+})
+
+test('declareFn', (t) => {
+  const str = 'function UIMessage(buf) {\n}'
+  const out = utils.declareFn('UIMessage', ['buf'])
+  t.equal(gen(out), str, 'generated code is correct')
+
+  const out2 = utils.declareFn('UIMessage', [
+    utils.identifier('buf')
+  ])
+  t.equal(gen(out), str, 'generated code is correct')
+  t.end()
+})
+
 test('objectPath', (t) => {
   let str = 'thing'
   let out = utils.objectPath(str)
