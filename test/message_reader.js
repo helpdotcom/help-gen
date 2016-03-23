@@ -58,33 +58,6 @@ test('generate', (t) => {
 
   const out = generate(opts)
   t.equal(out, fixture('repeatable_group.js'))
-
-  // const optsa = {
-  //   name: 'UIEvent'
-  // , version: '1.0'
-  // , delimiter: ''
-  // , enums: { messageType: [ 'general' ] }
-  // , elements: [
-  //     { name: 'totalLength', type: 'int', size: 8 }
-  //   , { name: 'messageType', type: 'enum', size: 2 }
-  //   , { name: 'messageFormatVersion', type: 'char', size: 4 }
-  //   , { name: 'messageValue'
-  //     , type: 'int'
-  //     , size: 3
-  //     , repeatableGroup: 'message'
-  //     , facet: 'count'
-  //     }
-  //   , { name: 'messageValue'
-  //     , type: 'int'
-  //     , size: 8
-  //     , repeatableGroup: 'message'
-  //     , facet: 'length'
-  //     }
-  //   , { name: 'messageValue', type: 'varchar', repeatableGroup: 'message' }
-  //   , { name: 'messageVers', type: 'char', size: 4, repeatableGroup: 'message' }
-  //   , { name: 'messageType', type: 'enum', size: 2, repeatableGroup: 'message' }
-  //   ]
-  // }
   opts.delimiter = ''
   const outa = generate(opts)
   t.equal(outa, fixture('repeatable_group_no_delim.js'))
