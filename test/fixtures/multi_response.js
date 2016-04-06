@@ -53,7 +53,7 @@ User.prototype.isValid = function isValid() {
 }
 
 function isv4UUID(s) {
-  return isUUID(s) === 4
+  return typeof s === 'string' && isUUID(s) === 4
 }
 
 function isUUID(s) {
