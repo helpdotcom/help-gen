@@ -1,0 +1,15 @@
+image: node:latest
+
+stages:
+  - build
+
+variables:
+  NPM_TOKEN: d2c50f53-60ea-4553-9c63-2692bebef988
+
+build_and_test_job:
+  stage: build
+  script:
+    - touch .npmrc
+    - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+    - npm install --loglevel=warn --spin=false
+    - npm test
