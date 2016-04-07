@@ -12,4 +12,4 @@ build_and_test_job:
     - touch .npmrc
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
     - npm install --loglevel=warn --spin=false
-    - npm test
+    - npm test -- --coverage-report=text-summary
