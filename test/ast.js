@@ -10,13 +10,13 @@ function gen(a) {
 
 test('literal', (tt) => {
   test('raw', (t) => {
-    let out = utils.literal('obj', `'obj'`)
+    let out = utils.literal('obj', '\'obj\'')
     t.deepEqual(out, {
       type: 'Literal'
     , value: 'obj'
-    , raw: `'obj'`
+    , raw: '\'obj\''
     }, 'Literal raw and value are correct')
-    t.equal(gen(out), `'obj'`, 'generated code is correct')
+    t.equal(gen(out), '\'obj\'', 'generated code is correct')
     t.end()
   })
 
@@ -26,7 +26,7 @@ test('literal', (tt) => {
       type: 'Literal'
     , value: 'obj'
     }, 'Literal value is correct')
-    t.equal(gen(out), `'obj'`, 'generated code is correct')
+    t.equal(gen(out), '\'obj\'', 'generated code is correct')
     t.end()
   })
 
@@ -45,7 +45,7 @@ test('identifier', (t) => {
 
 test('array', (t) => {
   const out = utils.array([utils.literal('general')])
-  t.equal(gen(out), `['general']`, 'generated code is correct')
+  t.equal(gen(out), '[\'general\']', 'generated code is correct')
   t.end()
 })
 
@@ -58,6 +58,7 @@ test('declareFn', (t) => {
     utils.identifier('buf')
   ])
   t.equal(gen(out), str, 'generated code is correct')
+  t.equal(gen(out2), str, 'generated code is correct')
   t.end()
 })
 
@@ -70,7 +71,7 @@ test('objectPath', (t) => {
   , property: { type: 'Identifier', name: 'thing' }
   , computed: false
   }, `${str} evaluates properly`)
-  t.equal(gen(out), `obj.thing`, 'generated code is correct')
+  t.equal(gen(out), 'obj.thing', 'generated code is correct')
 
   str = 'room.thing'
   out = utils.objectPath(str)
@@ -85,7 +86,7 @@ test('objectPath', (t) => {
   , property: { type: 'Identifier', name: 'thing' }
   , computed: false
   }, `${str} evaluates properly`)
-  t.equal(gen(out), `obj.room.thing`, 'generated code is correct')
+  t.equal(gen(out), 'obj.room.thing', 'generated code is correct')
 
   str = 'room.thing.id'
   out = utils.objectPath(str)
@@ -105,11 +106,11 @@ test('objectPath', (t) => {
   , property: { type: 'Identifier', name: 'id' }
   , computed: false
   }, `${str} evaluates properly`)
-  t.equal(gen(out), `obj.room.thing.id`, 'generated code is correct')
+  t.equal(gen(out), 'obj.room.thing.id', 'generated code is correct')
 
 
   // now, let's verify that computed member expressions work
-  str = `room.room-id`
+  str = 'room.room-id'
   out = utils.objectPath(str)
   t.deepEqual(out, {
     type: 'MemberExpression'
@@ -119,10 +120,10 @@ test('objectPath', (t) => {
     , property: { type: 'Identifier', name: 'room' }
     , computed: false
     }
-  , property: { type: 'Literal', value: 'room-id', raw: `'room-id'` }
+  , property: { type: 'Literal', value: 'room-id', raw: '\'room-id\'' }
   , computed: true
   }, `${str} evaluates properly`)
-  t.equal(gen(out), `obj.room['room-id']`, 'generated code is correct')
+  t.equal(gen(out), 'obj.room[\'room-id\']', 'generated code is correct')
   t.end()
 })
 
@@ -158,11 +159,11 @@ test('error', (t) => {
       {
         type: 'Literal'
       , value: 'This is an error'
-      , raw: `'This is an error'`
+      , raw: '\'This is an error\''
       }
     ]
   }, 'error returns properly')
-  t.equal(gen(out), `new Error('This is an error')`, 'generated correct')
+  t.equal(gen(out), 'new Error(\'This is an error\')', 'generated correct')
   t.end()
 })
 
@@ -205,7 +206,7 @@ test('cbWithError', (t) => {
     , arguments: [utils.error('This is an error', 'TypeError')]
     }
   })
-  t.match(gen(out), `cb(new TypeError('This is an error'))`, 'generated')
+  t.match(gen(out), 'cb(new TypeError(\'This is an error\'))', 'generated')
   t.end()
 })
 
@@ -264,7 +265,7 @@ test('notExpression', (t) => {
     , computed: false
     }
   })
-  t.equal(gen(out), `!obj.room`, 'generated code is correct')
+  t.equal(gen(out), '!obj.room', 'generated code is correct')
 
   str = 'room.id'
   out = utils.notExpression(str)
@@ -285,7 +286,7 @@ test('notExpression', (t) => {
     , computed: false
     }
   })
-  t.equal(gen(out), `!obj.room.id`, 'generated code is correct')
+  t.equal(gen(out), '!obj.room.id', 'generated code is correct')
   t.end()
 })
 

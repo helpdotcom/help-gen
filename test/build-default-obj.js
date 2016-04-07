@@ -9,7 +9,7 @@ const vm = require('vm')
 function gen(a) {
   const code = generate(ast.objectExpression(a), ast.genOpts)
   const sandbox = {}
-  const o = vm.runInNewContext(`this.out = ${code}`, sandbox)
+  vm.runInNewContext(`this.out = ${code}`, sandbox)
   return sandbox.out
 }
 

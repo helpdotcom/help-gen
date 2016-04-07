@@ -2,7 +2,6 @@
 
 const test = require('tap').test
 const Docs = require('../../').docs
-const uuid = require('node-uuid')
 const fs = require('fs')
 const path = require('path')
 const fixtures = path.join(__dirname, '..', 'fixtures')
