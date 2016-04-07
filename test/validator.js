@@ -63,6 +63,11 @@ test('generate', (t) => {
     , path: 'biscuits'
     , required: false
     }
+  , { name: 'roles'
+    , type: 'array'
+    , path: 'roles'
+    , required: true
+    }
   ])
 
   t.equal(out, fixture('date.js'))

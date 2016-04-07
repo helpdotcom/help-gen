@@ -24,6 +24,11 @@ function biscuits(obj, cb) {
       cb(new TypeError('Missing or invalid required param (createdAt) for name createdAt. Expected date'))
     })
   }
+  if (!Array.isArray(obj.roles)) {
+    return setImmediate(() => {
+      cb(new TypeError('Missing or invalid required param (roles) for name roles. Expected array'))
+    })
+  }
   return setImmediate(() => {
     cb(null, obj)
   })
