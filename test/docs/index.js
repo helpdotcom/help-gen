@@ -44,7 +44,7 @@ const routes = [
   , path: '/organization'
   , input: [ { name: 'id', type: 'uuid', path: 'id', description: 'id' } ]
   , inputNote: 'Input Note'
-  , output: [ { name: 'id', type: 'uuid', path: 'id', example: resId }]
+  , output: [ [ { name: 'id', type: 'uuid', path: 'id', example: resId } ] ]
   , outputNote: 'Output Note'
   , title: 'List Organzations'
   , description: 'Gets all organizations'
@@ -55,7 +55,7 @@ const routes = [
   , inputNote: 'Input Note'
   , output: [ { name: 'id', type: 'uuid', path: 'id', example: resId }]
   , outputNote: 'Output Note'
-  , title: 'List Organzations'
+  , title: 'Create organization'
   , description: 'Gets all organizations'
   }
 ]

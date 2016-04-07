@@ -200,7 +200,7 @@
     <h1 id="test" class="deep-link"><a href="#test">Test</a></h1>
 <ul>
 <li><a href="#list-organzations">List Organzations</a></li>
-<li><a href="#list-organzations-1">List Organzations</a></li>
+<li><a href="#create-organization">Create organization</a></li>
 </ul>
 <h2 id="list-organzations" class="deep-link"><a href="#list-organzations">List Organzations</a></h2>
 <p>Gets all organizations</p>
@@ -226,10 +226,10 @@
 
 <h4 id="response" class="deep-link"><a href="#response">Response</a></h4>
 <div class="highlight"><pre class="editor editor-colors"><div class="line"><span class="text"><span>Status:&#xA0;200&#xA0;OK</span></span></div></pre></div>
-<div class="highlight json"><pre class="editor editor-colors"><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>id</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>5eae86ea-1913-49cd-b7d1-c7e28d0197e6</span><span class="punctuation definition string end json"><span>&quot;</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></div></pre></div>
+<div class="highlight json"><pre class="editor editor-colors"><div class="line"><span class="source json"><span class="meta structure array json"><span class="punctuation definition array begin json"><span>[</span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure array json"><span>&#xA0;&#xA0;</span><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure array json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>id</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>5eae86ea-1913-49cd-b7d1-c7e28d0197e6</span><span class="punctuation definition string end json"><span>&quot;</span></span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure array json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span></span><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure array json"><span class="punctuation definition array end json"><span>]</span></span></span></span></div></pre></div>
 
 <hr>
-<h2 id="list-organzations-1" class="deep-link"><a href="#list-organzations-1">List Organzations</a></h2>
+<h2 id="create-organization" class="deep-link"><a href="#create-organization">Create organization</a></h2>
 <p>Gets all organizations</p>
 <pre><code>POST /organization
 </code></pre>

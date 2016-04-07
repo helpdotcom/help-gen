@@ -40,6 +40,8 @@ test('works with array of objects', (t) => {
   , { path: 'test' }
   , { path: 'age', example: 24 }
   , { path: 'archived', example: false }
+  , { path: 'roles', example: ['admin', 'user'] }
+  , { path: 'biscuits', example: [{ name: 'test' }] }
   ]
 
   const out = build(input)
@@ -49,6 +51,8 @@ test('works with array of objects', (t) => {
   , test: undefined
   , age: 24
   , archived: false
+  , roles: ['admin', 'user']
+  , biscuits: [{ name: 'test' }]
   })
 
   t.end()

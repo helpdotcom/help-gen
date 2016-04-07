@@ -16,22 +16,26 @@
       ],
       "request": null,
       "response": [
-        {
-          "name": "id",
-          "type": "uuid",
-          "path": "id",
-          "example": "5eae86ea-1913-49cd-b7d1-c7e28d0197e6"
-        }
+        [
+          {
+            "name": "id",
+            "type": "uuid",
+            "path": "id",
+            "example": "5eae86ea-1913-49cd-b7d1-c7e28d0197e6"
+          }
+        ]
       ],
       "requestNote": "Input Note",
       "responseNote": "Output Note",
-      "exampleResponse": {
-        "id": "5eae86ea-1913-49cd-b7d1-c7e28d0197e6"
-      },
+      "exampleResponse": [
+        {
+          "id": "5eae86ea-1913-49cd-b7d1-c7e28d0197e6"
+        }
+      ],
       "originalUrl": "/organization"
     },
     {
-      "title": "List Organzations",
+      "title": "Create organization",
       "description": "Gets all organizations",
       "method": "POST",
       "url": "/organization",
