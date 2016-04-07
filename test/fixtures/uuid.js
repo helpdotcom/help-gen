@@ -1,6 +1,7 @@
 'use strict'
 
-module.exports = function biscuits(obj, cb) {
+module.exports = biscuits
+function biscuits(obj, cb) {
   if (!obj || typeof obj !== 'object') {
     return setImmediate(() => {
       cb(new TypeError('obj must be an object'))
