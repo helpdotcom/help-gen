@@ -5,7 +5,7 @@ Generate validators for help.com services
 ## Install
 
 ```bash
-$ npm install [-g] [--save-dev] @help/help-gen
+$ npm install [-g] [--save-dev] @helpdotcom/help-gen
 ```
 
 ## Usage
