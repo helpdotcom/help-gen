@@ -1,10 +1,23 @@
 # Test
 
+## Service Environment Configuration
+
+| Name | Type | Required | Default | Environment Variable |
+| ---- | ---- | -------- | ------- | -------------------- |
+| `loglevel` | STRING | no | `info` | `LOGLEVEL` |
+| `timestamps` | BOOLEAN | no | (none) | `LOG_TIMESTAMPS` |
+| `name` | STRING | yes | (none) | `NAME` |
+| `db_pool_max` | NUMBER | no | `50` | `DB_POOL_MAX` |
+| `db_pool_min` | NUMBER | no | `2` | `DB_POOL_MIN` |
+| `db_pool_idle_timeout` | NUMBER | no | `10000` | `DB_POOL_IDLE_TIMEOUT` |
+
+## API
+
 - [List Organzations](#list-organzations)
 - [Create organization](#create-organization)
 
 
-## List Organzations
+### List Organzations
 
 Gets all organizations
 
@@ -37,7 +50,7 @@ Status: 200 OK
 
 ***
 
-## Create organization
+### Create organization
 
 Gets all organizations
 

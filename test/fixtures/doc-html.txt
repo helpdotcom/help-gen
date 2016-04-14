@@ -40,6 +40,12 @@
       margin: 1.5em 0 .5em;
     }
 
+    h4 {
+      font-size: 13px;
+      color: #333;
+      margin: 1.5em 0 .5em;
+    }
+
     a,
     a:visited {
       color: #333;
@@ -198,11 +204,68 @@
       </svg>
     </div>
     <h1 id="test" class="deep-link"><a href="#test">Test</a></h1>
+<h2 id="service-environment-configuration" class="deep-link"><a href="#service-environment-configuration">Service Environment Configuration</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Environment Variable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>loglevel</code></td>
+<td>STRING</td>
+<td>no</td>
+<td><code>info</code></td>
+<td><code>LOGLEVEL</code></td>
+</tr>
+<tr>
+<td><code>timestamps</code></td>
+<td>BOOLEAN</td>
+<td>no</td>
+<td>(none)</td>
+<td><code>LOG_TIMESTAMPS</code></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>STRING</td>
+<td>yes</td>
+<td>(none)</td>
+<td><code>NAME</code></td>
+</tr>
+<tr>
+<td><code>db_pool_max</code></td>
+<td>NUMBER</td>
+<td>no</td>
+<td><code>50</code></td>
+<td><code>DB_POOL_MAX</code></td>
+</tr>
+<tr>
+<td><code>db_pool_min</code></td>
+<td>NUMBER</td>
+<td>no</td>
+<td><code>2</code></td>
+<td><code>DB_POOL_MIN</code></td>
+</tr>
+<tr>
+<td><code>db_pool_idle_timeout</code></td>
+<td>NUMBER</td>
+<td>no</td>
+<td><code>10000</code></td>
+<td><code>DB_POOL_IDLE_TIMEOUT</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="api" class="deep-link"><a href="#api">API</a></h2>
 <ul>
 <li><a href="#list-organzations">List Organzations</a></li>
 <li><a href="#create-organization">Create organization</a></li>
 </ul>
-<h2 id="list-organzations" class="deep-link"><a href="#list-organzations">List Organzations</a></h2>
+<h3 id="list-organzations" class="deep-link"><a href="#list-organzations">List Organzations</a></h3>
 <p>Gets all organizations</p>
 <pre><code>GET /organization
 </code></pre>
@@ -229,7 +292,7 @@
 <div class="highlight json"><pre class="editor editor-colors"><div class="line"><span class="source json"><span class="meta structure array json"><span class="punctuation definition array begin json"><span>[</span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure array json"><span>&#xA0;&#xA0;</span><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure array json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>id</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>5eae86ea-1913-49cd-b7d1-c7e28d0197e6</span><span class="punctuation definition string end json"><span>&quot;</span></span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure array json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span></span><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure array json"><span class="punctuation definition array end json"><span>]</span></span></span></span></div></pre></div>
 
 <hr>
-<h2 id="create-organization" class="deep-link"><a href="#create-organization">Create organization</a></h2>
+<h3 id="create-organization" class="deep-link"><a href="#create-organization">Create organization</a></h3>
 <p>Gets all organizations</p>
 <pre><code>POST /organization
 </code></pre>

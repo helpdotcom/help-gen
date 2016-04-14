@@ -62,5 +62,53 @@
       },
       "originalUrl": "/organization"
     }
+  ],
+  "config": [
+    {
+      "name": "loglevel",
+      "default": "info",
+      "type": "STRING",
+      "required": false,
+      "env": "LOGLEVEL"
+    },
+    {
+      "name": "timestamps",
+      "default": false,
+      "type": "BOOLEAN",
+      "required": false,
+      "env": "LOG_TIMESTAMPS",
+      "isDefault": true
+    },
+    {
+      "name": "name",
+      "type": "STRING",
+      "required": true,
+      "env": "NAME",
+      "isDefault": true
+    },
+    {
+      "name": "db_pool_max",
+      "type": "NUMBER",
+      "required": false,
+      "default": 50,
+      "env": "DB_POOL_MAX",
+      "isDefault": true
+    },
+    {
+      "name": "db_pool_min",
+      "type": "NUMBER",
+      "required": false,
+      "default": 2,
+      "env": "DB_POOL_MIN",
+      "isDefault": true
+    },
+    {
+      "name": "db_pool_idle_timeout",
+      "type": "NUMBER",
+      "required": false,
+      "default": 10000,
+      "env": "DB_POOL_IDLE_TIMEOUT",
+      "isDefault": true
+    }
   ]
 }

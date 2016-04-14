@@ -67,6 +67,14 @@ function fixture(fp) {
 test('render', (t) => {
   const docs = new Docs(routes, {
     title: 'Test'
+  , config: [
+      { name: 'loglevel'
+      , default: 'info'
+      , type: 'STRING'
+      , required: false
+      , env: 'LOGLEVEL'
+      }
+    ]
   })
 
   t.throws(function() {
@@ -76,8 +84,8 @@ test('render', (t) => {
   let md = docs.render('markdown').trim()
   t.equal(md, fixture('doc-md.txt'))
 
-  let json = docs.render('json').trim()
-  t.equal(json, fixture('doc-json.txt'))
+  let json = JSON.parse(docs.render('json').trim())
+  t.deepEqual(json, require('../fixtures/doc-json.json'))
 
   let html = docs.render('html').trim()
   t.equal(html, fixture('doc-html.txt'))
