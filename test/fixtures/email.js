@@ -1,7 +1,6 @@
 'use strict'
 
-const tld = require('tldjs')
-const emailRE = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/
+const validators = require('@helpdotcom/is')
 module.exports = biscuits
 function biscuits(obj, cb) {
   if (!obj || typeof obj !== 'object') {
@@ -9,7 +8,7 @@ function biscuits(obj, cb) {
       cb(new TypeError('obj must be an object'))
     })
   }
-  if (!isEmail(obj.email)) {
+  if (!validators.isEmail(obj.email)) {
     return setImmediate(() => {
       cb(new TypeError('Missing or invalid required param (email) for name email. Expected email'))
     })
@@ -17,8 +16,4 @@ function biscuits(obj, cb) {
   return setImmediate(() => {
     cb(null, obj)
   })
-}
-
-function isEmail(s) {
-  return tld.tldExists(s) && emailRE.test(s) && s.length < 255
 }

@@ -1,5 +1,6 @@
 'use strict'
 
+const validators = require('@helpdotcom/is')
 module.exports = biscuits
 function biscuits(obj, cb) {
   if (!obj || typeof obj !== 'object') {
@@ -19,7 +20,7 @@ function biscuits(obj, cb) {
       cb(new TypeError(`Missing or invalid required param (room.id) for name roomId. Expected string, got ${ ___1 }`))
     })
   }
-  if (!isDate(obj.createdAt)) {
+  if (!validators.isDate(obj.createdAt)) {
     return setImmediate(() => {
       cb(new TypeError('Missing or invalid required param (createdAt) for name createdAt. Expected date'))
     })
@@ -32,10 +33,4 @@ function biscuits(obj, cb) {
   return setImmediate(() => {
     cb(null, obj)
   })
-}
-
-function isDate(d) {
-  let date = new Date(d)
-  let a = date.getDate()
-  return a === a
 }
