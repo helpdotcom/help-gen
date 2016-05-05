@@ -1,13 +1,13 @@
 'use strict'
 
 const test = require('tap').test
-const generate = require('escodegen').generate
+const generator = require('../lib/generate').generate
 const ast = require('../lib/ast')
 const build = require('../lib/build-default-obj')
 const vm = require('vm')
 
 function gen(a) {
-  const code = generate(ast.objectExpression(a), ast.genOpts)
+  const code = generator(ast.objectExpression(a))
   const sandbox = {}
   vm.runInNewContext(`this.out = ${code}`, sandbox)
   return sandbox.out

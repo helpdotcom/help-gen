@@ -2,11 +2,7 @@
 
 const test = require('tap').test
 const utils = require('../lib/ast')
-const generate = require('escodegen').generate
-
-function gen(a) {
-  return generate(a, utils.genOpts)
-}
+const generator = require('../lib/generate').generate
 
 test('literal', (tt) => {
   test('raw', (t) => {
@@ -16,7 +12,7 @@ test('literal', (tt) => {
     , value: 'obj'
     , raw: '\'obj\''
     }, 'Literal raw and value are correct')
-    t.equal(gen(out), '\'obj\'', 'generated code is correct')
+    t.equal(generator(out), '\'obj\'', 'generated code is correct')
     t.end()
   })
 
@@ -26,7 +22,7 @@ test('literal', (tt) => {
       type: 'Literal'
     , value: 'obj'
     }, 'Literal value is correct')
-    t.equal(gen(out), '\'obj\'', 'generated code is correct')
+    t.equal(generator(out), '\'obj\'', 'generated code is correct')
     t.end()
   })
 
@@ -39,26 +35,26 @@ test('identifier', (t) => {
     type: 'Identifier'
   , name: 'obj'
   }, 'Identifier name is correct')
-  t.equal(gen(out), 'obj', 'generated code is correct')
+  t.equal(generator(out), 'obj', 'generated code is correct')
   t.end()
 })
 
 test('array', (t) => {
   const out = utils.array([utils.literal('general')])
-  t.equal(gen(out), '[\'general\']', 'generated code is correct')
+  t.equal(generator(out), '[\'general\']', 'generated code is correct')
   t.end()
 })
 
 test('declareFn', (t) => {
   const str = 'function UIMessage(buf) {\n}'
   const out = utils.declareFn('UIMessage', ['buf'])
-  t.equal(gen(out), str, 'generated code is correct')
+  t.equal(generator(out), str, 'generated code is correct')
 
   const out2 = utils.declareFn('UIMessage', [
     utils.identifier('buf')
   ])
-  t.equal(gen(out), str, 'generated code is correct')
-  t.equal(gen(out2), str, 'generated code is correct')
+  t.equal(generator(out), str, 'generated code is correct')
+  t.equal(generator(out2), str, 'generated code is correct')
   t.end()
 })
 
@@ -71,7 +67,7 @@ test('objectPath', (t) => {
   , property: { type: 'Identifier', name: 'thing' }
   , computed: false
   }, `${str} evaluates properly`)
-  t.equal(gen(out), 'obj.thing', 'generated code is correct')
+  t.equal(generator(out), 'obj.thing', 'generated code is correct')
 
   str = 'room.thing'
   out = utils.objectPath(str)
@@ -86,7 +82,7 @@ test('objectPath', (t) => {
   , property: { type: 'Identifier', name: 'thing' }
   , computed: false
   }, `${str} evaluates properly`)
-  t.equal(gen(out), 'obj.room.thing', 'generated code is correct')
+  t.equal(generator(out), 'obj.room.thing', 'generated code is correct')
 
   str = 'room.thing.id'
   out = utils.objectPath(str)
@@ -106,7 +102,7 @@ test('objectPath', (t) => {
   , property: { type: 'Identifier', name: 'id' }
   , computed: false
   }, `${str} evaluates properly`)
-  t.equal(gen(out), 'obj.room.thing.id', 'generated code is correct')
+  t.equal(generator(out), 'obj.room.thing.id', 'generated code is correct')
 
 
   // now, let's verify that computed member expressions work
@@ -123,7 +119,7 @@ test('objectPath', (t) => {
   , property: { type: 'Literal', value: 'room-id', raw: '\'room-id\'' }
   , computed: true
   }, `${str} evaluates properly`)
-  t.equal(gen(out), 'obj.room[\'room-id\']', 'generated code is correct')
+  t.equal(generator(out), 'obj.room[\'room-id\']', 'generated code is correct')
   t.end()
 })
 
@@ -135,7 +131,7 @@ test('newExpression', (t) => {
   , callee: { type: 'Identifier', name: 'Biscuits' }
   , arguments: []
   }, 'ast generated correctly')
-  t.equal(gen(out), 'new Biscuits()', 'generated code is correct')
+  t.equal(generator(out), 'new Biscuits()', 'generated code is correct')
 
   out = utils.newExpression('Biscuits', [])
   t.deepEqual(out, {
@@ -143,7 +139,7 @@ test('newExpression', (t) => {
   , callee: { type: 'Identifier', name: 'Biscuits' }
   , arguments: []
   }, 'ast generated correctly')
-  t.equal(gen(out), 'new Biscuits()', 'generated code is correct')
+  t.equal(generator(out), 'new Biscuits()', 'generated code is correct')
   t.end()
 })
 
@@ -163,7 +159,9 @@ test('error', (t) => {
       }
     ]
   }, 'error returns properly')
-  t.equal(gen(out), 'new Error(\'This is an error\')', 'generated correct')
+  t.equal(generator(out),
+    'new Error(\'This is an error\')', 'generated correct'
+  )
   t.end()
 })
 
@@ -192,7 +190,7 @@ test('errorTemplate', (t) => {
       }
     ]
   }, 'creates proper ast')
-  t.equal(gen(out), 'new Error(`exp ${ ___0 }`)', 'generated correct')
+  t.equal(generator(out), 'new Error(`exp ${ ___0 }`)', 'generated correct')
   t.end()
 })
 
@@ -206,7 +204,9 @@ test('cbWithError', (t) => {
     , arguments: [utils.error('This is an error', 'TypeError')]
     }
   })
-  t.match(gen(out), 'cb(new TypeError(\'This is an error\'))', 'generated')
+  t.match(generator(out),
+    'cb(new TypeError(\'This is an error\'))', 'generated'
+  )
   t.end()
 })
 
@@ -220,7 +220,7 @@ test('blockStatement', (t) => {
       utils.literal('obj')
     ]
   })
-  t.match(gen(out), `{\n  'obj'\n}`, 'generated code is correct')
+  t.match(generator(out), `{\n  'obj'\n}`, 'generated code is correct')
   t.end()
 })
 
@@ -228,7 +228,7 @@ test('returnError', (t) => {
   let out = utils.returnError('TestMessage')
   let exp = `return setImmediate(() => {
   cb(new Error('TestMessage'))\n})`
-  t.match(gen(out), exp, 'generated code is correct')
+  t.match(generator(out), exp, 'generated code is correct')
   t.deepEqual(out, {
     type: 'ReturnStatement'
   , argument: {
@@ -265,7 +265,7 @@ test('notExpression', (t) => {
     , computed: false
     }
   })
-  t.equal(gen(out), '!obj.room', 'generated code is correct')
+  t.equal(generator(out), '!obj.room', 'generated code is correct')
 
   str = 'room.id'
   out = utils.notExpression(str)
@@ -286,7 +286,7 @@ test('notExpression', (t) => {
     , computed: false
     }
   })
-  t.equal(gen(out), '!obj.room.id', 'generated code is correct')
+  t.equal(generator(out), '!obj.room.id', 'generated code is correct')
   t.end()
 })
 
@@ -302,7 +302,9 @@ test('declareVar', (t) => {
     ]
   , kind: 'const'
   }, 'ast is generated correctly')
-  t.equal(gen(out), 'const test = undefined;', 'generated code is correct')
+  t.equal(generator(out),
+    'const test = undefined;', 'generated code is correct'
+  )
 
   out = utils.declareVar('test', utils.identifier('undefined'), 'let')
   t.deepEqual(out, {
@@ -315,7 +317,7 @@ test('declareVar', (t) => {
     ]
   , kind: 'let'
   }, 'ast is generated correctly')
-  t.equal(gen(out), 'let test = undefined;', 'generated code is correct')
+  t.equal(generator(out), 'let test = undefined;', 'generated code is correct')
 
   out = utils.declareVar('test', utils.identifier('undefined'), 'var')
   t.deepEqual(out, {
@@ -328,7 +330,7 @@ test('declareVar', (t) => {
     ]
   , kind: 'var'
   }, 'ast is generated correctly')
-  t.equal(gen(out), 'var test = undefined;', 'generated code is correct')
+  t.equal(generator(out), 'var test = undefined;', 'generated code is correct')
   t.end()
 })
 
