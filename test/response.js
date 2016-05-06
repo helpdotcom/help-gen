@@ -22,6 +22,10 @@ test('generate', (t) => {
     generate('test')
   }, /props must be an array/)
 
+  t.throws(() => {
+    generate('a thing')
+  }, /name must be a string that is a valid identifier/)
+
   t.throws(function() {
     generate('test', [''])
   }, /Invalid rule. `name` is required/)
