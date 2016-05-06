@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@helpdotcom/buffer-utils": "~1.0.0",
-    "@helpdotcom/build-ast": "~1.3.0",
+    "@helpdotcom/build-ast": "~1.4.0",
     "@helpdotcom/config": "~1.1.0",
     "acorn": "~2.7.0",
     "escodegen": "~1.8.0",

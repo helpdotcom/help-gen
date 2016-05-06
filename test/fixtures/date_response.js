@@ -1,5 +1,6 @@
 'use strict'
 
+const validators = require('@helpdotcom/is')
 module.exports = User
 
 function User(opts) {
@@ -16,16 +17,10 @@ User.prototype.isValid = function isValid() {
     valid: true,
     msg: ''
   }
-  if (!isDate(this.createdAt)) {
+  if (!validators.isDate(this.createdAt)) {
     out.valid = false
     out.msg = 'property "createdAt" is invalid. Expected type "date"'
     return out
   }
   return out
-}
-
-function isDate(d) {
-  let date = new Date(d)
-  let a = date.getDate()
-  return a === a
 }
