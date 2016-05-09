@@ -30,6 +30,16 @@ test('generate', (t) => {
     generate('test', [''])
   }, /Invalid rule. `name` is required/)
 
+  t.throws(() => {
+    generate('biscuits', [
+      { name: 'role'
+      , type: 'enum'
+      , path: 'role'
+      , values: [{}]
+      }
+    ], /Invalid type. Item must be a string or number./)
+  })
+
   let out = generate('User', [])
   t.equal(out, fixture('basic_response.js'))
 
@@ -73,6 +83,24 @@ test('generate', (t) => {
     }
   ])
   t.equal(out, fixture('date_response.js'))
+
+  out = generate('User', [
+    { name: 'createdAt'
+    , type: 'date'
+    , path: 'createdAt'
+    }
+  , { name: 'role'
+    , type: 'enum'
+    , values: ['admin', 'manager', 'agent']
+    , path: 'role'
+    }
+  , { name: 'biscuits'
+    , type: 'enum'
+    , values: [1, 2, 3]
+    , path: 'biscuits'
+    }
+  ])
+  t.equal(out, fixture('enum_response.js'))
 
   // Invalid type throws
   t.throws(function() {

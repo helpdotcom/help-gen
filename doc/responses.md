@@ -51,10 +51,13 @@ The config objects can have the following properties:
   * `regex`
   * `email`
   * `array`
+  * `enum`
 * `required` *(Optional)* [`<Boolean>`][] Is this property required?
 * `description` *(Optional)* [`<String>`][] The description used in the
 generated documentation.
 * `example` *(Optional)* An example for use in the generated documentation.
+* `values` **(Required if type is `enum`)** [`<Array>`][] array of possible
+  values.
 
 [`<Array>`]: https://mdn.io/array
 [`<Boolean>`]: https://mdn.io/boolean
