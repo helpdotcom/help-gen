@@ -27,7 +27,7 @@ if (~versionArgs.indexOf(cmd)) {
   return
 }
 
-if (cmd !== 'validators' && cmd !== 'responses') {
+if (cmd !== 'requests' && cmd !== 'responses') {
   console.log('Invalid command', cmd)
   return help(1)
 }
@@ -66,8 +66,8 @@ fs.readdir(inputDir, (err, files) => {
       throw new Error(`config.json must have a properties property (${file})`)
     }
 
-    const fn = cmd === 'validators'
-      ? Gen.validator
+    const fn = cmd === 'requests'
+      ? Gen.request
       : Gen.response
 
     const res = fn(config.name, config.properties)
