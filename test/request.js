@@ -22,6 +22,27 @@ test('generate', (t) => {
     generate('biscuits', {})
   }, /props must be an array/)
 
+  t.throws(function() {
+    generate('biscuits', [
+      { name: 'roles'
+      , type: 'enum'
+      , values: [{ thing: true }]
+      , path: 'roles'
+      , required: true
+      }
+    ])
+  }, /Invalid type. Item must be a string or number./)
+
+  t.throws(function() {
+    generate('biscuits', [
+      { name: 'roles'
+      , type: 'enum'
+      , path: 'roles'
+      , required: true
+      }
+    ])
+  }, /values must be defined for type: enum/)
+
   let out = generate('biscuits', [])
   t.equal(out, fixture('basic.js'))
 
@@ -71,6 +92,43 @@ test('generate', (t) => {
   ])
 
   t.equal(out, fixture('date.js'))
+
+  out = generate('biscuits', [
+    { name: 'room'
+    , type: 'object'
+    , path: 'room'
+    , required: true
+    }
+  , { name: 'roomId'
+    , type: 'string'
+    , path: 'room.id'
+    , required: true
+    }
+  , { name: 'createdAt'
+    , type: 'date'
+    , path: 'createdAt'
+    , required: true
+    }
+  , { name: 'biscuits'
+    , type: 'string'
+    , path: 'biscuits'
+    , required: false
+    }
+  , { name: 'roles'
+    , type: 'enum'
+    , path: 'roles'
+    , values: ['admin', 'manager', 'agent']
+    , required: true
+    }
+  , { name: 'biscuits'
+    , type: 'enum'
+    , path: 'biscuits'
+    , values: [1, 2, 3]
+    , required: true
+    }
+  ])
+
+  t.equal(out, fixture('enum.js'))
 
   out = generate('biscuits', [
     {
