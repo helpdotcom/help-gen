@@ -28,6 +28,7 @@ Gets all organizations
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | `id` | `uuid (v4)` | id |
+| `role` | `enum ["admin", "manager", "agent"]` | The user's role |
 
 **Note:** Input Note
 

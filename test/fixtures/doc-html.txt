@@ -284,6 +284,11 @@
 <td><code>uuid (v4)</code></td>
 <td>id</td>
 </tr>
+<tr>
+<td><code>role</code></td>
+<td><code>enum [&quot;admin&quot;, &quot;manager&quot;, &quot;agent&quot;]</code></td>
+<td>The user&apos;s role</td>
+</tr>
 </tbody>
 </table>
 

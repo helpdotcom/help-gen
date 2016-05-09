@@ -42,7 +42,19 @@ const resId = '5eae86ea-1913-49cd-b7d1-c7e28d0197e6'
 const routes = [
   { method: 'GET'
   , path: '/organization'
-  , input: [ { name: 'id', type: 'uuid', path: 'id', description: 'id' } ]
+  , input: [
+      { name: 'id'
+      , type: 'uuid'
+      , path: 'id'
+      , description: 'id'
+      }
+    , { name: 'role'
+      , type: 'enum'
+      , values: ['admin', 'manager', 'agent']
+      , path: 'role'
+      , description: 'The user\'s role'
+      }
+    ]
   , inputNote: 'Input Note'
   , output: [ [ { name: 'id', type: 'uuid', path: 'id', example: resId } ] ]
   , outputNote: 'Output Note'

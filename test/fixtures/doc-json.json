@@ -12,6 +12,14 @@
           "type": "uuid",
           "path": "id",
           "description": "id"
+        },
+        {
+          "name": "role",
+          "type": "enum",
+          "path": "role",
+          "description": "The user's role",
+          "values": ["admin", "manager", "agent"],
+          "example": "admin"
         }
       ],
       "request": null,
