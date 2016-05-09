@@ -6,13 +6,13 @@ require HTTP request validation.
 ```js
 'use strict'
 
-const gen = require('@helpdotcom/help-gen').validator
+const gen = require('@helpdotcom/help-gen').request
 const props = []
 const name = 'CreateUser'
 console.log(gen(name, props))
 
 // or you can use the constructor yourself.
-const Validator = require('@helpdotcom/help-gen').validator.Validator
+const Validator = require('@helpdotcom/help-gen').request.Request
 const props = []
 const name = 'CreateUser'
 const validator = new Validator(name, props)

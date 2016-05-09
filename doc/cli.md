@@ -17,11 +17,11 @@ help-gen - Generate validators for help.com services
     -v, --version                 show version
 
   commands:
-    validators                    generate validators
+    requests                      generate requests
     responses                     generate responses
 
   example:
-    $ help-gen validators example/ example/
+    $ help-gen requests example/ example/
 ```
 
 `help-gen` will read all of the files with `.js` or `.json` extensions in

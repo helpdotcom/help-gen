@@ -1,7 +1,7 @@
 'use strict'
 
 const test = require('tap').test
-const generate = require('../').validator
+const generate = require('../').request
 const fs = require('fs')
 const path = require('path')
 
@@ -15,7 +15,7 @@ test('generate', (t) => {
   }, /name is required/)
 
   t.throws(function() {
-    generate.Validator()
+    generate.Request()
   }, /name is required/)
 
   t.throws(function() {
