@@ -1,3 +1,7 @@
+# 2016-05-12, Version 2.0.1 (Stable)
+
+* [[6150af5117](https://git.help.com/common-backend/help-gen/commit/6150af5117)] - docs: don't break if missing output (Evan Lucas)
+
 # 2016-05-11, Version 2.0.0 (Stable)
 
 * [[44b578bd8d](https://git.help.com/common-backend/help-gen/commit/44b578bd8d)] - bug: change validator to request (Ryan Mottley)
