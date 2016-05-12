@@ -104,3 +104,26 @@ test('render', (t) => {
 
   t.end()
 })
+
+test('render without output', (t) => {
+  const r = routes.map((item) => {
+    const o = Object.assign({}, item)
+    delete o.output
+    return o
+  })
+  const docs = new Docs(r, {
+    title: 'Test'
+  , config: [
+      { name: 'loglevel'
+      , default: 'info'
+      , type: 'STRING'
+      , required: false
+      , env: 'LOGLEVEL'
+      }
+    ]
+  })
+
+  const json = JSON.parse(docs.render('json').trim())
+  t.deepEqual(json, require('../fixtures/doc2-json.json'))
+  t.end()
+})

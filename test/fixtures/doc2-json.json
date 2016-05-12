@@ -1,0 +1,102 @@
+{
+  "title": "Test",
+  "routes": [
+    {
+      "title": "List Organzations",
+      "description": "Gets all organizations",
+      "method": "GET",
+      "url": "/organization",
+      "params": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "path": "id",
+          "description": "id"
+        },
+        {
+          "name": "role",
+          "type": "enum",
+          "path": "role",
+          "values": [
+            "admin",
+            "manager",
+            "agent"
+          ],
+          "example": "admin",
+          "description": "The user's role"
+        }
+      ],
+      "request": null,
+      "requestNote": "Input Note",
+      "responseNote": "Output Note",
+      "exampleResponse": null,
+      "originalUrl": "/organization"
+    },
+    {
+      "title": "Create organization",
+      "description": "Gets all organizations",
+      "method": "POST",
+      "url": "/organization",
+      "request": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "path": "id",
+          "description": "id"
+        }
+      ],
+      "requestNote": "Input Note",
+      "responseNote": "Output Note",
+      "exampleResponse": null,
+      "originalUrl": "/organization"
+    }
+  ],
+  "config": [
+    {
+      "name": "loglevel",
+      "default": "info",
+      "type": "STRING",
+      "required": false,
+      "env": "LOGLEVEL"
+    },
+    {
+      "name": "timestamps",
+      "default": false,
+      "type": "BOOLEAN",
+      "required": false,
+      "env": "LOG_TIMESTAMPS",
+      "isDefault": true
+    },
+    {
+      "name": "name",
+      "type": "STRING",
+      "required": true,
+      "env": "NAME",
+      "isDefault": true
+    },
+    {
+      "name": "db_pool_max",
+      "type": "NUMBER",
+      "required": false,
+      "default": 50,
+      "env": "DB_POOL_MAX",
+      "isDefault": true
+    },
+    {
+      "name": "db_pool_min",
+      "type": "NUMBER",
+      "required": false,
+      "default": 2,
+      "env": "DB_POOL_MIN",
+      "isDefault": true
+    },
+    {
+      "name": "db_pool_idle_timeout",
+      "type": "NUMBER",
+      "required": false,
+      "default": 10000,
+      "env": "DB_POOL_IDLE_TIMEOUT",
+      "isDefault": true
+    }
+  ]
+}
