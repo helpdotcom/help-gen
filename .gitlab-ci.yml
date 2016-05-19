@@ -1,16 +1,24 @@
-image: node:latest
-
-variables:
-  NPM_TOKEN: d2c50f53-60ea-4553-9c63-2692bebef988
-
 cache:
   paths:
     - node_modules/
 
-test:
-  stage: build
+stages:
+  - test
+
+test:node5:
+  image: quay.io/help/node:5
+  stage: test
   script:
     - touch .npmrc
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-    - npm install --loglevel=warn --spin=false
+    - npm install
+    - npm test -- --coverage-report=text-summary
+
+test:node6:
+  image: quay.io/help/node:6
+  stage: test
+  script:
+    - touch .npmrc
+    - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+    - npm install
     - npm test -- --coverage-report=text-summary
