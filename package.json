@@ -12,6 +12,7 @@
     "@helpdotcom/buffer-utils": "~1.0.0",
     "@helpdotcom/build-ast": "~1.4.0",
     "@helpdotcom/config": "~1.1.0",
+    "@helpdotcom/http": "~1.5.0",
     "acorn": "~2.7.0",
     "escodegen": "~1.8.0",
     "github-slugger": "~1.0.1",

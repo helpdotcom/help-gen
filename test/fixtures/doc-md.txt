@@ -15,6 +15,7 @@
 
 - [List Organzations](#list-organzations)
 - [Create organization](#create-organization)
+- [Health Check](#health-check)
 
 
 ### List Organzations
@@ -79,5 +80,26 @@ Status: 200 OK
 
 
 **Note:** Output Note
+
+***
+
+### Health Check
+
+Return status of parent service
+
+    GET /health_check
+
+#### Response
+
+```headers
+Status: 200 OK
+```
+
+```json
+{
+  "name": "helpdotcom-service"
+}
+```
+
 
 ***

@@ -49,6 +49,24 @@
       "responseNote": "Output Note",
       "exampleResponse": null,
       "originalUrl": "/organization"
+    },
+    {
+      "description": "Return status of parent service",
+      "exampleResponse": {
+        "name": "helpdotcom-service"
+      },
+      "method": "GET",
+      "originalUrl": "/health_check",
+      "response": [
+        {
+          "name": "name",
+          "type": "string",
+          "path": "name",
+          "example": "helpdotcom-service"
+        }
+      ],
+      "title": "Health Check",
+      "url": "/health_check"
     }
   ],
   "config": [

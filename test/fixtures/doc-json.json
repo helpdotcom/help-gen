@@ -69,6 +69,24 @@
         "id": "5eae86ea-1913-49cd-b7d1-c7e28d0197e6"
       },
       "originalUrl": "/organization"
+    },
+    {
+      "title": "Health Check",
+      "description": "Return status of parent service",
+      "method": "GET",
+      "url": "/health_check",
+      "response": [
+        {
+          "name": "name",
+          "type": "string",
+          "path": "name",
+          "example": "helpdotcom-service"
+        }
+      ],
+      "exampleResponse": {
+        "name": "helpdotcom-service"
+      },
+      "originalUrl": "/health_check"
     }
   ],
   "config": [

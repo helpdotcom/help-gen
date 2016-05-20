@@ -20,7 +20,7 @@ test('constructor', (t) => {
     title: 'Test'
   })
 
-  t.equal(docs.routes.length, 0)
+  t.equal(docs.routes.length, 1)
   t.equal(docs.title, 'Test')
   t.ok(docs.hasOwnProperty('slugger'))
   t.ok(docs.hasOwnProperty('template'))
