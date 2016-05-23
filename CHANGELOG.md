@@ -1,3 +1,8 @@
+# 2016-05-23, Version 2.1.0 (Stable)
+
+* [[a7cc193304](https://git.help.com/common-backend/help-gen/commit/a7cc193304)] - ci: use quay images and test node v5 and v6 (Evan Lucas) [CHAT-460](https://helpdotcom.atlassian.net/browse/CHAT-460)
+* [[3af37e5857](https://git.help.com/common-backend/help-gen/commit/3af37e5857)] - **(SEMVER-MINOR)** docs: add builtin routes to service docs (Ryan Mottley) 
+
 # 2016-05-12, Version 2.0.1 (Stable)
 
 * [[6150af5117](https://git.help.com/common-backend/help-gen/commit/6150af5117)] - docs: don't break if missing output (Evan Lucas)
