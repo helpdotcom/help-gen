@@ -1,3 +1,9 @@
+# 2016-05-26, Version 2.1.1 (Stable)
+
+* [[f068347ec6](https://git.help.com/common-backend/help-gen/commit/f068347ec6)] - deps: node-uuid@1.4.7 (Evan Lucas)
+* [[a06f697a88](https://git.help.com/common-backend/help-gen/commit/a06f697a88)] - docs: use build-example in section (Evan Lucas)
+* [[cbd897a947](https://git.help.com/common-backend/help-gen/commit/cbd897a947)] - docs: add build-example module (Evan Lucas)
+
 # 2016-05-23, Version 2.1.0 (Stable)
 
 * [[a7cc193304](https://git.help.com/common-backend/help-gen/commit/a7cc193304)] - ci: use quay images and test node v5 and v6 (Evan Lucas) [CHAT-460](https://helpdotcom.atlassian.net/browse/CHAT-460)
