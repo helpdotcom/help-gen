@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "lintit",
     "pretest": "lintit",
-    "test": "tap test/*.js test/docs/*.js --cov"
+    "test": "tap test/*.js test/docs/*.js --cov",
+    "release": "releaseit"
   },
   "dependencies": {
     "@helpdotcom/buffer-utils": "~1.0.0",
