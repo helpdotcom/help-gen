@@ -1,3 +1,10 @@
+# 2016-06-03, Version 2.1.2 (Stable)
+
+* [[81afe3f747](https://git.help.com/common-backend/help-gen/commit/81afe3f747)] - ci: auto release when pushed to master (Evan Lucas)
+* [[f28ccd3b7f](https://git.help.com/common-backend/help-gen/commit/f28ccd3b7f)] - deps: @helpdotcom/releaseit@2.0.5 (Evan Lucas)
+* [[d5ca6c156f](https://git.help.com/common-backend/help-gen/commit/d5ca6c156f)] - scripts: add release script (Evan Lucas)
+* [[d96158c98c](https://git.help.com/common-backend/help-gen/commit/d96158c98c)] - section: properly format response output in JSON (Evan Lucas)
+
 # 2016-05-26, Version 2.1.1 (Stable)
 
 * [[f068347ec6](https://git.help.com/common-backend/help-gen/commit/f068347ec6)] - deps: node-uuid@1.4.7 (Evan Lucas)
