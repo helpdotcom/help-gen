@@ -105,6 +105,41 @@ test('render', (t) => {
   t.end()
 })
 
+test('render with array output', (t) => {
+  const r = [
+    { method: 'GET'
+    , path: '/'
+    , fn: () => {}
+    , output: [require('../fixtures/array_docs.json').properties]
+    , title: 'List'
+    , description: 'Lists members'
+    }
+  ]
+  const docs = new Docs(r, {
+    title: 'Test'
+  })
+
+  const out = JSON.parse(docs.render('json'))
+  t.deepEqual(out.routes[0].response, [
+    [
+      { name: 'id'
+      , type: 'uuid'
+      , path: 'id'
+      , example: '23EBEABD-CF0A-4FFF-BF7B-243F35D1CB2F'
+      }
+    , { name: 'email', type: 'email', path: 'email', example: 'help@help.com' }
+    , { name: 'name', type: 'string', path: 'name', example: 'Jon Doe' }
+    , { name: 'display_name'
+      , type: 'string'
+      , path: 'display_name'
+      , example: 'Jon'
+      }
+    , { name: 'roles', type: 'array', path: 'roles', example: ['admin'] }
+    ]
+  ])
+  t.end()
+})
+
 test('render without output', (t) => {
   const r = routes.map((item) => {
     const o = Object.assign({}, item)

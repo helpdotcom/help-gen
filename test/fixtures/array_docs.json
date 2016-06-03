@@ -1,0 +1,30 @@
+{
+  "name": "Member"
+, "properties": [
+    { "name": "id"
+    , "type": "uuid"
+    , "path": "id"
+    , "example": "23EBEABD-CF0A-4FFF-BF7B-243F35D1CB2F"
+    }
+  , { "name": "email"
+    , "type": "email"
+    , "path": "email"
+    , "example": "help@help.com"
+    }
+  , { "name": "name"
+    , "type": "string"
+    , "path": "name"
+    , "example": "Jon Doe"
+    }
+  , { "name": "display_name"
+    , "type": "string"
+    , "path": "display_name"
+    , "example": "Jon"
+    }
+  , { "name": "roles"
+    , "type": "array"
+    , "path": "roles"
+    , "example": ["admin"]
+    }
+  ]
+}
