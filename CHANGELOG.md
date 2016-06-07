@@ -1,3 +1,10 @@
+# 2016-06-07, Version 2.1.3 (Stable)
+
+* [[f650acd1e3](https://git.help.com/common-backend/help-gen/commit/f650acd1e3)] - deps: @helpdotcom/build-ast@1.4.1 (Evan Lucas)
+* [[a27329af47](https://git.help.com/common-backend/help-gen/commit/a27329af47)] - deps: @helpdotcom/http@1.5.2 (Evan Lucas)
+* [[149f2bbeb2](https://git.help.com/common-backend/help-gen/commit/149f2bbeb2)] - deps: lintit@1.0.3 (Evan Lucas)
+* [[ffd55b8d50](https://git.help.com/common-backend/help-gen/commit/ffd55b8d50)] - deps: marky-markdown@7.0.1 (Evan Lucas)
+
 # 2016-06-03, Version 2.1.2 (Stable)
 
 * [[81afe3f747](https://git.help.com/common-backend/help-gen/commit/81afe3f747)] - ci: auto release when pushed to master (Evan Lucas)
