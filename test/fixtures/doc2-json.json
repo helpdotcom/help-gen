@@ -8,13 +8,11 @@
       "url": "/organization",
       "params": [
         {
-          "name": "id",
           "type": "uuid",
           "path": "id",
           "description": "id"
         },
         {
-          "name": "role",
           "type": "enum",
           "path": "role",
           "values": [
@@ -39,7 +37,6 @@
       "url": "/organization",
       "request": [
         {
-          "name": "id",
           "type": "uuid",
           "path": "id",
           "description": "id"

@@ -4,16 +4,14 @@ const test = require('tap').test
 const PathEach = require('../lib/path-each')
 
 test('PathEach - simple', (t) => {
-  t.plan(4)
+  t.plan(3)
   const opts = {
-    name: 'biscuits'
-  , path: 'biscuits'
+    path: 'biscuits'
   , type: 'string'
   }
 
   const pe = new PathEach(opts)
   pe.on('single', (obj) => {
-    t.equal(obj.name, opts.name)
     t.equal(obj.path, opts.path)
     t.equal(obj.type, opts.type)
   }).on('end', () => {
@@ -26,24 +24,20 @@ test('PathEach - simple', (t) => {
 test('PathEach - nested', (t) => {
   t.plan(5)
   const opts = {
-    name: 'roomParticipantId'
-  , path: 'room.participant.id'
+    path: 'room.participant.id'
   , type: 'uuid'
   }
 
   const exp = [
-    { name: 'roomParticipantId'
-    , path: 'room'
+    { path: 'room'
     , type: 'object'
     , value: null
     }
-  , { name: 'roomParticipantId'
-    , path: 'room.participant'
+  , { path: 'room.participant'
     , type: 'object'
     , value: null
     }
-  , { name: 'roomParticipantId'
-    , path: 'room.participant.id'
+  , { path: 'room.participant.id'
     , type: 'uuid'
     , value: null
     }

@@ -28,12 +28,11 @@ test('generate', (t) => {
 
   t.throws(function() {
     generate('test', [''])
-  }, /Invalid rule. `name` is required/)
+  }, /Invalid rule. `type` is required/)
 
   t.throws(() => {
     generate('biscuits', [
-      { name: 'role'
-      , type: 'enum'
+      { type: 'enum'
       , path: 'role'
       , values: [{}]
       }

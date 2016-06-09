@@ -43,29 +43,27 @@ const routes = [
   { method: 'GET'
   , path: '/organization'
   , input: [
-      { name: 'id'
-      , type: 'uuid'
+      { type: 'uuid'
       , path: 'id'
       , description: 'id'
       }
-    , { name: 'role'
-      , type: 'enum'
+    , { type: 'enum'
       , values: ['admin', 'manager', 'agent']
       , path: 'role'
       , description: 'The user\'s role'
       }
     ]
   , inputNote: 'Input Note'
-  , output: [ [ { name: 'id', type: 'uuid', path: 'id', example: resId } ] ]
+  , output: [ [ { type: 'uuid', path: 'id', example: resId } ] ]
   , outputNote: 'Output Note'
   , title: 'List Organzations'
   , description: 'Gets all organizations'
   }
 , { method: 'POST'
   , path: '/organization'
-  , input: [ { name: 'id', type: 'uuid', path: 'id', description: 'id' } ]
+  , input: [ { type: 'uuid', path: 'id', description: 'id' } ]
   , inputNote: 'Input Note'
-  , output: [ { name: 'id', type: 'uuid', path: 'id', example: resId }]
+  , output: [ { type: 'uuid', path: 'id', example: resId }]
   , outputNote: 'Output Note'
   , title: 'Create organization'
   , description: 'Gets all organizations'
@@ -122,19 +120,17 @@ test('render with array output', (t) => {
   const out = JSON.parse(docs.render('json'))
   t.deepEqual(out.routes[0].response, [
     [
-      { name: 'id'
-      , type: 'uuid'
+      { type: 'uuid'
       , path: 'id'
       , example: '23EBEABD-CF0A-4FFF-BF7B-243F35D1CB2F'
       }
-    , { name: 'email', type: 'email', path: 'email', example: 'help@help.com' }
-    , { name: 'name', type: 'string', path: 'name', example: 'Jon Doe' }
-    , { name: 'display_name'
-      , type: 'string'
+    , { type: 'email', path: 'email', example: 'help@help.com' }
+    , { type: 'string', path: 'name', example: 'Jon Doe' }
+    , { type: 'string'
       , path: 'display_name'
       , example: 'Jon'
       }
-    , { name: 'roles', type: 'array', path: 'roles', example: ['admin'] }
+    , { type: 'array', path: 'roles', example: ['admin'] }
     ]
   ])
   t.end()

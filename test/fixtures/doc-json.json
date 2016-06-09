@@ -8,13 +8,11 @@
       "url": "/organization",
       "params": [
         {
-          "name": "id",
           "type": "uuid",
           "path": "id",
           "description": "id"
         },
         {
-          "name": "role",
           "type": "enum",
           "path": "role",
           "description": "The user's role",
@@ -26,7 +24,6 @@
       "response": [
         [
           {
-            "name": "id",
             "type": "uuid",
             "path": "id",
             "example": "5eae86ea-1913-49cd-b7d1-c7e28d0197e6"
@@ -49,7 +46,6 @@
       "url": "/organization",
       "request": [
         {
-          "name": "id",
           "type": "uuid",
           "path": "id",
           "description": "id"
@@ -57,7 +53,6 @@
       ],
       "response": [
         {
-          "name": "id",
           "type": "uuid",
           "path": "id",
           "example": "5eae86ea-1913-49cd-b7d1-c7e28d0197e6"

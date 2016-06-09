@@ -24,8 +24,7 @@ test('generate', (t) => {
 
   t.throws(function() {
     generate('biscuits', [
-      { name: 'roles'
-      , type: 'enum'
+      { type: 'enum'
       , values: [{ thing: true }]
       , path: 'roles'
       , required: true
@@ -35,8 +34,7 @@ test('generate', (t) => {
 
   t.throws(function() {
     generate('biscuits', [
-      { name: 'roles'
-      , type: 'enum'
+      { type: 'enum'
       , path: 'roles'
       , required: true
       }
@@ -47,15 +45,11 @@ test('generate', (t) => {
   t.equal(out, fixture('basic.js'))
 
   out = generate('biscuits', [
-    {
-      name: 'room'
-    , type: 'object'
+    { type: 'object'
     , path: 'room'
     , required: true
     }
-  , {
-      name: 'roomId'
-    , type: 'string'
+  , { type: 'string'
     , path: 'room.id'
     , required: true
     }
@@ -64,28 +58,23 @@ test('generate', (t) => {
   t.equal(out, fixture('nested.js'))
 
   out = generate('biscuits', [
-    { name: 'room'
-    , type: 'object'
+    { type: 'object'
     , path: 'room'
     , required: true
     }
-  , { name: 'roomId'
-    , type: 'string'
+  , { type: 'string'
     , path: 'room.id'
     , required: true
     }
-  , { name: 'createdAt'
-    , type: 'date'
+  , { type: 'date'
     , path: 'createdAt'
     , required: true
     }
-  , { name: 'biscuits'
-    , type: 'string'
+  , { type: 'string'
     , path: 'biscuits'
     , required: false
     }
-  , { name: 'roles'
-    , type: 'array'
+  , { type: 'array'
     , path: 'roles'
     , required: true
     }
@@ -94,34 +83,28 @@ test('generate', (t) => {
   t.equal(out, fixture('date.js'))
 
   out = generate('biscuits', [
-    { name: 'room'
-    , type: 'object'
+    { type: 'object'
     , path: 'room'
     , required: true
     }
-  , { name: 'roomId'
-    , type: 'string'
+  , { type: 'string'
     , path: 'room.id'
     , required: true
     }
-  , { name: 'createdAt'
-    , type: 'date'
+  , { type: 'date'
     , path: 'createdAt'
     , required: true
     }
-  , { name: 'biscuits'
-    , type: 'string'
+  , { type: 'string'
     , path: 'biscuits'
     , required: false
     }
-  , { name: 'roles'
-    , type: 'enum'
+  , { type: 'enum'
     , path: 'roles'
     , values: ['admin', 'manager', 'agent']
     , required: true
     }
-  , { name: 'biscuits'
-    , type: 'enum'
+  , { type: 'enum'
     , path: 'biscuits'
     , values: [1, 2, 3]
     , required: true
@@ -131,21 +114,15 @@ test('generate', (t) => {
   t.equal(out, fixture('enum.js'))
 
   out = generate('biscuits', [
-    {
-      name: 'room'
-    , type: 'object'
+    { type: 'object'
     , path: 'room'
     , required: true
     }
-  , {
-      name: 'roomId'
-    , type: 'string'
+  , { type: 'string'
     , path: 'room.id'
     , required: true
     }
-  , {
-      name: 'id'
-    , type: 'uuid'
+  , { type: 'uuid'
     , path: 'id'
     , required: true
     }
@@ -154,22 +131,19 @@ test('generate', (t) => {
   t.equal(out, fixture('uuid.js'))
 
   out = generate('biscuits', [
-    { name: 'email'
-    , type: 'regex'
+    { type: 'regex'
     , path: 'email'
     , value: /\S@\S\.\S/
     , required: true
     }
-  , { name: 'name'
-    , type: 'string'
+  , { type: 'string'
     , path: 'name'
     , required: true
     }
     // add another with the same exact regex
     // to make sure we only declare each regex once
     // :]
-  , { name: 'email2'
-    , type: 'regex'
+  , { type: 'regex'
     , path: 'email2'
     , value: /\S@\S\.\S/
     , required: true
@@ -179,14 +153,12 @@ test('generate', (t) => {
   t.equal(out, fixture('regex.js'))
 
   out = generate('biscuits', [
-    { name: 'email'
-    , type: 'regex'
+    { type: 'regex'
     , path: 'email'
     , value: '/\\S@\\S\\.\\S/im'
     , required: true
     }
-  , { name: 'name'
-    , type: 'string'
+  , { type: 'string'
     , path: 'name'
     , required: true
     }
@@ -195,8 +167,7 @@ test('generate', (t) => {
   t.equal(out, fixture('regex-flags.js'))
 
   out = generate('biscuits', [
-    { name: 'email'
-    , type: 'email'
+    { type: 'email'
     , path: 'email'
     , required: true
     }
@@ -204,46 +175,29 @@ test('generate', (t) => {
 
   t.equal(out, fixture('email.js'))
 
-  // throws with missing name
-  t.throws(function() {
-    generate('biscuits', [{}])
-  }, /Invalid rule. `name` is required/)
-
-  // throws with non-string name
-  t.throws(function() {
-    generate('biscuits', [{
-      name: {}
-    }])
-  }, /Invalid rule. `name` must be a string/)
-
   // throws with missing type
   t.throws(function() {
-    generate('biscuits', [{
-      name: 'test'
-    }])
+    generate('biscuits', [{}])
   }, /Invalid rule. `type` is required/)
 
   // throws with non-string type
   t.throws(function() {
     generate('biscuits', [{
-      name: 'test'
-    , type: {}
+      type: {}
     }])
   }, /Invalid rule. `type` must be a string/)
 
   // throws with missing path
   t.throws(function() {
     generate('biscuits', [{
-      name: 'test'
-    , type: 'object'
+      type: 'object'
     }])
   }, /Invalid rule. `path` is required/)
 
   // throws with non-string path
   t.throws(function() {
     generate('biscuits', [{
-      name: 'test'
-    , type: 'object'
+      type: 'object'
     , path: {}
     }])
   }, /Invalid rule. `path` must be a string/)
@@ -251,8 +205,7 @@ test('generate', (t) => {
   // throws with missing required
   t.throws(function() {
     generate('biscuits', [{
-      name: 'test'
-    , type: 'object'
+      type: 'object'
     , path: 'blah'
     }])
   }, /Invalid rule. `required` is required/)
@@ -260,8 +213,7 @@ test('generate', (t) => {
   // Invalid type throws
   t.throws(function() {
     generate('biscuits', [
-      { name: 'room'
-      , type: 'biscuits'
+      { type: 'biscuits'
       , path: 'room'
       , required: true
       }
@@ -271,8 +223,7 @@ test('generate', (t) => {
   // Type regex without a value throws
   t.throws(function() {
     generate('biscuits', [
-      { name: 'email'
-      , type: 'regex'
+      { type: 'regex'
       , path: 'email'
       , required: true
       }
