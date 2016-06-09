@@ -10,7 +10,7 @@ function biscuits(obj, cb) {
   }
   if (!validators.isEmail(obj.email)) {
     return setImmediate(() => {
-      cb(new TypeError('Missing or invalid required param (email) for name email. Expected email'))
+      cb(new TypeError('Missing or invalid required param: "email". Expected email'))
     })
   }
   return setImmediate(() => {

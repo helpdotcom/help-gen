@@ -16,7 +16,7 @@ function biscuits(obj, cb) {
   const ___1 = typeof obj.name
   if (___1 !== 'string') {
     return setImmediate(() => {
-      cb(new TypeError(`Missing or invalid required param (name) for name name. Expected string, got ${ ___1 }`))
+      cb(new TypeError(`Missing or invalid required param: "name". Expected string, got ${ ___1 }`))
     })
   }
   if (!___0.test(obj.email2)) {

@@ -11,18 +11,18 @@ function biscuits(obj, cb) {
   const ___0 = typeof obj.room
   if (!obj.room || ___0 !== 'object') {
     return setImmediate(() => {
-      cb(new TypeError(`Missing or invalid required param (room) for name room. Expected object, got ${ ___0 }`))
+      cb(new TypeError(`Missing or invalid required param: "room". Expected object, got ${ ___0 }`))
     })
   }
   const ___1 = typeof obj.room.id
   if (___1 !== 'string') {
     return setImmediate(() => {
-      cb(new TypeError(`Missing or invalid required param (room.id) for name roomId. Expected string, got ${ ___1 }`))
+      cb(new TypeError(`Missing or invalid required param: "room.id". Expected string, got ${ ___1 }`))
     })
   }
   if (!validators.isUUID(obj.id)) {
     return setImmediate(() => {
-      cb(new TypeError('Missing or invalid required param (id) for name id. Expected uuid'))
+      cb(new TypeError('Missing or invalid required param: "id". Expected uuid'))
     })
   }
   return setImmediate(() => {
