@@ -90,5 +90,86 @@ test('buildExample', (t) => {
       ]
     }
   ])
+
+  const widgetProps = require('../fixtures/widget').properties
+  const o = build(widgetProps)
+  t.deepEqual(o, {
+    colors: {
+      fields: {
+        activeColor: '#0A5B8F'
+      , inactiveColor: '#CDDEE8'
+      , activeBorder: '#0A5B8F'
+      , inactiveBorder: '#CDDEE8'
+      , errorBorder: '#E8CECC'
+      , inactiveLabel: '#9A9A9A'
+      , activeLabel: '#286F9D'
+      , errorLabel: '#DC2733'
+      }
+    , buttons: {
+        background: '#6699ff'
+      , font: '#DCEDF9'
+      , hoverBackground: '#cc66ff'
+      , hoverFont: '#F4E6F5'
+      , disabledBackground: '#cccccc'
+      , disabledFont: '#000'
+      }
+    }
+  , widget: {
+      position: 'bottom-left'
+    , height: 420
+    , visibility: 'minimized'
+    , colors: {
+        headerBackground: '#00578F'
+      , headerFont: '#fff'
+      , bodyBackground: '#fff'
+      , bodyFont: '#666'
+      , bodyBorder: '2px solid #f6f6f6'
+      , footerBackground: '#F0F5F9'
+      , footerFont: '#000'
+      , sectionColors: {
+          leftBackground: '#F2F2F2'
+        , middleBackground: '#F2F2F2'
+        , rightBackground: '#F2F2F2'
+        }
+      , header: {
+          buttons: {
+            background: '#F2F2F2'
+          , icon: '#F2F2F2'
+          , hoverBackground: '#F2F2F2'
+          , hoverIcon: '#F2F2F2'
+          }
+        }
+      , hamburger: {
+          background: '#F2F2F2'
+        , hoverBackground: '#F2F2F2'
+        , border: '#F2F2F2'
+        , hoverBorder: '#F2F2F2'
+        , icon: '#F2F2F2'
+        , hoverIcon: '#F2F2F2'
+        }
+      , floatingMenu: {
+          bottomBorder: '#F2F2F2'
+        , background: '#F2F2F2'
+        , hoverBackground: '#F2F2F2'
+        , volume: {
+            background: '#F2F2F2'
+          , hoverBackground: '#F2F2F2'
+          }
+        }
+      }
+    , minimizedHeaderText: {
+        offline: 'offline message'
+      , online: 'online message'
+      }
+    , prechatSurvey: {
+        instructions: 'instructions'
+      }
+    , offlineSurvey: {
+        heading: 'instructions'
+      , instructions: 'instructions'
+      }
+    }
+  })
+
   t.end()
 })

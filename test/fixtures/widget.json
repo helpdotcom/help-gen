@@ -1,0 +1,250 @@
+{
+  "name": "Widget"
+, "properties": [
+    { "name": "colors.fields.activeColor"
+    , "type": "string"
+    , "path": "colors.fields.activeColor"
+    , "example": "#0A5B8F"
+    }
+  , { "name": "colors.fields.inactiveColor"
+    , "type": "string"
+    , "path": "colors.fields.inactiveColor"
+    , "example": "#CDDEE8"
+    }
+  , { "name": "colors.fields.activeBorder"
+    , "type": "string"
+    , "path": "colors.fields.activeBorder"
+    , "example": "#0A5B8F"
+    }
+  , { "name": "colors.fields.inactiveBorder"
+    , "type": "string"
+    , "path": "colors.fields.inactiveBorder"
+    , "example": "#CDDEE8"
+    }
+  , { "name": "colors.fields.errorBorder"
+    , "type": "string"
+    , "path": "colors.fields.errorBorder"
+    , "example": "#E8CECC"
+    }
+  , { "name": "colors.fields.inactiveLabel"
+    , "type": "string"
+    , "path": "colors.fields.inactiveLabel"
+    , "example": "#9A9A9A"
+    }
+  , { "name": "colors.fields.activeLabel"
+    , "type": "string"
+    , "path": "colors.fields.activeLabel"
+    , "example": "#286F9D"
+    }
+  , { "name": "colors.fields.errorLabel"
+    , "type": "string"
+    , "path": "colors.fields.errorLabel"
+    , "example": "#DC2733"
+    }
+  , { "name": "colors.buttons.background"
+    , "type": "string"
+    , "path": "colors.buttons.background"
+    , "example": "#6699ff"
+    }
+  , { "name": "colors.buttons.font"
+    , "type": "string"
+    , "path": "colors.buttons.font"
+    , "example": "#DCEDF9"
+    }
+  , { "name": "colors.buttons.hoverBackground"
+    , "type": "string"
+    , "path": "colors.buttons.hoverBackground"
+    , "example": "#cc66ff"
+    }
+  , { "name": "colors.buttons.hoverFont"
+    , "type": "string"
+    , "path": "colors.buttons.hoverFont"
+    , "example": "#F4E6F5"
+    }
+  , { "name": "colors.buttons.disabledBackground"
+    , "type": "string"
+    , "path": "colors.buttons.disabledBackground"
+    , "example": "#cccccc"
+    }
+  , { "name": "colors.buttons.disabledFont"
+    , "type": "string"
+    , "path": "colors.buttons.disabledFont"
+    , "example": "#000"
+    }
+  , { "name": "widget.position"
+    , "type": "string"
+    , "path": "widget.position"
+    , "example": "bottom-left"
+    }
+  , { "name": "widget.height"
+    , "type": "number"
+    , "path": "widget.height"
+    , "example": 420
+    }
+  , { "name": "widget.visibility"
+    , "type": "string"
+    , "path": "widget.visibility"
+    , "example": "minimized"
+    }
+  , { "name": "widget.colors.headerBackground"
+    , "type": "string"
+    , "path": "widget.colors.headerBackground"
+    , "example": "#00578F"
+    }
+  , { "name": "widget.colors.headerFont"
+    , "type": "string"
+    , "path": "widget.colors.headerFont"
+    , "example": "#fff"
+    }
+  , { "name": "widget.colors.bodyBackground"
+    , "type": "string"
+    , "path": "widget.colors.bodyBackground"
+    , "example": "#fff"
+    }
+  , { "name": "widget.colors.bodyFont"
+    , "type": "string"
+    , "path": "widget.colors.bodyFont"
+    , "example": "#666"
+    }
+  , { "name": "widget.colors.bodyBorder"
+    , "type": "string"
+    , "path": "widget.colors.bodyBorder"
+    , "example": "2px solid #f6f6f6"
+    }
+  , { "name": "widget.colors.footerBackground"
+    , "type": "string"
+    , "path": "widget.colors.footerBackground"
+    , "example": "#F0F5F9"
+    }
+  , { "name": "widget.colors.footerFont"
+    , "type": "string"
+    , "path": "widget.colors.footerFont"
+    , "example": "#000"
+    }
+  , { "name": "widget.colors.sectionColors.leftBackground"
+    , "type": "string"
+    , "path": "widget.colors.sectionColors.leftBackground"
+    , "example": "#F2F2F2"
+    }
+  , { "name": "widget.colors.sectionColors.middleBackground"
+    , "type": "string"
+    , "path": "widget.colors.sectionColors.middleBackground"
+    , "example": "#F2F2F2"
+    }
+  , { "name": "widget.colors.sectionColors.rightBackground"
+    , "type": "string"
+    , "path": "widget.colors.sectionColors.rightBackground"
+    , "example": "#F2F2F2"
+    }
+  , { "name": "widget.colors.header.buttons.background"
+    , "type": "string"
+    , "path": "widget.colors.header.buttons.background"
+    , "example": "#F2F2F2"
+    }
+  , { "name": "widget.colors.header.buttons.icon"
+    , "type": "string"
+    , "path": "widget.colors.header.buttons.icon"
+    , "example": "#F2F2F2"
+    }
+  , { "name": "widget.colors.header.buttons.hoverBackground"
+    , "type": "string"
+    , "path": "widget.colors.header.buttons.hoverBackground"
+    , "example": "#F2F2F2"
+    }
+  , { "name": "widget.colors.header.buttons.hoverIcon"
+    , "type": "string"
+    , "path": "widget.colors.header.buttons.hoverIcon"
+    , "example": "#F2F2F2"
+    }
+  , { "name": "widget.colors.hamburger.background"
+    , "type": "string"
+    , "path": "widget.colors.hamburger.background"
+    , "example": "#F2F2F2"
+    }
+  , { "name": "widget.colors.hamburger.hoverBackground"
+    , "type": "string"
+    , "path": "widget.colors.hamburger.hoverBackground"
+    , "example": "#F2F2F2"
+    }
+  , { "name": "widget.colors.hamburger.border"
+    , "type": "string"
+    , "path": "widget.colors.hamburger.border"
+    , "example": "#F2F2F2"
+    }
+  , { "name": "widget.colors.hamburger.hoverBorder"
+    , "type": "string"
+    , "path": "widget.colors.hamburger.hoverBorder"
+    , "example": "#F2F2F2"
+    }
+  , { "name": "widget.colors.hamburger.icon"
+    , "type": "string"
+    , "path": "widget.colors.hamburger.icon"
+    , "example": "#F2F2F2"
+    }
+  , { "name": "widget.colors.hamburger.hoverIcon"
+    , "type": "string"
+    , "path": "widget.colors.hamburger.hoverIcon"
+    , "example": "#F2F2F2"
+    }
+  , { "name": "widget.colors.floatingMenu.bottomBorder"
+    , "type": "string"
+    , "path": "widget.colors.floatingMenu.bottomBorder"
+    , "example": "#F2F2F2"
+    }
+  , { "name": "widget.colors.floatingMenu.background"
+    , "type": "string"
+    , "path": "widget.colors.floatingMenu.background"
+    , "example": "#F2F2F2"
+    }
+  , { "name": "widget.colors.floatingMenu.hoverBackground"
+    , "type": "string"
+    , "path": "widget.colors.floatingMenu.hoverBackground"
+    , "example": "#F2F2F2"
+    }
+  , { "name": "widget.colors.floatingMenu.volume.background"
+    , "type": "string"
+    , "path": "widget.colors.floatingMenu.volume.background"
+    , "example": "#F2F2F2"
+    }
+  , { "name": "widget.colors.floatingMenu.volume.hoverBackground"
+    , "type": "string"
+    , "path": "widget.colors.floatingMenu.volume.hoverBackground"
+    , "example": "#F2F2F2"
+    }
+  , { "name": "widget.minimizedHeaderText.offline"
+    , "type": "string"
+    , "path": "widget.minimizedHeaderText.offline"
+    , "example": "offline message"
+    }
+  , { "name": "widget.minimizedHeaderText.online"
+    , "type": "string"
+    , "path": "widget.minimizedHeaderText.online"
+    , "example": "online message"
+    }
+  , { "name": "widget.prechatSurvey.instructions"
+    , "type": "string"
+    , "path": "widget.prechatSurvey.instructions"
+    , "example": "instructions"
+    }
+  , { "name": "widget.offlineSurvey.heading"
+    , "type": "string"
+    , "path": "widget.offlineSurvey.heading"
+    , "example": "instructions"
+    }
+  , { "name": "widget.offlineSurvey.instructions"
+    , "type": "string"
+    , "path": "widget.offlineSurvey.instructions"
+    , "example": "instructions"
+    }
+  , { "name": "widget.offlineNotice.heading"
+    , "type": "string"
+    , "path": "widget.offlineSurvey.heading"
+    , "example": "instructions"
+    }
+  , { "name": "widget.offlineNotice.instructions"
+    , "type": "string"
+    , "path": "widget.offlineSurvey.instructions"
+    , "example": "instructions"
+    }
+  ]
+}
