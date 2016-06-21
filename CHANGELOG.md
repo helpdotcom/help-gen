@@ -1,3 +1,8 @@
+# 2016-06-21, Version 2.1.4 (Stable)
+
+* [[1c5fcb28e8](https://git.help.com/common-backend/help-gen/commit/1c5fcb28e8)] - deps: object-path@0.9.2 (Evan Lucas)
+* [[b817fa9e81](https://git.help.com/common-backend/help-gen/commit/b817fa9e81)] - docs: fix build-example logic (Evan Lucas)
+
 # 2016-06-07, Version 2.1.3 (Stable)
 
 * [[f650acd1e3](https://git.help.com/common-backend/help-gen/commit/f650acd1e3)] - deps: @helpdotcom/build-ast@1.4.1 (Evan Lucas)
