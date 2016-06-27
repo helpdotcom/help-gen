@@ -1,3 +1,7 @@
+# 2016-06-27, Version 2.1.5 (Stable)
+
+* [[52cf285f36](https://git.help.com/common-backend/help-gen/commit/52cf285f36)] - docs: use static date and uuid for build-example (Evan Lucas)
+
 # 2016-06-21, Version 2.1.4 (Stable)
 
 * [[1c5fcb28e8](https://git.help.com/common-backend/help-gen/commit/1c5fcb28e8)] - deps: object-path@0.9.2 (Evan Lucas)
