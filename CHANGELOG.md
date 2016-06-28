@@ -1,3 +1,8 @@
+# 2016-06-28, Version 3.0.0 (Stable)
+
+* [[8ca512c812](https://git.help.com/common-backend/help-gen/commit/8ca512c812)] - request: Remove name from error messages (Evan Lucas)
+* [[5e705e3a25](https://git.help.com/common-backend/help-gen/commit/5e705e3a25)] - **(SEMVER-MAJOR)** request,response,docs: remove name as required property (Evan Lucas)
+
 # 2016-06-27, Version 2.1.5 (Stable)
 
 * [[52cf285f36](https://git.help.com/common-backend/help-gen/commit/52cf285f36)] - docs: use static date and uuid for build-example (Evan Lucas)
