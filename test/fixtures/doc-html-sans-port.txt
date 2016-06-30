@@ -224,13 +224,6 @@
 <td><code>LOGLEVEL</code></td>
 </tr>
 <tr>
-<td><code>port</code></td>
-<td>NUMBER</td>
-<td>no</td>
-<td><code>8088</code></td>
-<td><code>PORT</code></td>
-</tr>
-<tr>
 <td><code>timestamps</code></td>
 <td>BOOLEAN</td>
 <td>no</td>
@@ -300,8 +293,6 @@
 </tbody>
 </table>
 
-<h4 id="request" class="deep-link"><a href="#request">Request</a></h4>
-<div><pre class="editor editor-colors"><div class="line"><span class="text"><span>curl&#xA0;-s&#xA0;-H&#xA0;&apos;Content-type:&#xA0;application/json&apos;&#xA0;-H&#xA0;&apos;Accept:&#xA0;application/json&apos;&#xA0;</span><span class="markup underline link hyperlink"><span>http://localhost:8088/organization</span></span></span></div></pre></div>
 <h4 id="response" class="deep-link"><a href="#response">Response</a></h4>
 <div class="highlight"><pre class="editor editor-colors"><div class="line"><span class="text"><span>Status:&#xA0;200&#xA0;OK</span></span></div></pre></div>
 <div class="highlight json"><pre class="editor editor-colors"><div class="line"><span class="source json"><span class="meta structure array json"><span class="punctuation definition array begin json"><span>[</span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure array json"><span>&#xA0;&#xA0;</span><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure array json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>id</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>5eae86ea-1913-49cd-b7d1-c7e28d0197e6</span><span class="punctuation definition string end json"><span>&quot;</span></span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure array json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span></span><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure array json"><span class="punctuation definition array end json"><span>]</span></span></span></span></div></pre></div>
@@ -329,8 +320,6 @@
 </tbody>
 </table>
 
-<h4 id="request-1" class="deep-link"><a href="#request-1">Request</a></h4>
-<div><pre class="editor editor-colors"><div class="line"><span class="text"><span>curl&#xA0;-s&#xA0;-H&#xA0;&apos;Content-type:&#xA0;application/json&apos;&#xA0;-H&#xA0;&apos;Accept:&#xA0;application/json&apos;&#xA0;</span><span class="markup underline link hyperlink"><span>http://localhost:8088/organization</span></span><span>&#xA0;-X&#xA0;POST&#xA0;-d&#xA0;&apos;{&quot;id&quot;:&quot;885b440b-8b0e-445c-bd0f-b212ad0fdc41&quot;}&apos;</span></span></div></pre></div>
 <h4 id="response-1" class="deep-link"><a href="#response-1">Response</a></h4>
 <div class="highlight"><pre class="editor editor-colors"><div class="line"><span class="text"><span>Status:&#xA0;200&#xA0;OK</span></span></div></pre></div>
 <div class="highlight json"><pre class="editor editor-colors"><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>id</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>5eae86ea-1913-49cd-b7d1-c7e28d0197e6</span><span class="punctuation definition string end json"><span>&quot;</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></div></pre></div>
@@ -340,8 +329,6 @@
 <p>Return status of parent service</p>
 <pre><code>GET /health_check
 </code></pre>
-<h4 id="request-2" class="deep-link"><a href="#request-2">Request</a></h4>
-<div><pre class="editor editor-colors"><div class="line"><span class="text"><span>curl&#xA0;-s&#xA0;-H&#xA0;&apos;Content-type:&#xA0;application/json&apos;&#xA0;-H&#xA0;&apos;Accept:&#xA0;application/json&apos;&#xA0;</span><span class="markup underline link hyperlink"><span>http://localhost:8088/health_check</span></span></span></div></pre></div>
 <h4 id="response-2" class="deep-link"><a href="#response-2">Response</a></h4>
 <div class="highlight"><pre class="editor editor-colors"><div class="line"><span class="text"><span>Status:&#xA0;200&#xA0;OK</span></span></div></pre></div>
 <div class="highlight json"><pre class="editor editor-colors"><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>name</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>helpdotcom-service</span><span class="punctuation definition string end json"><span>&quot;</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></div></pre></div>

@@ -6,6 +6,7 @@ const fs = require('fs')
 const path = require('path')
 const fixtures = path.join(__dirname, '..', 'fixtures')
 const Markdown = require('../../lib/docs/markdown')
+const Section = require('../../lib/docs/section')
 
 test('constructor', (t) => {
   t.throws(function() {
@@ -75,7 +76,25 @@ function fixture(fp) {
 }
 
 test('render', (t) => {
-  const docs = new Docs(routes, {
+  const docs0 = new Docs(routes, {
+    title: 'Test'
+  , config: [
+      { name: 'loglevel'
+      , default: 'info'
+      , type: 'STRING'
+      , required: false
+      , env: 'LOGLEVEL'
+      }
+    , { name: 'port'
+      , default: 8088
+      , type: 'NUMBER'
+      , required: false
+      , env: 'PORT'
+      }
+    ]
+  })
+
+  const docs1 = new Docs(routes, {
     title: 'Test'
   , config: [
       { name: 'loglevel'
@@ -88,17 +107,28 @@ test('render', (t) => {
   })
 
   t.throws(function() {
-    docs.render('biscuits')
+    docs0.render('biscuits')
   }, /Invalid format: biscuits/)
 
-  let md = docs.render('markdown').trim()
-  t.equal(md, fixture('doc-md.txt'))
+  // test with port
+  let md0 = docs0.render('markdown').trim()
+  t.equal(md0, fixture('doc-md.txt'))
 
-  let json = JSON.parse(docs.render('json').trim())
-  t.deepEqual(json, require('../fixtures/doc-json.json'))
+  let json0 = JSON.parse(docs0.render('json').trim())
+  t.deepEqual(json0, require('../fixtures/doc-json.json'))
 
-  let html = docs.render('html').trim()
-  t.equal(html, fixture('doc-html.txt'))
+  let html0 = docs0.render('html').trim()
+  t.equal(html0, fixture('doc-html.txt'))
+
+  // test without port
+  let md1 = docs1.render('markdown').trim()
+  t.equal(md1, fixture('doc-md-sans-port.txt'))
+
+  let json1 = JSON.parse(docs1.render('json').trim())
+  t.deepEqual(json1, require('../fixtures/doc-json-sans-port.json'))
+
+  let html1 = docs1.render('html').trim()
+  t.equal(html1, fixture('doc-html-sans-port.txt'))
 
   t.end()
 })
@@ -151,10 +181,59 @@ test('render without output', (t) => {
       , required: false
       , env: 'LOGLEVEL'
       }
+    , { name: 'port'
+      , default: 8088
+      , type: 'NUMBER'
+      , required: false
+      , env: 'PORT'
+      }
     ]
   })
 
   const json = JSON.parse(docs.render('json').trim())
   t.deepEqual(json, require('../fixtures/doc2-json.json'))
+  t.end()
+})
+
+test('curl with GET', (t) => {
+  const r = routes.map((item) => {
+    const o = Object.assign({}, item)
+    delete o.output
+    return o
+  })
+  const docs = new Docs(r, {
+    title: 'Test'
+  , config: [
+      { name: 'loglevel'
+      , default: 'info'
+      , type: 'STRING'
+      , required: false
+      , env: 'LOGLEVEL'
+      }
+    , { name: 'port'
+      , default: 8088
+      , type: 'NUMBER'
+      , required: false
+      , env: 'PORT'
+      }
+    ]
+  })
+  const section0 = new Section(routes[0], docs)
+  const s0 = section0._curl()
+  const result0 = [
+    'curl -s -H \'Content-type: application/json\''
+  , '-H \'Accept: application/json\' http://localhost:8088/organization'
+  ].join(' ')
+  t.equal(s0, result0)
+
+  const section1 = new Section(routes[1], docs)
+  const s1 = section1._curl()
+  const result1 = [
+    'curl -s -H \'Content-type: application/json\' ',
+  , '-H \'Accept: application/json\' http://localhost:8088/organization '
+  , '-X POST -d \'{"id":"885b440b-8b0e-445c-bd0f-b212ad0fdc41"}\''
+  ].join('')
+  t.equal(s1, result1)
+
   t.end()
 })

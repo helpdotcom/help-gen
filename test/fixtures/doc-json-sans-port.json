@@ -3,7 +3,7 @@
   "routes": [
     {
       "title": "List Organzations",
-      "curl": "curl -s -H 'Content-type: application/json' -H 'Accept: application/json' http://localhost:8088/organization",
+      "curl": null,
       "description": "Gets all organizations",
       "method": "GET",
       "url": "/organization",
@@ -42,7 +42,7 @@
     },
     {
       "title": "Create organization",
-      "curl": "curl -s -H 'Content-type: application/json' -H 'Accept: application/json' http://localhost:8088/organization -X POST -d '{\"id\":\"885b440b-8b0e-445c-bd0f-b212ad0fdc41\"}'",
+      "curl": null,
       "description": "Gets all organizations",
       "method": "POST",
       "url": "/organization",
@@ -69,7 +69,7 @@
     },
     {
       "title": "Health Check",
-      "curl": "curl -s -H 'Content-type: application/json' -H 'Accept: application/json' http://localhost:8088/health_check",
+      "curl": null,
       "description": "Return status of parent service",
       "method": "GET",
       "url": "/health_check",
@@ -94,12 +94,6 @@
       "type": "STRING",
       "required": false,
       "env": "LOGLEVEL"
-    },
-    { "name": "port"
-      , "default": 8088
-      , "type": "NUMBER"
-      , "required": false
-      , "env": "PORT"
     },
     {
       "name": "timestamps",
