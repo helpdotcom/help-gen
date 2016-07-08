@@ -12,7 +12,6 @@ $ npm install [--save-dev] @helpdotcom/help-gen
 
 `help-gen` currently consists of these main parts:
 
-- [Response Validation Generator](doc/responses.md)
 - [Documentation Generator](doc/documentation.md)
 
 ## Test
