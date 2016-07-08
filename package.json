@@ -31,9 +31,6 @@
     "tap": "~5.0.0"
   },
   "license": "MIT",
-  "bin": {
-    "help-gen": "./bin/cmd.js"
-  },
   "author": "Evan Lucas <evanlucas@me.com>",
   "repository": {
     "type": "git",
