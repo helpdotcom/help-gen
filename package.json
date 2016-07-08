@@ -26,6 +26,7 @@
     "v8is": "~2.0.0"
   },
   "devDependencies": {
+    "@helpdotcom/is": "^1.0.9",
     "@helpdotcom/releaseit": "~2.0.5",
     "lintit": "~1.0.3",
     "tap": "~5.0.0"
