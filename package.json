@@ -14,6 +14,7 @@
     "@helpdotcom/build-ast": "~1.4.1",
     "@helpdotcom/config": "~1.1.0",
     "@helpdotcom/http": "~1.5.2",
+    "@helpdotcom/nano-prop": "^1.1.0",
     "acorn": "~2.7.0",
     "escodegen": "~1.8.0",
     "github-slugger": "~1.0.1",
