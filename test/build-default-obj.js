@@ -2,12 +2,12 @@
 
 const test = require('tap').test
 const generator = require('../lib/generate').generate
-const ast = require('../lib/ast')
+const utils = require('../lib/utils')
 const build = require('../lib/build-default-obj')
 const vm = require('vm')
 
 function gen(a) {
-  const code = generator(ast.objectExpression(a))
+  const code = generator(utils.objectExpression(a))
   const sandbox = {}
   vm.runInNewContext(`this.out = ${code}`, sandbox)
   return sandbox.out
