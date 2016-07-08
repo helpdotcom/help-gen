@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "lintit",
     "pretest": "lintit",
-    "test": "tap test/*.js test/docs/*.js --cov",
+    "test": "tap test/*.js test/validators/*.js test/docs/*.js --cov",
     "release": "releaseit"
   },
   "dependencies": {
