@@ -1,3 +1,20 @@
+# 2016-07-12, Version 4.0.0 (Stable)
+
+* [[30ccaffe67](https://git.help.com/common-backend/help-gen/commit/30ccaffe67)] - checks: add checkProps() (Evan Lucas) [CHAT-639](https://helpdotcom.atlassian.net/browse/CHAT-639)
+* [[f70920fb7d](https://git.help.com/common-backend/help-gen/commit/f70920fb7d)] - deps: @helpdotcom/build-ast@latest (Evan Lucas)
+* [[ff94bbde97](https://git.help.com/common-backend/help-gen/commit/ff94bbde97)] - deps: @helpdotcom/is@1.0.9 (Evan Lucas)
+* [[b6e6f6fdb6](https://git.help.com/common-backend/help-gen/commit/b6e6f6fdb6)] - deps: @helpdotcom/nano-prop@1.1.0 (Evan Lucas)
+* [[738a0093a2](https://git.help.com/common-backend/help-gen/commit/738a0093a2)] - example: remove old examples (Evan Lucas) [CHAT-639](https://helpdotcom.atlassian.net/browse/CHAT-639)
+* [[6a5f3fd85d](https://git.help.com/common-backend/help-gen/commit/6a5f3fd85d)] - is-helper: add isArray generator (Evan Lucas) [CHAT-639](https://helpdotcom.atlassian.net/browse/CHAT-639)
+* [[e8f30c9b5b](https://git.help.com/common-backend/help-gen/commit/e8f30c9b5b)] - lib: remove path-each (Evan Lucas) [CHAT-639](https://helpdotcom.atlassian.net/browse/CHAT-639)
+* [[62c46d69a7](https://git.help.com/common-backend/help-gen/commit/62c46d69a7)] - lib: merge utils and ast (Evan Lucas) [CHAT-639](https://helpdotcom.atlassian.net/browse/CHAT-639)
+* [[6b3b7638d4](https://git.help.com/common-backend/help-gen/commit/6b3b7638d4)] - lib: add transform-props module (Evan Lucas) [CHAT-639](https://helpdotcom.atlassian.net/browse/CHAT-639)
+* [[a74b9db6bb](https://git.help.com/common-backend/help-gen/commit/a74b9db6bb)] - **(SEMVER-MAJOR)** package: add validator generator (Evan Lucas) [CHAT-639](https://helpdotcom.atlassian.net/browse/CHAT-639)
+* [[a1418d407a](https://git.help.com/common-backend/help-gen/commit/a1418d407a)] - **(SEMVER-MAJOR)** package: remove response validator (Evan Lucas) [CHAT-639](https://helpdotcom.atlassian.net/browse/CHAT-639)
+* [[a368a6aa78](https://git.help.com/common-backend/help-gen/commit/a368a6aa78)] - **(SEMVER-MAJOR)** package: remove request validator (Evan Lucas) [CHAT-639](https://helpdotcom.atlassian.net/browse/CHAT-639)
+* [[15aaf2fa3d](https://git.help.com/common-backend/help-gen/commit/15aaf2fa3d)] - **(SEMVER-MAJOR)** package: remove cli tool (Evan Lucas) [CHAT-639](https://helpdotcom.atlassian.net/browse/CHAT-639)
+* [[9ead8664bd](https://git.help.com/common-backend/help-gen/commit/9ead8664bd)] - test: remove old test fixtures (Evan Lucas) [CHAT-639](https://helpdotcom.atlassian.net/browse/CHAT-639)
+
 # 2016-07-12, Version 3.1.0 (Stable)
 
 * [[24f5f9c8b5](https://git.help.com/common-backend/help-gen/commit/24f5f9c8b5)] - **(SEMVER-MINOR)** docs: add curl examples to documentation (Rod Machen)
