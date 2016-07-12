@@ -1,3 +1,7 @@
+# 2016-07-12, Version 3.1.0 (Stable)
+
+* [[24f5f9c8b5](https://git.help.com/common-backend/help-gen/commit/24f5f9c8b5)] - **(SEMVER-MINOR)** docs: add curl examples to documentation (Rod Machen)
+
 # 2016-06-28, Version 3.0.0 (Stable)
 
 * [[8ca512c812](https://git.help.com/common-backend/help-gen/commit/8ca512c812)] - request: Remove name from error messages (Evan Lucas)
