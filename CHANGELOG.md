@@ -1,3 +1,7 @@
+# 2016-07-14, Version 4.0.1 (Stable)
+
+* [[a873a287d3](https://git.help.com/common-backend/help-gen/commit/a873a287d3)] - package: checkin first-mate package (Evan Lucas)
+
 # 2016-07-12, Version 4.0.0 (Stable)
 
 * [[30ccaffe67](https://git.help.com/common-backend/help-gen/commit/30ccaffe67)] - checks: add checkProps() (Evan Lucas) [CHAT-639](https://helpdotcom.atlassian.net/browse/CHAT-639)
