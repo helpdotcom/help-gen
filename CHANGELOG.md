@@ -1,3 +1,7 @@
+# 2016-07-19, Version 4.0.2 (Stable)
+
+* [[2665b45bfa](https://git.help.com/common-backend/help-gen/commit/2665b45bfa)] - validator: fix generation when invalid identifiers are used as name (Evan Lucas)
+
 # 2016-07-14, Version 4.0.1 (Stable)
 
 * [[a873a287d3](https://git.help.com/common-backend/help-gen/commit/a873a287d3)] - package: checkin first-mate package (Evan Lucas)
