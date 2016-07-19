@@ -15,7 +15,7 @@ test('validator - single, simple, required', (t) => {
     , Prop.email().path('email').required(true)
     , Prop.string().path('string').required(true)
     , Prop.enum(['a', 'b']).path('enuma').required(true)
-    , Prop.uuid().path('uuid').required(true)
+    , Prop.uuid().path('u:uuid').required(true)
     , Prop.number().path('number').required(true)
     , Prop.regex(/\d/).path('r').required(true)
     , Prop.date().path('date').required(true)
@@ -148,7 +148,7 @@ test('validator - single, simple, required', (t) => {
       , r: 1
       , string: '1'
       }
-    , output: 'invalid param: "uuid". Expected uuid'
+    , output: 'invalid param: "u:uuid". Expected uuid'
     , name: 'missing uuid'
     }
   , { input: {
@@ -160,9 +160,9 @@ test('validator - single, simple, required', (t) => {
       , number: 1
       , r: 1
       , string: '1'
-      , uuid: 'test'
+      , 'u:uuid': 'test'
       }
-    , output: 'invalid param: "uuid". Expected uuid'
+    , output: 'invalid param: "u:uuid". Expected uuid'
     , name: 'invalid uuid'
     }
   ]
@@ -188,7 +188,7 @@ test('validator - single, simple, required', (t) => {
   , number: 1
   , r: 1
   , string: '1'
-  , uuid: '83565E45-AA23-4D12-8177-83713B42A020'
+  , 'u:uuid': '83565E45-AA23-4D12-8177-83713B42A020'
   }
 
   t.test('success', (tt) => {
