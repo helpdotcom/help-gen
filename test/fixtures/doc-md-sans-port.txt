@@ -15,6 +15,7 @@
 
 - [List Organzations](#list-organzations)
 - [Create organization](#create-organization)
+- [Create Department](#create-department)
 - [Health Check](#health-check)
 
 
@@ -65,6 +66,29 @@ Gets all organizations
 | `id` | `uuid (v4)` | id |
 
 **Note:** Input Note
+
+#### Response
+
+```headers
+Status: 200 OK
+```
+
+```json
+{
+  "id": "5eae86ea-1913-49cd-b7d1-c7e28d0197e6"
+}
+```
+
+
+**Note:** Output Note
+
+***
+
+### Create Department
+
+Creates a department
+
+    POST /department
 
 #### Response
 

@@ -69,6 +69,13 @@ const routes = [
   , title: 'Create organization'
   , description: 'Gets all organizations'
   }
+, { method: 'POST'
+  , path: '/department'
+  , output: [ { type: 'uuid', path: 'id', example: resId }]
+  , outputNote: 'Output Note'
+  , title: 'Create Department'
+  , description: 'Creates a department'
+  }
 ]
 
 function fixture(fp) {

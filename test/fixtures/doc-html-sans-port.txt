@@ -264,6 +264,7 @@
 <ul>
 <li><a href="#list-organzations">List Organzations</a></li>
 <li><a href="#create-organization">Create organization</a></li>
+<li><a href="#create-department">Create Department</a></li>
 <li><a href="#health-check">Health Check</a></li>
 </ul>
 <h3 id="list-organzations" class="deep-link"><a href="#list-organzations">List Organzations</a></h3>
@@ -323,13 +324,22 @@
 <h4 id="response-1" class="deep-link"><a href="#response-1">Response</a></h4>
 <div class="highlight"><pre class="editor editor-colors"><div class="line"><span class="text"><span>Status:&#xA0;200&#xA0;OK</span></span></div></pre></div>
 <div class="highlight json"><pre class="editor editor-colors"><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>id</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>5eae86ea-1913-49cd-b7d1-c7e28d0197e6</span><span class="punctuation definition string end json"><span>&quot;</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></div></pre></div>
+
+<hr>
+<h3 id="create-department" class="deep-link"><a href="#create-department">Create Department</a></h3>
+<p>Creates a department</p>
+<pre><code>POST /department
+</code></pre>
+<h4 id="response-2" class="deep-link"><a href="#response-2">Response</a></h4>
+<div class="highlight"><pre class="editor editor-colors"><div class="line"><span class="text"><span>Status:&#xA0;200&#xA0;OK</span></span></div></pre></div>
+<div class="highlight json"><pre class="editor editor-colors"><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>id</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>5eae86ea-1913-49cd-b7d1-c7e28d0197e6</span><span class="punctuation definition string end json"><span>&quot;</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></div></pre></div>
 <div class="alert"><p><strong>Note:</strong> Output Note</p></div>
 <hr>
 <h3 id="health-check" class="deep-link"><a href="#health-check">Health Check</a></h3>
 <p>Return status of parent service</p>
 <pre><code>GET /health_check
 </code></pre>
-<h4 id="response-2" class="deep-link"><a href="#response-2">Response</a></h4>
+<h4 id="response-3" class="deep-link"><a href="#response-3">Response</a></h4>
 <div class="highlight"><pre class="editor editor-colors"><div class="line"><span class="text"><span>Status:&#xA0;200&#xA0;OK</span></span></div></pre></div>
 <div class="highlight json"><pre class="editor editor-colors"><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>name</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>helpdotcom-service</span><span class="punctuation definition string end json"><span>&quot;</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></div></pre></div>
 <hr>
