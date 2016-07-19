@@ -1,3 +1,8 @@
+# 2016-07-19, Version 4.0.3 (Stable)
+
+* [[26cb6e6378](https://git.help.com/common-backend/help-gen/commit/26cb6e6378)] - docs: fix bug in curl generation (Ryan Mottley)
+* [[f3a08cabd3](https://git.help.com/common-backend/help-gen/commit/f3a08cabd3)] - test: add test case without input validator (Ryan Mottley)
+
 # 2016-07-19, Version 4.0.2 (Stable)
 
 * [[2665b45bfa](https://git.help.com/common-backend/help-gen/commit/2665b45bfa)] - validator: fix generation when invalid identifiers are used as name (Evan Lucas)
