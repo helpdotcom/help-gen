@@ -50,6 +50,16 @@
       "originalUrl": "/organization"
     },
     {
+      "title": "Create Department",
+      "curl": "curl -s -H 'Content-type: application/json' -H 'Accept: application/json' http://localhost:8088/department -X POST",
+      "description": "Creates a department",
+      "method": "POST",
+      "url": "/department",
+      "responseNote": "Output Note",
+      "exampleResponse": null,
+      "originalUrl": "/department"
+    },
+    {
       "curl": "curl -s -H 'Content-type: application/json' -H 'Accept: application/json' http://localhost:8088/health_check",
       "description": "Return status of parent service",
       "exampleResponse": {

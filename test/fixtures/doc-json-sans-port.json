@@ -68,6 +68,25 @@
       "originalUrl": "/organization"
     },
     {
+      "title": "Create Department",
+      "curl": null,
+      "description": "Creates a department",
+      "method": "POST",
+      "url": "/department",
+      "response": [
+        {
+          "type": "uuid",
+          "path": "id",
+          "example": "5eae86ea-1913-49cd-b7d1-c7e28d0197e6"
+        }
+      ],
+      "responseNote": "Output Note",
+      "exampleResponse": {
+        "id": "5eae86ea-1913-49cd-b7d1-c7e28d0197e6"
+      },
+      "originalUrl": "/department"
+    },
+    {
       "title": "Health Check",
       "curl": null,
       "description": "Return status of parent service",
