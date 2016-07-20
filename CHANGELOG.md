@@ -1,3 +1,9 @@
+# 2016-07-20, Version 3.1.1 (Stable)
+
+* [[529ecfd79a](https://git.help.com/common-backend/help-gen/commit/529ecfd79a)] - docs: fix bug in curl generation (Ryan Mottley) 
+* [[2abc63cc85](https://git.help.com/common-backend/help-gen/commit/2abc63cc85)] - package: checkin first-mate package (Evan Lucas)
+* [[e6f10ab8fd](https://git.help.com/common-backend/help-gen/commit/e6f10ab8fd)] - test: add test case without input validator (Ryan Mottley)
+
 # 2016-07-12, Version 3.1.0 (Stable)
 
 * [[24f5f9c8b5](https://git.help.com/common-backend/help-gen/commit/24f5f9c8b5)] - **(SEMVER-MINOR)** docs: add curl examples to documentation (Rod Machen)
