@@ -1,8 +1,3 @@
 coverage/
 .nyc_output/
-!node_modules
-node_modules/*
-!node_modules/first-mate
-node_modules/first-mate/README*
-node_modules/first-mate/benchmark
-node_modules/first-mate/api.json
+/node_modules
