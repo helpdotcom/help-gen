@@ -1,3 +1,8 @@
+# 2016-07-29, Version 4.0.5 (Stable)
+
+* [[bf3bbe14fe](https://git.help.com/common-backend/help-gen/commit/bf3bbe14fe)] - index: lazy load docs (Evan Lucas)
+* [[c80806e5d3](https://git.help.com/common-backend/help-gen/commit/c80806e5d3)] - package: no longer checkin first-mate (Evan Lucas)
+
 # 2016-07-29, Version 4.0.4 (Stable)
 
 * [[55bb9e61a9](https://git.help.com/common-backend/help-gen/commit/55bb9e61a9)] - ci: switch from quay.io to gcr.io (Evan Lucas)
