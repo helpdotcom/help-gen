@@ -1,5 +1,8 @@
 'use strict'
 
+const v8 = require('v8')
+v8.setFlagsFromString('--no_warn_template_set')
+
 const test = require('tap').test
 const Docs = require('../../').docs
 const fs = require('fs')
