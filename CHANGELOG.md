@@ -1,3 +1,7 @@
+# 2016-07-29, Version 4.0.4 (Stable)
+
+* [[55bb9e61a9](https://git.help.com/common-backend/help-gen/commit/55bb9e61a9)] - ci: switch from quay.io to gcr.io (Evan Lucas)
+
 # 2016-07-19, Version 4.0.3 (Stable)
 
 * [[26cb6e6378](https://git.help.com/common-backend/help-gen/commit/26cb6e6378)] - docs: fix bug in curl generation (Ryan Mottley)
