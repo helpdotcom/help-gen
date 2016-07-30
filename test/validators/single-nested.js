@@ -19,7 +19,9 @@ test('validator - single, nested, required', (t) => {
     , Prop.number().path('a.number').required(true)
     , Prop.regex(/\d/).path('a.r').required(true)
     , Prop.date().path('a.date').required(true)
-    , Prop.array().path('a.a').required(true)
+    , Prop.array().path('a.a').required(true).props(
+        Prop.uuid().required(true)
+      )
     ]
   }
 
@@ -239,7 +241,9 @@ test('validator - single, nested, optional', (t) => {
     , Prop.number().path('a.number')
     , Prop.regex(/\d/).path('a.r')
     , Prop.date().path('a.date')
-    , Prop.array().path('a.a')
+    , Prop.array().path('a.a').props(
+        Prop.uuid()
+      )
     ]
   }
 
@@ -252,6 +256,14 @@ test('validator - single, nested, optional', (t) => {
     { input: { a: { a: 'biscuits' } }
     , output: 'invalid param: "a.a". Expected array'
     , name: 'invalid array'
+    }
+  , { input: { a: null }
+    , output: 'invalid param: "a". Expected object'
+    , name: 'invalid array parent'
+    }
+  , { input: { a: { a: ['1234'] } }
+    , output: 'invalid param: "a.a[i]". Expected uuid'
+    , name: 'invalid array item'
     }
   , { input: { a: { a: [], bool: 'test' } }
     , output: 'invalid param: "a.bool". Expected boolean, got string'
