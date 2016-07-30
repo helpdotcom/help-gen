@@ -1,3 +1,9 @@
+# 2016-07-30, Version 4.1.0 (Stable)
+
+* [[ed45290e48](https://git.help.com/common-backend/help-gen/commit/ed45290e48)] - deps: @helpdotcom/build-ast@2.0.0 (Evan Lucas)
+* [[f25f016809](https://git.help.com/common-backend/help-gen/commit/f25f016809)] - transform-props: force array props to be required when NanoProp (Evan Lucas)
+* [[5fdd33cad3](https://git.help.com/common-backend/help-gen/commit/5fdd33cad3)] - **(SEMVER-MINOR)** validator: support basic array item validation (Evan Lucas)
+
 # 2016-07-29, Version 4.0.5 (Stable)
 
 * [[bf3bbe14fe](https://git.help.com/common-backend/help-gen/commit/bf3bbe14fe)] - index: lazy load docs (Evan Lucas)
