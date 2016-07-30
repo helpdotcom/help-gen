@@ -92,6 +92,32 @@ const tests = [
       })
     ]
   }
+, { name: 'arrays'
+  , input: [
+      Prop
+        .array()
+        .path('members')
+    ]
+  , output: [
+      Object.assign(Prop.array().path('members').toJSON(), {
+        children: []
+      })
+    ]
+  }
+, { name: 'arrays'
+  , input: [
+      Prop
+        .array()
+        .path('members')
+        .props(Prop.uuid())
+    ]
+  , output: [
+      Object.assign(Prop.array().path('members').toJSON(), {
+        children: []
+      , props: Prop.uuid().required(true)
+      })
+    ]
+  }
 ]
 
 for (const item of tests) {
