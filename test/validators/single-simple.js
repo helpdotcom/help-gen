@@ -13,7 +13,7 @@ test('validator - single, simple, required', (t) => {
   , props: [
       Prop.boolean().path('bool').required(true)
     , Prop.email().path('email').required(true)
-    , Prop.string().path('string').required(true)
+    , Prop.string().path('string').required(true).min(1).max(10)
     , Prop.enum(['a', 'b']).path('enuma').required(true)
     , Prop.uuid().path('u:uuid').required(true)
     , Prop.number().path('number').required(true)
@@ -159,6 +159,32 @@ test('validator - single, simple, required', (t) => {
       , enuma: 'a'
       , number: 1
       , r: 1
+      , string: ''
+      }
+    , output: 'Invalid param: "string". Length must be >= 1, got 0'
+    , name: 'string < min'
+    }
+  , { input: {
+        a: []
+      , bool: false
+      , date: DATE
+      , email: 'el@me.com'
+      , enuma: 'a'
+      , number: 1
+      , r: 1
+      , string: 'fasdfasdfasdfasdfasdfasdfdsfa'
+      }
+    , output: 'Invalid param: "string". Length must be <= 10, got 29'
+    , name: 'string > max'
+    }
+  , { input: {
+        a: []
+      , bool: false
+      , date: DATE
+      , email: 'el@me.com'
+      , enuma: 'a'
+      , number: 1
+      , r: 1
       , string: '1'
       , 'u:uuid': 'test'
       }
@@ -200,6 +226,44 @@ test('validator - single, simple, required', (t) => {
   })
 })
 
+test('validator - array with string prop', (t) => {
+  const input = {
+    name: 'biscuits'
+  , type: 'test'
+  , props: [
+      Prop.array().path('a').required(true).props(
+        Prop.string().min(1).max(5)
+      )
+    ]
+  }
+
+  const code = new Validator(input).generate()
+  // we can either eval (which I hate doing), or we can write each
+  // validator to disk, which would take a lot longer
+  // so, we are in tests, eval will be fine
+  const fn = eval(code)
+
+  t.plan(6)
+  fn({}, (err) => {
+    t.type(err, Error)
+    t.match(err.message, 'invalid param: "a". Expected array')
+  })
+
+  fn({
+    a: ['']
+  }, (err) => {
+    t.type(err, Error)
+    t.match(err.message, 'Invalid param: "a[i]". Length must be >= 1, got 0')
+  })
+
+  fn({
+    a: ['123456']
+  }, (err) => {
+    t.type(err, Error)
+    t.match(err.message, 'Invalid param: "a[i]". Length must be <= 5, got 6')
+  })
+})
+
 test('validator - single, simple, optionals', (t) => {
   const input = {
     name: 'biscuits'
@@ -207,7 +271,7 @@ test('validator - single, simple, optionals', (t) => {
   , props: [
       Prop.boolean().path('bool')
     , Prop.email().path('email')
-    , Prop.string().path('string')
+    , Prop.string().path('string').min(1).max(10)
     , Prop.enum(['a', 'b']).path('enuma')
     , Prop.uuid().path('uuid')
     , Prop.number().path('number')
@@ -265,6 +329,30 @@ test('validator - single, simple, optionals', (t) => {
       }
     , output: 'invalid param: "string". Expected string, got number'
     , name: 'invalid string'
+    }
+  , { input: {
+        a: []
+      , bool: false
+      , date: DATE
+      , email: 'el@me.com'
+      , enuma: 'a'
+      , number: 1
+      , string: ''
+      }
+    , output: 'Invalid param: "string". Length must be >= 1, got 0'
+    , name: 'string < min'
+    }
+  , { input: {
+        a: []
+      , bool: false
+      , date: DATE
+      , email: 'el@me.com'
+      , enuma: 'a'
+      , number: 1
+      , string: 'fasdfasdfasdfasdfasdfasdfdsfa'
+      }
+    , output: 'Invalid param: "string". Length must be <= 10, got 29'
+    , name: 'string > max'
     }
   , { input: {
         a: []

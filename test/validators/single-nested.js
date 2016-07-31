@@ -13,7 +13,7 @@ test('validator - single, nested, required', (t) => {
   , props: [
       Prop.boolean().path('a.bool').required(true)
     , Prop.email().path('a.email').required(true)
-    , Prop.string().path('a.string').required(true)
+    , Prop.string().path('a.string').required(true).min(1).max(10)
     , Prop.enum(['a', 'b']).path('a.enuma').required(true)
     , Prop.uuid().path('a.uuid').required(true)
     , Prop.number().path('a.number').required(true)
@@ -174,6 +174,36 @@ test('validator - single, nested, required', (t) => {
       }
     , output: 'invalid param: "a.uuid". Expected uuid'
     , name: 'missing uuid'
+    }
+  , { input: {
+        a: {
+          a: []
+        , bool: false
+        , date: DATE
+        , email: 'el@me.com'
+        , enuma: 'a'
+        , number: 1
+        , r: 1
+        , string: ''
+        }
+      }
+    , output: 'Invalid param: "a.string". Length must be >= 1, got 0'
+    , name: 'string < min'
+    }
+  , { input: {
+        a: {
+          a: []
+        , bool: false
+        , date: DATE
+        , email: 'el@me.com'
+        , enuma: 'a'
+        , number: 1
+        , r: 1
+        , string: 'fasdfasdfasdfasdfasdfasdfdsfa'
+        }
+      }
+    , output: 'Invalid param: "a.string". Length must be <= 10, got 29'
+    , name: 'string > max'
     }
   , { input: {
         a: {

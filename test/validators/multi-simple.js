@@ -14,7 +14,7 @@ test('validator - multi, simple, required', (t) => {
   , props: [
       Prop.boolean().path('bool').required(true)
     , Prop.email().path('email').required(true)
-    , Prop.string().path('string').required(true)
+    , Prop.string().path('string').required(true).min(1).max(10)
     , Prop.enum(['a', 'b']).path('enuma').required(true)
     , Prop.uuid().path('uuid').required(true)
     , Prop.number().path('number').required(true)
@@ -157,6 +157,32 @@ test('validator - multi, simple, required', (t) => {
       }]
     , output: 'invalid param: "uuid". Expected uuid'
     , name: 'missing uuid'
+    }
+  , { input: [{
+        a: []
+      , bool: false
+      , date: DATE
+      , email: 'el@me.com'
+      , enuma: 'a'
+      , number: 1
+      , r: 1
+      , string: ''
+      }]
+    , output: 'Invalid param: "string". Length must be >= 1, got 0'
+    , name: 'string < min'
+    }
+  , { input: [{
+        a: []
+      , bool: false
+      , date: DATE
+      , email: 'el@me.com'
+      , enuma: 'a'
+      , number: 1
+      , r: 1
+      , string: 'fasdfasdfasdfasdfasdfasdfdsfa'
+      }]
+    , output: 'Invalid param: "string". Length must be <= 10, got 29'
+    , name: 'string > max'
     }
   , { input: [{
         a: []
