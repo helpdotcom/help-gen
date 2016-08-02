@@ -13,7 +13,7 @@ test('validator - multi, simple, required', (t) => {
   , type: 'test'
   , props: [
       Prop.boolean().path('bool').required(true)
-    , Prop.email().path('email').required(true)
+    , Prop.email().path('email').required(true).allowNull()
     , Prop.string().path('string').required(true).min(1).max(10)
     , Prop.enum(['a', 'b']).path('enuma').required(true)
     , Prop.uuid().path('uuid').required(true)
@@ -61,6 +61,10 @@ test('validator - multi, simple, required', (t) => {
   , { input: [{ a: [], bool: false, date: DATE, email: 'el@me' }]
     , output: 'invalid param: "email". Expected email'
     , name: 'invalid email'
+    }
+  , { input: [{ a: [], bool: false, date: DATE, email: null }]
+    , output: 'Path "enuma" must be one of ["a", "b"]'
+    , name: 'missing enuma'
     }
   , { input: [{ a: [], bool: false, date: DATE, email: 'el@me.com' }]
     , output: 'Path "enuma" must be one of ["a", "b"]'

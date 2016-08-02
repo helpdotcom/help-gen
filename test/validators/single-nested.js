@@ -12,8 +12,8 @@ test('validator - single, nested, required', (t) => {
   , type: 'test'
   , props: [
       Prop.boolean().path('a.bool').required(true)
-    , Prop.email().path('a.email').required(true)
-    , Prop.string().path('a.string').required(true).min(1).max(10)
+    , Prop.email().path('a.email').required(true).allowNull()
+    , Prop.string().path('a.string').required(true).allowNull().min(1).max(10)
     , Prop.enum(['a', 'b']).path('a.enuma').required(true)
     , Prop.uuid().path('a.uuid').required(true)
     , Prop.number().path('a.number').required(true)
@@ -62,6 +62,10 @@ test('validator - single, nested, required', (t) => {
   , { input: { a: { a: [], bool: false, date: DATE, email: 'el@me' } }
     , output: 'invalid param: "a.email". Expected email'
     , name: 'invalid email'
+    }
+  , { input: { a: { a: [], bool: false, date: DATE, email: null } }
+    , output: 'Path "a.enuma" must be one of ["a", "b"]'
+    , name: 'missing enuma'
     }
   , { input: { a: { a: [], bool: false, date: DATE, email: 'el@me.com' } }
     , output: 'Path "a.enuma" must be one of ["a", "b"]'
@@ -169,6 +173,21 @@ test('validator - single, nested, required', (t) => {
         , enuma: 'a'
         , number: 1
         , r: 1
+        , string: null
+        }
+      }
+    , output: 'invalid param: "a.uuid". Expected uuid'
+    , name: 'missing uuid'
+    }
+  , { input: {
+        a: {
+          a: []
+        , bool: false
+        , date: DATE
+        , email: 'el@me.com'
+        , enuma: 'a'
+        , number: 1
+        , r: 1
         , string: '1'
         }
       }
@@ -264,7 +283,7 @@ test('validator - single, nested, optional', (t) => {
   , type: 'test'
   , props: [
       Prop.boolean().path('a.bool')
-    , Prop.email().path('a.email')
+    , Prop.email().path('a.email').allowNull()
     , Prop.string().path('a.string')
     , Prop.enum(['a', 'b']).path('a.enuma')
     , Prop.uuid().path('a.uuid')
@@ -306,6 +325,18 @@ test('validator - single, nested, optional', (t) => {
   , { input: { a: { a: [], bool: false, date: DATE, email: 'el@me' } }
     , output: 'invalid param: "a.email". Expected email'
     , name: 'invalid email'
+    }
+  , { input: {
+        a: {
+          a: []
+        , bool: false
+        , date: DATE
+        , email: null
+        , enuma: 'c'
+        }
+      }
+    , output: 'Path "a.enuma" must be one of ["a", "b"]'
+    , name: 'invalid enuma'
     }
   , { input: {
         a: {

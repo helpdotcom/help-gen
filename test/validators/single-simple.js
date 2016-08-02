@@ -12,8 +12,8 @@ test('validator - single, simple, required', (t) => {
   , type: 'test'
   , props: [
       Prop.boolean().path('bool').required(true)
-    , Prop.email().path('email').required(true)
-    , Prop.string().path('string').required(true).min(1).max(10)
+    , Prop.email().path('email').required(true).allowNull()
+    , Prop.string().path('string').required(true).allowNull().min(1).max(10)
     , Prop.enum(['a', 'b']).path('enuma').required(true)
     , Prop.uuid().path('u:uuid').required(true)
     , Prop.number().path('number').required(true)
@@ -60,6 +60,10 @@ test('validator - single, simple, required', (t) => {
   , { input: { a: [], bool: false, date: DATE, email: 'el@me' }
     , output: 'invalid param: "email". Expected email'
     , name: 'invalid email'
+    }
+  , { input: { a: [], bool: false, date: DATE, email: null, enuma: 'c' }
+    , output: 'Path "enuma" must be one of ["a", "b"]'
+    , name: 'invalid enuma'
     }
   , { input: { a: [], bool: false, date: DATE, email: 'el@me.com' }
     , output: 'Path "enuma" must be one of ["a", "b"]'
@@ -147,6 +151,19 @@ test('validator - single, simple, required', (t) => {
       , number: 1
       , r: 1
       , string: '1'
+      }
+    , output: 'invalid param: "u:uuid". Expected uuid'
+    , name: 'missing uuid'
+    }
+  , { input: {
+        a: []
+      , bool: false
+      , date: DATE
+      , email: 'el@me.com'
+      , enuma: 'a'
+      , number: 1
+      , r: 1
+      , string: null
       }
     , output: 'invalid param: "u:uuid". Expected uuid'
     , name: 'missing uuid'
@@ -270,8 +287,8 @@ test('validator - single, simple, optionals', (t) => {
   , type: 'test'
   , props: [
       Prop.boolean().path('bool')
-    , Prop.email().path('email')
-    , Prop.string().path('string').min(1).max(10)
+    , Prop.email().path('email').allowNull()
+    , Prop.string().path('string').min(1).max(10).allowNull()
     , Prop.enum(['a', 'b']).path('enuma')
     , Prop.uuid().path('uuid')
     , Prop.number().path('number')
@@ -303,7 +320,7 @@ test('validator - single, simple, optionals', (t) => {
     , output: 'invalid param: "email". Expected email'
     , name: 'invalid email'
     }
-  , { input: { a: [], bool: false, date: DATE, email: 'el@me.com', enuma: 'c' }
+  , { input: { a: [], bool: false, date: DATE, email: null, enuma: 'c' }
     , output: 'Path "enuma" must be one of ["a", "b"]'
     , name: 'invalid enuma'
     }
@@ -353,6 +370,19 @@ test('validator - single, simple, optionals', (t) => {
       }
     , output: 'Invalid param: "string". Length must be <= 10, got 29'
     , name: 'string > max'
+    }
+  , { input: {
+        a: []
+      , bool: false
+      , date: DATE
+      , email: 'el@me.com'
+      , enuma: 'a'
+      , number: 1
+      , string: null
+      , uuid: 'test'
+      }
+    , output: 'invalid param: "uuid". Expected uuid'
+    , name: 'invalid uuid'
     }
   , { input: {
         a: []
