@@ -1,3 +1,8 @@
+# 2016-08-02, Version 4.2.0 (Stable)
+
+* [[eda0b2406e](https://git.help.com/common-backend/help-gen/commit/eda0b2406e)] - **(SEMVER-MINOR)** validator: support validating string min and max lengths (Evan Lucas)
+* [[1cbfe0b967](https://git.help.com/common-backend/help-gen/commit/1cbfe0b967)] - validator: fix undefined reference (Evan Lucas)
+
 # 2016-07-30, Version 4.1.0 (Stable)
 
 * [[ed45290e48](https://git.help.com/common-backend/help-gen/commit/ed45290e48)] - deps: @helpdotcom/build-ast@2.0.0 (Evan Lucas)
