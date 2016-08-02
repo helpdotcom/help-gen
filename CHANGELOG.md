@@ -1,3 +1,8 @@
+# 2016-08-02, Version 4.3.0 (Stable)
+
+* [[ba051631ae](https://git.help.com/common-backend/help-gen/commit/ba051631ae)] - deps: @helpdotcom/nano-prop@1.5.0 (Evan Lucas)
+* [[063d432af6](https://git.help.com/common-backend/help-gen/commit/063d432af6)] - **(SEMVER-MINOR)** validator: support the allowNull property (Evan Lucas)
+
 # 2016-08-02, Version 4.2.0 (Stable)
 
 * [[eda0b2406e](https://git.help.com/common-backend/help-gen/commit/eda0b2406e)] - **(SEMVER-MINOR)** validator: support validating string min and max lengths (Evan Lucas)
