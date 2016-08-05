@@ -2,6 +2,7 @@
 
 const test = require('tap').test
 const build = require('../../lib/docs/build-example')
+const Prop = require('@helpdotcom/nano-prop')
 
 test('buildExample', (t) => {
   let input = [
@@ -12,6 +13,16 @@ test('buildExample', (t) => {
   ]
 
   t.deepEqual(build(input), { name: 'Evan' })
+
+  input = [
+    Prop.string().path('name').example('Evan')
+  , Prop.string().path('noexample')
+  ]
+
+  t.deepEqual(build(input), {
+    name: 'Evan'
+  , noexample: '<string>'
+  })
 
   input = [
     { path: 'id'
