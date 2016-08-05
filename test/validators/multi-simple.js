@@ -206,10 +206,11 @@ test('validator - multi, simple, required', (t) => {
 
   for (const item of errorTests) {
     t.test(item.name, (tt) => {
-      tt.plan(2)
+      tt.plan(3)
       fn(item.input, (err) => {
         tt.type(err, Error)
         tt.match(err.message, item.output)
+        tt.equal(err.code, 'EINVAL', 'err.code === \'EINVAL\'')
       })
     })
   }
@@ -318,10 +319,11 @@ test('validator - multi, simple, optionals', (t) => {
 
   for (const item of errorTests) {
     t.test(item.name, (tt) => {
-      tt.plan(2)
+      tt.plan(3)
       fn(item.input, (err) => {
         tt.type(err, Error)
         tt.match(err.message, item.output)
+        tt.equal(err.code, 'EINVAL', 'err.code === \'EINVAL\'')
       })
     })
   }

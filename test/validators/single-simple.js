@@ -213,10 +213,11 @@ test('validator - single, simple, required', (t) => {
 
   for (const item of errorTests) {
     t.test(item.name, (tt) => {
-      tt.plan(2)
+      tt.plan(3)
       fn(item.input, (err) => {
         tt.type(err, Error)
         tt.match(err.message, item.output)
+        tt.equal(err.code, 'EINVAL', 'err.code === \'EINVAL\'')
       })
     })
   }
@@ -256,9 +257,10 @@ test('validator - array with string prop', (t) => {
   const code = new Validator(input).generate()
   const fn = createModule(code)
 
-  t.plan(6)
+  t.plan(9)
   fn({}, (err) => {
     t.type(err, Error)
+    t.equal(err.code, 'EINVAL', 'err.code === \'EINVAL\'')
     t.match(err.message, 'invalid param: "a". Expected array')
   })
 
@@ -266,6 +268,7 @@ test('validator - array with string prop', (t) => {
     a: ['']
   }, (err) => {
     t.type(err, Error)
+    t.equal(err.code, 'EINVAL', 'err.code === \'EINVAL\'')
     t.match(err.message, 'Invalid param: "a[i]". Length must be >= 1, got 0')
   })
 
@@ -273,6 +276,7 @@ test('validator - array with string prop', (t) => {
     a: ['123456']
   }, (err) => {
     t.type(err, Error)
+    t.equal(err.code, 'EINVAL', 'err.code === \'EINVAL\'')
     t.match(err.message, 'Invalid param: "a[i]". Length must be <= 5, got 6')
   })
 })
@@ -410,10 +414,11 @@ test('validator - single, simple, optionals', (t) => {
 
   for (const item of errorTests) {
     t.test(item.name, (tt) => {
-      tt.plan(2)
+      tt.plan(3)
       fn(item.input, (err) => {
         tt.type(err, Error)
         tt.match(err.message, item.output)
+        tt.equal(err.code, 'EINVAL', 'err.code === \'EINVAL\'')
       })
     })
   }
