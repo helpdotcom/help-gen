@@ -3,6 +3,7 @@
 const test = require('tap').test
 const Prop = require('@helpdotcom/nano-prop')
 const Validator = require('../../lib/validator')
+const createModule = require('./common').createModule
 
 const DATE = new Date().toISOString()
 
@@ -25,10 +26,7 @@ test('validator - multi, simple, required', (t) => {
   }
 
   const code = new Validator(input).generate()
-  // we can either eval (which I hate doing), or we can write each
-  // validator to disk, which would take a lot longer
-  // so, we are in tests, eval will be fine
-  const fn = eval(code)
+  const fn = createModule(code)
   const errorTests = [
     { input: [{}]
     , output: 'invalid param: "a". Expected array'
@@ -236,10 +234,7 @@ test('validator - multi, simple, optionals', (t) => {
   }
 
   const code = new Validator(input).generate()
-  // we can either eval (which I hate doing), or we can write each
-  // validator to disk, which would take a lot longer
-  // so, we are in tests, eval will be fine
-  const fn = eval(code)
+  const fn = createModule(code)
   const errorTests = [
     { input: [{ a: 'biscuits' }]
     , output: 'invalid param: "a". Expected array'
