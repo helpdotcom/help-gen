@@ -1,3 +1,8 @@
+# 2016-08-05, Version 4.4.0 (Stable)
+
+* [[9e80e62656](https://git.help.com/common-backend/help-gen/commit/9e80e62656)] - test: make tests more reliable (Evan Lucas)
+* [[dfd686619f](https://git.help.com/common-backend/help-gen/commit/dfd686619f)] - **(SEMVER-MINOR)** validator: set er.code = 'EINVAL' (Evan Lucas)
+
 # 2016-08-02, Version 4.3.0 (Stable)
 
 * [[ba051631ae](https://git.help.com/common-backend/help-gen/commit/ba051631ae)] - deps: @helpdotcom/nano-prop@1.5.0 (Evan Lucas)
