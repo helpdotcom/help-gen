@@ -1,11 +1,7 @@
 'use strict'
 
-const v8 = require('v8')
-v8.setFlagsFromString('--no_warn_template_set')
-
 const test = require('tap').test
 const utils = require('../../lib/docs/utils')
-const marky = require('marky-markdown')
 
 test('md', (t) => {
   test('link', (t) => {
@@ -18,14 +14,5 @@ test('md', (t) => {
     t.end()
   })
 
-  t.end()
-})
-
-test('wrapNotes', (t) => {
-  const md = '# Heading1\n\n**Note:** This is a test\n'
-  const buf = utils.wrapNotes(marky(md)).html()
-  t.equal(buf, '<h1 id="user-content-heading1" class="deep-link"><a href="' +
-    '#heading1">Heading1</a></h1>\n<div class="alert"><p><strong>Note:' +
-    '</strong> This is a test</p></div>\n')
   t.end()
 })

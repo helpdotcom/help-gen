@@ -1,8 +1,5 @@
 'use strict'
 
-const v8 = require('v8')
-v8.setFlagsFromString('--no_warn_template_set')
-
 const test = require('tap').test
 const Docs = require('../../').docs
 const fs = require('fs')
@@ -27,7 +24,6 @@ test('constructor', (t) => {
   t.equal(docs.routes.length, 1)
   t.equal(docs.title, 'Test')
   t.ok(docs.hasOwnProperty('slugger'))
-  t.ok(docs.hasOwnProperty('template'))
 
   docs = new Docs([], {
     title: 'Test'
@@ -127,18 +123,12 @@ test('render', (t) => {
   let json0 = JSON.parse(docs0.render('json').trim())
   t.deepEqual(json0, require('../fixtures/doc-json.json'))
 
-  let html0 = docs0.render('html').trim()
-  t.equal(html0, fixture('doc-html.txt'))
-
   // test without port
   let md1 = docs1.render('markdown').trim()
   t.equal(md1, fixture('doc-md-sans-port.txt'))
 
   let json1 = JSON.parse(docs1.render('json').trim())
   t.deepEqual(json1, require('../fixtures/doc-json-sans-port.json'))
-
-  let html1 = docs1.render('html').trim()
-  t.equal(html1, fixture('doc-html-sans-port.txt'))
 
   t.end()
 })

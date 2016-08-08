@@ -37,7 +37,6 @@ The available options include:
 | ---- | ---- | ----------- |
 | `title` | `string` | The overall title of this set of documentation |
 | `toc` | `boolean` | Will include a table of contents for HTML and Markdown formats. (true) |
-| `template` | `string` | The HTML template to use. If not provided, a default template will be used |
 | `curl` | `boolean` | Will include an example request using `curl` |
 | `config` | `array` | Array of config objects for environment variables |
 
@@ -48,7 +47,6 @@ The available options include:
 Format can be one of the following:
 
 - `json`
-- `html`
 - `markdown`
 
 # TODO
