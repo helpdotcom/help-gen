@@ -1,3 +1,7 @@
+# 2016-08-08, Version 4.4.1 (Stable)
+
+* [[14558858aa](https://git.help.com/common-backend/help-gen/commit/14558858aa)] - docs: fix build-example with nano-props (Evan Lucas)
+
 # 2016-08-05, Version 4.4.0 (Stable)
 
 * [[9e80e62656](https://git.help.com/common-backend/help-gen/commit/9e80e62656)] - test: make tests more reliable (Evan Lucas)
