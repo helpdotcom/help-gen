@@ -1,3 +1,8 @@
+# 2016-08-09, Version 5.0.0 (Stable)
+
+* [[128fcdc70d](https://git.help.com/common-backend/help-gen/commit/128fcdc70d)] - deps: remove @helpdotcom/releaseit (Evan Lucas)
+* [[91e9ca88eb](https://git.help.com/common-backend/help-gen/commit/91e9ca88eb)] - **(SEMVER-MAJOR)** package: remove html doc generation (Evan Lucas)
+
 # 2016-08-08, Version 4.4.1 (Stable)
 
 * [[14558858aa](https://git.help.com/common-backend/help-gen/commit/14558858aa)] - docs: fix build-example with nano-props (Evan Lucas)
