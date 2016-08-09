@@ -1,3 +1,7 @@
+# 2016-08-09, Version 5.0.1 (Stable)
+
+* [[839be2ae7a](https://git.help.com/common-backend/help-gen/commit/839be2ae7a)] - validator: make sure we require validators for array props (Evan Lucas)
+
 # 2016-08-09, Version 5.0.0 (Stable)
 
 * [[128fcdc70d](https://git.help.com/common-backend/help-gen/commit/128fcdc70d)] - deps: remove @helpdotcom/releaseit (Evan Lucas)
