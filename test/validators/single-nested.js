@@ -441,3 +441,24 @@ test('validator - single, nested, optional', (t) => {
     })
   })
 })
+
+test('single array with nested item', (t) => {
+  const input = {
+    name: 'test'
+  , type: 'test'
+  , props: [
+      Prop.array().path('a').props(
+        Prop.uuid()
+      ).required(true)
+    ]
+  }
+
+  const code = new Validator(input).generate()
+  const fn = createModule(code)
+  t.doesNotThrow(() => {
+    fn({
+      a: ['1']
+    }, () => {})
+  })
+  t.end()
+})
