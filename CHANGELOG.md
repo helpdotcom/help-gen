@@ -1,3 +1,9 @@
+# 2016-08-10, Version 5.0.3 (Stable)
+
+* [[bc5ca52b6f](https://git.help.com/common-backend/help-gen/commit/bc5ca52b6f)] - deps: tap@6.3.0 (Evan Lucas)
+* [[4111cd1c77](https://git.help.com/common-backend/help-gen/commit/4111cd1c77)] - deps: @helpdotcom/nano-prop@1.6.0 (Evan Lucas)
+* [[7ff44d2703](https://git.help.com/common-backend/help-gen/commit/7ff44d2703)] - validator: workaround v8 instanceof bug (Evan Lucas)
+
 # 2016-08-10, Version 5.0.2 (Stable)
 
 * [[fbb0682cda](https://git.help.com/common-backend/help-gen/commit/fbb0682cda)] - property: fix generation for NanoProps (Evan Lucas)
