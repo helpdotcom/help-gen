@@ -1,3 +1,7 @@
+# 2016-08-10, Version 5.0.2 (Stable)
+
+* [[fbb0682cda](https://git.help.com/common-backend/help-gen/commit/fbb0682cda)] - property: fix generation for NanoProps (Evan Lucas)
+
 # 2016-08-09, Version 5.0.1 (Stable)
 
 * [[839be2ae7a](https://git.help.com/common-backend/help-gen/commit/839be2ae7a)] - validator: make sure we require validators for array props (Evan Lucas)
