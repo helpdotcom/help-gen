@@ -27,7 +27,7 @@
   "devDependencies": {
     "@helpdotcom/is": "^1.0.9",
     "lintit": "~1.0.3",
-    "tap": "~5.0.0"
+    "tap": "^6.3.0"
   },
   "license": "MIT",
   "author": "Evan Lucas <evanlucas@me.com>",
