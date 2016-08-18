@@ -1,3 +1,7 @@
+# 2016-08-18, Version 5.0.4 (Stable)
+
+* [[99f5a9db99](https://git.help.com/common-backend/help-gen/commit/99f5a9db99)] - validator: fix up the lookup path for nested enums (Evan Lucas)
+
 # 2016-08-10, Version 5.0.3 (Stable)
 
 * [[bc5ca52b6f](https://git.help.com/common-backend/help-gen/commit/bc5ca52b6f)] - deps: tap@6.3.0 (Evan Lucas)
