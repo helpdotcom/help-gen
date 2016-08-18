@@ -292,6 +292,9 @@ test('validator - single, nested, optional', (t) => {
     , Prop.array().path('a.a').props(
         Prop.uuid()
       )
+    , Prop.array().path('a.b').required(false).props(
+        Prop.enum(['visitors'])
+      )
     ]
   }
 
@@ -309,6 +312,10 @@ test('validator - single, nested, optional', (t) => {
   , { input: { a: { a: ['1234'] } }
     , output: 'invalid param: "a.a[i]". Expected uuid'
     , name: 'invalid array item'
+    }
+  , { input: { a: { b: ['biscuits'] } }
+    , output: '"a.b[i]" must be one of ["visitors"]'
+    , name: 'valid array containing an invalid enum'
     }
   , { input: { a: { a: [], bool: 'test' } }
     , output: 'invalid param: "a.bool". Expected boolean, got string'
