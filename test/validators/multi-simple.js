@@ -222,15 +222,15 @@ test('validator - multi, simple, optionals', (t) => {
   , multi: true
   , type: 'test'
   , props: [
-      Prop.boolean().path('bool')
-    , Prop.email().path('email')
-    , Prop.string().path('string')
-    , Prop.enum(['a', 'b']).path('enuma')
-    , Prop.uuid().path('uuid')
-    , Prop.number().path('number')
-    , Prop.regex(/\d/).path('r')
-    , Prop.date().path('date')
-    , Prop.array().path('a')
+      Prop.boolean().path('bool').optional()
+    , Prop.email().path('email').optional()
+    , Prop.string().path('string').optional()
+    , Prop.enum(['a', 'b']).path('enuma').optional()
+    , Prop.uuid().path('uuid').optional()
+    , Prop.number().path('number').optional()
+    , Prop.regex(/\d/).path('r').optional()
+    , Prop.date().path('date').optional()
+    , Prop.array().path('a').optional()
     ]
   }
 

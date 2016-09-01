@@ -281,17 +281,17 @@ test('validator - single, nested, optional', (t) => {
     name: 'biscuits'
   , type: 'test'
   , props: [
-      Prop.boolean().path('a.bool')
-    , Prop.email().path('a.email').allowNull()
-    , Prop.string().path('a.string')
-    , Prop.enum(['a', 'b']).path('a.enuma')
-    , Prop.uuid().path('a.uuid')
-    , Prop.number().path('a.number')
-    , Prop.regex(/\d/).path('a.r')
-    , Prop.date().path('a.date')
+      Prop.boolean().path('a.bool').optional()
+    , Prop.email().path('a.email').allowNull().optional()
+    , Prop.string().path('a.string').optional()
+    , Prop.enum(['a', 'b']).path('a.enuma').optional()
+    , Prop.uuid().path('a.uuid').optional()
+    , Prop.number().path('a.number').optional()
+    , Prop.regex(/\d/).path('a.r').optional()
+    , Prop.date().path('a.date').optional()
     , Prop.array().path('a.a').props(
         Prop.uuid()
-      )
+      ).optional()
     , Prop.array().path('a.b').required(false).props(
         Prop.enum(['visitors'])
       )

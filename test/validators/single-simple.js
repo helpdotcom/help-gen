@@ -286,15 +286,15 @@ test('validator - single, simple, optionals', (t) => {
     name: 'biscuits'
   , type: 'test'
   , props: [
-      Prop.boolean().path('bool')
-    , Prop.email().path('email').allowNull()
-    , Prop.string().path('string').min(1).max(10).allowNull()
-    , Prop.enum(['a', 'b']).path('enuma')
-    , Prop.uuid().path('uuid')
-    , Prop.number().path('number')
-    , Prop.regex(/\d/).path('r')
-    , Prop.date().path('date')
-    , Prop.array().path('a')
+      Prop.boolean().path('bool').optional()
+    , Prop.email().path('email').allowNull().optional()
+    , Prop.string().path('string').min(1).max(10).allowNull().optional()
+    , Prop.enum(['a', 'b']).path('enuma').optional()
+    , Prop.uuid().path('uuid').optional()
+    , Prop.number().path('number').optional()
+    , Prop.regex(/\d/).path('r').optional()
+    , Prop.date().path('date').optional()
+    , Prop.array().path('a').optional()
     ]
   }
 
