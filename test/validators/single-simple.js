@@ -17,7 +17,7 @@ test('validator - single, simple, required', (t) => {
     , Prop.string().path('string').required(true).allowNull().min(1).max(10)
     , Prop.enum(['a', 'b']).path('enuma').required(true)
     , Prop.uuid().path('u:uuid').required(true)
-    , Prop.number().path('number').required(true)
+    , Prop.number().path('number').required(true).allowNull()
     , Prop.regex(/\d/).path('r').required(true)
     , Prop.date().path('date').required(true)
     , Prop.array().path('a').required(true)
@@ -136,6 +136,19 @@ test('validator - single, simple, required', (t) => {
       , enuma: 'a'
       , number: 1
       , r: 1
+      , string: ''
+      }
+    , output: 'Invalid param: "string". Length must be >= 1, got 0'
+    , name: 'invalid string length'
+    }
+  , { input: {
+        a: []
+      , bool: false
+      , date: DATE
+      , email: 'el@me.com'
+      , enuma: 'a'
+      , number: 1
+      , r: 1
       , string: 1
       }
     , output: 'invalid param: "string". Expected string, got number'
@@ -209,7 +222,7 @@ test('validator - single, simple, required', (t) => {
     }
   ]
 
-  t.plan(errorTests.length + 1)
+  t.plan(errorTests.length + 2)
 
   for (const item of errorTests) {
     t.test(item.name, (tt) => {
@@ -222,25 +235,49 @@ test('validator - single, simple, required', (t) => {
     })
   }
 
-  const conf = {
-    a: []
-  , bool: false
-  , date: DATE
-  , email: 'el@me.com'
-  , enuma: 'a'
-  , number: 1
-  , r: 1
-  , string: '1'
-  , 'u:uuid': '83565E45-AA23-4D12-8177-83713B42A020'
+  {
+    const conf = {
+      a: []
+    , bool: false
+    , date: DATE
+    , email: 'el@me.com'
+    , enuma: 'a'
+    , number: null
+    , r: 1
+    , string: '1'
+    , 'u:uuid': '83565E45-AA23-4D12-8177-83713B42A020'
+    }
+
+    t.test('success', (tt) => {
+      tt.plan(2)
+      fn(conf, (err, out) => {
+        tt.error(err)
+        tt.equal(out, conf)
+      })
+    })
   }
 
-  t.test('success', (tt) => {
-    tt.plan(2)
-    fn(conf, (err, out) => {
-      tt.error(err)
-      tt.equal(out, conf)
+  {
+    const conf = {
+      a: []
+    , bool: false
+    , date: DATE
+    , email: 'el@me.com'
+    , enuma: 'a'
+    , number: 1
+    , r: 1
+    , string: null
+    , 'u:uuid': '83565E45-AA23-4D12-8177-83713B42A020'
+    }
+
+    t.test('success, with null', (tt) => {
+      tt.plan(2)
+      fn(conf, (err, out) => {
+        tt.error(err)
+        tt.equal(out, conf)
+      })
     })
-  })
+  }
 })
 
 test('validator - array with string prop', (t) => {
@@ -291,7 +328,7 @@ test('validator - single, simple, optionals', (t) => {
     , Prop.string().path('string').min(1).max(10).allowNull().optional()
     , Prop.enum(['a', 'b']).path('enuma').optional()
     , Prop.uuid().path('uuid').optional()
-    , Prop.number().path('number').optional()
+    , Prop.number().path('number').optional().allowNull()
     , Prop.regex(/\d/).path('r').optional()
     , Prop.date().path('date').optional()
     , Prop.array().path('a').optional()
@@ -410,7 +447,7 @@ test('validator - single, simple, optionals', (t) => {
     }
   ]
 
-  t.plan(errorTests.length + 1)
+  t.plan(errorTests.length + 2)
 
   for (const item of errorTests) {
     t.test(item.name, (tt) => {
@@ -423,23 +460,47 @@ test('validator - single, simple, optionals', (t) => {
     })
   }
 
-  const conf = {
-    a: []
-  , bool: false
-  , date: DATE
-  , email: 'el@me.com'
-  , enuma: 'a'
-  , number: 1
-  , r: 1
-  , string: '1'
-  , uuid: '83565E45-AA23-4D12-8177-83713B42A020'
+  {
+    const conf = {
+      a: []
+    , bool: false
+    , date: DATE
+    , email: 'el@me.com'
+    , enuma: 'a'
+    , number: null
+    , r: 1
+    , string: '1'
+    , uuid: '83565E45-AA23-4D12-8177-83713B42A020'
+    }
+
+    t.test('success', (tt) => {
+      tt.plan(2)
+      fn(conf, (err, out) => {
+        tt.error(err)
+        tt.equal(out, conf)
+      })
+    })
   }
 
-  t.test('success', (tt) => {
-    tt.plan(2)
-    fn(conf, (err, out) => {
-      tt.error(err)
-      tt.equal(out, conf)
+  {
+    const conf = {
+      a: []
+    , bool: false
+    , date: DATE
+    , email: 'el@me.com'
+    , enuma: 'a'
+    , number: 1
+    , r: 1
+    , string: null
+    , uuid: '83565E45-AA23-4D12-8177-83713B42A020'
+    }
+
+    t.test('success, with null', (tt) => {
+      tt.plan(2)
+      fn(conf, (err, out) => {
+        tt.error(err)
+        tt.equal(out, conf)
+      })
     })
-  })
+  }
 })
