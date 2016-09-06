@@ -1,7 +1,3 @@
-cache:
-  paths:
-    - node_modules/
-
 stages:
   - test
   - release
@@ -10,12 +6,6 @@ before_script:
   - touch .npmrc
   - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
   - npm install
-
-test:node5:
-  image: gcr.io/help-1272/node:5
-  stage: test
-  script:
-    - npm test -- --coverage-report=text-summary
 
 test:node6:
   image: gcr.io/help-1272/node:6
