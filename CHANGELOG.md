@@ -1,3 +1,9 @@
+# 2016-09-14, Version 6.0.0 (Stable)
+
+* [[9bfca1fcfa](https://git.help.com/common-backend/help-gen/commit/9bfca1fcfa)] - **(SEMVER-MAJOR)** ci: remove support for node v5 (Evan Lucas)
+* [[d1967f01e8](https://git.help.com/common-backend/help-gen/commit/d1967f01e8)] - **(SEMVER-MAJOR)** deps: @helpdotcom/nano-prop@2.0.0 (Evan Lucas)
+* [[545da686e0](https://git.help.com/common-backend/help-gen/commit/545da686e0)] - validator: add support for allowNull for builtin types (Evan Lucas)
+
 # 2016-08-18, Version 5.0.4 (Stable)
 
 * [[99f5a9db99](https://git.help.com/common-backend/help-gen/commit/99f5a9db99)] - validator: fix up the lookup path for nested enums (Evan Lucas)
