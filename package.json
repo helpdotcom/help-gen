@@ -6,15 +6,12 @@
   "scripts": {
     "lint": "lintit",
     "pretest": "lintit",
-    "test": "tap test/*.js test/validators/*.js test/docs/*.js --cov",
-    "release": "releaseit"
+    "test": "tap test --cov",
+    "posttest": "tap --coverage-report=text-summary"
   },
   "dependencies": {
-    "@helpdotcom/buffer-utils": "~1.0.0",
-    "@helpdotcom/build-ast": "^2.0.0",
-    "@helpdotcom/config": "~1.1.0",
-    "@helpdotcom/http": "~1.5.2",
-    "@helpdotcom/nano-prop": "^2.0.0",
+    "@helpdotcom/build-ast": "^2.1.0",
+    "@helpdotcom/nano-prop": "^2.4.0",
     "acorn": "~2.7.0",
     "escodegen": "~1.8.0",
     "github-slugger": "~1.0.1",
@@ -26,8 +23,9 @@
   },
   "devDependencies": {
     "@helpdotcom/is": "^1.0.9",
-    "lintit": "~1.0.3",
-    "tap": "^6.3.0"
+    "check-pkg": "^2.0.2",
+    "lintit": "^4.0.0",
+    "tap": "^7.1.2"
   },
   "license": "MIT",
   "author": "Evan Lucas <evanlucas@me.com>",
@@ -38,13 +36,5 @@
   "homepage": "https://git.help.com/common-backend/help-gen",
   "bugs": {
     "url": "https://git.help.com/common-backend/help-gen/issues"
-  },
-  "lintit": {
-    "ignore": [
-      "test/fixtures/**.js",
-      "lib/base_response.js",
-      "lib/base_validator.js",
-      "example*/**"
-    ]
   }
 }

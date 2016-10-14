@@ -2,8 +2,8 @@
 
 const test = require('tap').test
 const Prop = require('@helpdotcom/nano-prop')
-const Validator = require('../../lib/validator')
-const createModule = require('./common').createModule
+const Validator = require('../../').Validator
+const createModule = require('../common').createModule
 
 const DATE = new Date().toISOString()
 
@@ -12,15 +12,15 @@ test('validator - single, simple, required', (t) => {
     name: 'biscuits'
   , type: 'test'
   , props: [
-      Prop.boolean().path('bool').required(true)
-    , Prop.email().path('email').required(true).allowNull()
-    , Prop.string().path('string').required(true).allowNull().min(1).max(10)
-    , Prop.enum(['a', 'b']).path('enuma').required(true)
-    , Prop.uuid().path('u:uuid').required(true)
-    , Prop.number().path('number').required(true).allowNull()
-    , Prop.regex(/\d/).path('r').required(true)
-    , Prop.date().path('date').required(true)
-    , Prop.array().path('a').required(true)
+      Prop.boolean().path('bool')
+    , Prop.email().path('email').allowNull()
+    , Prop.string().path('string').allowNull().min(1).max(10)
+    , Prop.enum(['a', 'b']).path('enuma')
+    , Prop.uuid().path('u:uuid')
+    , Prop.number().path('number').allowNull()
+    , Prop.regex(/\d/).path('r')
+    , Prop.date().path('date')
+    , Prop.array().path('a')
     ]
   }
 
@@ -61,18 +61,19 @@ test('validator - single, simple, required', (t) => {
     , name: 'invalid email'
     }
   , { input: { a: [], bool: false, date: DATE, email: null, enuma: 'c' }
-    , output: 'Path "enuma" must be one of ["a", "b"]'
+    , output: 'invalid param: "enuma". Must be one of ["a", "b"]'
     , name: 'invalid enuma'
     }
   , { input: { a: [], bool: false, date: DATE, email: 'el@me.com' }
-    , output: 'Path "enuma" must be one of ["a", "b"]'
+    , output: 'invalid param: "enuma". Must be one of ["a", "b"]'
     , name: 'missing enuma'
     }
   , { input: { a: [], bool: false, date: DATE, email: 'el@me.com', enuma: 'c' }
-    , output: 'Path "enuma" must be one of ["a", "b"]'
+    , output: 'invalid param: "enuma". Must be one of ["a", "b"]'
     , name: 'invalid enuma'
     }
-  , { input: {
+  , {
+      input: {
         a: []
       , bool: false
       , date: DATE
@@ -82,7 +83,8 @@ test('validator - single, simple, required', (t) => {
     , output: 'invalid param: "number". Expected number, got undefined'
     , name: 'missing number'
     }
-  , { input: {
+  , {
+      input: {
         a: []
       , bool: false
       , date: DATE
@@ -93,7 +95,8 @@ test('validator - single, simple, required', (t) => {
     , output: 'invalid param: "number". Expected number, got string'
     , name: 'invalid number'
     }
-  , { input: {
+  , {
+      input: {
         a: []
       , bool: false
       , date: DATE
@@ -101,10 +104,11 @@ test('validator - single, simple, required', (t) => {
       , enuma: 'a'
       , number: 1
       }
-    , output: 'Path "r" must match /\\d/'
+    , output: 'invalid param: "r". Must match /\\d/'
     , name: 'missing regex'
     }
-  , { input: {
+  , {
+      input: {
         a: []
       , bool: false
       , date: DATE
@@ -113,10 +117,11 @@ test('validator - single, simple, required', (t) => {
       , number: 1
       , r: 'fasdsaf'
       }
-    , output: 'Path "r" must match /\\d/'
+    , output: 'invalid param: "r". Must match /\\d/'
     , name: 'invalid regex'
     }
-  , { input: {
+  , {
+      input: {
         a: []
       , bool: false
       , date: DATE
@@ -128,7 +133,8 @@ test('validator - single, simple, required', (t) => {
     , output: 'invalid param: "string". Expected string, got undefined'
     , name: 'missing string'
     }
-  , { input: {
+  , {
+      input: {
         a: []
       , bool: false
       , date: DATE
@@ -138,10 +144,11 @@ test('validator - single, simple, required', (t) => {
       , r: 1
       , string: ''
       }
-    , output: 'Invalid param: "string". Length must be >= 1, got 0'
+    , output: 'invalid param: "string". Length must be >= 1, got 0'
     , name: 'invalid string length'
     }
-  , { input: {
+  , {
+      input: {
         a: []
       , bool: false
       , date: DATE
@@ -154,7 +161,8 @@ test('validator - single, simple, required', (t) => {
     , output: 'invalid param: "string". Expected string, got number'
     , name: 'invalid string'
     }
-  , { input: {
+  , {
+      input: {
         a: []
       , bool: false
       , date: DATE
@@ -167,7 +175,8 @@ test('validator - single, simple, required', (t) => {
     , output: 'invalid param: "u:uuid". Expected uuid'
     , name: 'missing uuid'
     }
-  , { input: {
+  , {
+      input: {
         a: []
       , bool: false
       , date: DATE
@@ -180,7 +189,8 @@ test('validator - single, simple, required', (t) => {
     , output: 'invalid param: "u:uuid". Expected uuid'
     , name: 'missing uuid'
     }
-  , { input: {
+  , {
+      input: {
         a: []
       , bool: false
       , date: DATE
@@ -190,10 +200,11 @@ test('validator - single, simple, required', (t) => {
       , r: 1
       , string: ''
       }
-    , output: 'Invalid param: "string". Length must be >= 1, got 0'
+    , output: 'invalid param: "string". Length must be >= 1, got 0'
     , name: 'string < min'
     }
-  , { input: {
+  , {
+      input: {
         a: []
       , bool: false
       , date: DATE
@@ -203,10 +214,11 @@ test('validator - single, simple, required', (t) => {
       , r: 1
       , string: 'fasdfasdfasdfasdfasdfasdfdsfa'
       }
-    , output: 'Invalid param: "string". Length must be <= 10, got 29'
+    , output: 'invalid param: "string". Length must be <= 10, got 29'
     , name: 'string > max'
     }
-  , { input: {
+  , {
+      input: {
         a: []
       , bool: false
       , date: DATE
@@ -226,11 +238,12 @@ test('validator - single, simple, required', (t) => {
 
   for (const item of errorTests) {
     t.test(item.name, (tt) => {
-      tt.plan(3)
-      fn(item.input, (err) => {
+      tt.plan(4)
+      const valid = fn(item.input, (err) => {
         tt.type(err, Error)
         tt.match(err.message, item.output)
         tt.equal(err.code, 'EINVAL', 'err.code === \'EINVAL\'')
+        tt.equal(valid, false, 'returns false')
       })
     })
   }
@@ -249,10 +262,11 @@ test('validator - single, simple, required', (t) => {
     }
 
     t.test('success', (tt) => {
-      tt.plan(2)
-      fn(conf, (err, out) => {
+      tt.plan(3)
+      const valid = fn(conf, (err, out) => {
         tt.error(err)
         tt.equal(out, conf)
+        tt.equal(valid, true, 'returns true')
       })
     })
   }
@@ -271,10 +285,11 @@ test('validator - single, simple, required', (t) => {
     }
 
     t.test('success, with null', (tt) => {
-      tt.plan(2)
-      fn(conf, (err, out) => {
+      tt.plan(3)
+      const valid = fn(conf, (err, out) => {
         tt.error(err)
         tt.equal(out, conf)
+        tt.equal(valid, true, 'returns true')
       })
     })
   }
@@ -285,7 +300,7 @@ test('validator - array with string prop', (t) => {
     name: 'biscuits'
   , type: 'test'
   , props: [
-      Prop.array().path('a').required(true).props(
+      Prop.array().path('a').props(
         Prop.string().min(1).max(5)
       )
     ]
@@ -306,7 +321,7 @@ test('validator - array with string prop', (t) => {
   }, (err) => {
     t.type(err, Error)
     t.equal(err.code, 'EINVAL', 'err.code === \'EINVAL\'')
-    t.match(err.message, 'Invalid param: "a[i]". Length must be >= 1, got 0')
+    t.match(err.message, 'invalid param: "a[i]". Length must be >= 1, got 0')
   })
 
   fn({
@@ -314,7 +329,7 @@ test('validator - array with string prop', (t) => {
   }, (err) => {
     t.type(err, Error)
     t.equal(err.code, 'EINVAL', 'err.code === \'EINVAL\'')
-    t.match(err.message, 'Invalid param: "a[i]". Length must be <= 5, got 6')
+    t.match(err.message, 'invalid param: "a[i]". Length must be <= 5, got 6')
   })
 })
 
@@ -337,6 +352,7 @@ test('validator - single, simple, optionals', (t) => {
 
   const code = new Validator(input).generate()
   const fn = createModule(code)
+
   const errorTests = [
     { input: { a: 'biscuits' }
     , output: 'invalid param: "a". Expected array'
@@ -355,10 +371,11 @@ test('validator - single, simple, optionals', (t) => {
     , name: 'invalid email'
     }
   , { input: { a: [], bool: false, date: DATE, email: null, enuma: 'c' }
-    , output: 'Path "enuma" must be one of ["a", "b"]'
+    , output: 'invalid param: "enuma". Must be one of ["a", "b"]'
     , name: 'invalid enuma'
     }
-  , { input: {
+  , {
+      input: {
         a: []
       , bool: false
       , date: DATE
@@ -369,7 +386,8 @@ test('validator - single, simple, optionals', (t) => {
     , output: 'invalid param: "number". Expected number, got string'
     , name: 'invalid number'
     }
-  , { input: {
+  , {
+      input: {
         a: []
       , bool: false
       , date: DATE
@@ -381,7 +399,8 @@ test('validator - single, simple, optionals', (t) => {
     , output: 'invalid param: "string". Expected string, got number'
     , name: 'invalid string'
     }
-  , { input: {
+  , {
+      input: {
         a: []
       , bool: false
       , date: DATE
@@ -390,10 +409,11 @@ test('validator - single, simple, optionals', (t) => {
       , number: 1
       , string: ''
       }
-    , output: 'Invalid param: "string". Length must be >= 1, got 0'
+    , output: 'invalid param: "string". Length must be >= 1, got 0'
     , name: 'string < min'
     }
-  , { input: {
+  , {
+      input: {
         a: []
       , bool: false
       , date: DATE
@@ -402,10 +422,11 @@ test('validator - single, simple, optionals', (t) => {
       , number: 1
       , string: 'fasdfasdfasdfasdfasdfasdfdsfa'
       }
-    , output: 'Invalid param: "string". Length must be <= 10, got 29'
+    , output: 'invalid param: "string". Length must be <= 10, got 29'
     , name: 'string > max'
     }
-  , { input: {
+  , {
+      input: {
         a: []
       , bool: false
       , date: DATE
@@ -418,7 +439,8 @@ test('validator - single, simple, optionals', (t) => {
     , output: 'invalid param: "uuid". Expected uuid'
     , name: 'invalid uuid'
     }
-  , { input: {
+  , {
+      input: {
         a: []
       , bool: false
       , date: DATE
@@ -431,7 +453,8 @@ test('validator - single, simple, optionals', (t) => {
     , output: 'invalid param: "uuid". Expected uuid'
     , name: 'invalid uuid'
     }
-  , { input: {
+  , {
+      input: {
         a: []
       , bool: false
       , date: DATE
@@ -442,7 +465,7 @@ test('validator - single, simple, optionals', (t) => {
       , uuid: 'test'
       , r: 'biscuits'
       }
-    , output: 'Path "r" must match /\\d/'
+    , output: 'invalid param: "r". Must match /\\d/'
     , name: 'invalid regex'
     }
   ]
@@ -451,11 +474,12 @@ test('validator - single, simple, optionals', (t) => {
 
   for (const item of errorTests) {
     t.test(item.name, (tt) => {
-      tt.plan(3)
-      fn(item.input, (err) => {
+      tt.plan(4)
+      const valid = fn(item.input, (err) => {
         tt.type(err, Error)
         tt.match(err.message, item.output)
         tt.equal(err.code, 'EINVAL', 'err.code === \'EINVAL\'')
+        tt.equal(valid, false, 'returns false')
       })
     })
   }
@@ -474,10 +498,11 @@ test('validator - single, simple, optionals', (t) => {
     }
 
     t.test('success', (tt) => {
-      tt.plan(2)
-      fn(conf, (err, out) => {
+      tt.plan(3)
+      const valid = fn(conf, (err, out) => {
         tt.error(err)
         tt.equal(out, conf)
+        tt.equal(valid, true, 'returns true')
       })
     })
   }
@@ -496,10 +521,11 @@ test('validator - single, simple, optionals', (t) => {
     }
 
     t.test('success, with null', (tt) => {
-      tt.plan(2)
-      fn(conf, (err, out) => {
+      tt.plan(3)
+      const valid = fn(conf, (err, out) => {
         tt.error(err)
         tt.equal(out, conf)
+        tt.equal(valid, true, 'returns true')
       })
     })
   }

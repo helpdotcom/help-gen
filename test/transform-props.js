@@ -2,53 +2,56 @@
 
 const test = require('tap').test
 const transform = require('../lib/transform-props')
+const utils = require('../lib/utils')
 const Prop = require('@helpdotcom/nano-prop')
 
 const tests = [
-  { name: 'no props', input: [], output: [] }
+  { name: 'no props', input: [], output: [], deps: { has: false, is: false } }
 , { name: 'top level props all required'
   , input: [
-      Prop.boolean().path('bool').required(true)
-    , Prop.email().path('email').required(true)
-    , Prop.string().path('string').required(true)
-    , Prop.enum(['a', 'b']).path('enuma').required(true)
-    , Prop.uuid().path('uuid').required(true)
-    , Prop.number().path('number').required(true)
-    , Prop.regex(/\w/).path('regex').required(true)
-    , Prop.date().path('date').required(true)
+      Prop.boolean().path('bool')
+    , Prop.email().path('email')
+    , Prop.string().path('string')
+    , Prop.enum(['a', 'b']).path('enuma')
+    , Prop.uuid().path('uuid')
+    , Prop.number().path('number')
+    , Prop.regex(/\w/).path('regex')
+    , Prop.date().path('date')
     ]
   , output: [
-      Prop.boolean().path('bool').required(true)
-    , Prop.date().path('date').required(true)
-    , Prop.email().path('email').required(true)
-    , Prop.enum(['a', 'b']).path('enuma').required(true)
-    , Prop.number().path('number').required(true)
-    , Prop.regex(/\w/).path('regex').required(true)
-    , Prop.string().path('string').required(true)
-    , Prop.uuid().path('uuid').required(true)
+      Prop.boolean().path('bool')
+    , Prop.date().path('date')
+    , Prop.email().path('email')
+    , Prop.enum(['a', 'b']).path('enuma')
+    , Prop.number().path('number')
+    , Prop.regex(/\w/).path('regex')
+    , Prop.string().path('string')
+    , Prop.uuid().path('uuid')
     ].map((i) => { return formatProp(i) })
+  , deps: { has: false, is: true }
   }
 , { name: 'top level props none required'
   , input: [
-      Prop.boolean().path('bool')
-    , Prop.email().path('email')
-    , Prop.string().path('string')
-    , Prop.enum(['a', 'b']).path('enuma')
-    , Prop.uuid().path('uuid')
-    , Prop.number().path('number')
-    , Prop.regex(/\w/).path('regex')
-    , Prop.date().path('date')
+      Prop.boolean().path('bool').optional()
+    , Prop.email().path('email').optional()
+    , Prop.string().path('string').optional()
+    , Prop.enum(['a', 'b']).path('enuma').optional()
+    , Prop.uuid().path('uuid').optional()
+    , Prop.number().path('number').optional()
+    , Prop.regex(/\w/).path('regex').optional()
+    , Prop.date().path('date').optional()
     ]
   , output: [
-      Prop.boolean().path('bool')
-    , Prop.date().path('date')
-    , Prop.email().path('email')
-    , Prop.enum(['a', 'b']).path('enuma')
-    , Prop.number().path('number')
-    , Prop.regex(/\w/).path('regex')
-    , Prop.string().path('string')
-    , Prop.uuid().path('uuid')
+      Prop.boolean().path('bool').optional()
+    , Prop.date().path('date').optional()
+    , Prop.email().path('email').optional()
+    , Prop.enum(['a', 'b']).path('enuma').optional()
+    , Prop.number().path('number').optional()
+    , Prop.regex(/\w/).path('regex').optional()
+    , Prop.string().path('string').optional()
+    , Prop.uuid().path('uuid').optional()
     ].map((i) => { return formatProp(i) })
+  , deps: { has: true, is: true }
   }
 , { name: 'required nested props - 1 level'
   , input: [
@@ -61,6 +64,7 @@ const tests = [
         ]
       })
     ]
+  , deps: { has: false, is: false }
   }
 , { name: 'required nested props - 2 levels'
   , input: [
@@ -77,6 +81,7 @@ const tests = [
         ]
       })
     ]
+  , deps: { has: false, is: false }
   }
 , { name: 'optional and required nested props - 1 level'
   , input: [
@@ -86,11 +91,12 @@ const tests = [
   , output: [
       Object.assign(getObject('admin', true), {
         children: [
-          formatProp(getString('admin.email', false), [])
-        , formatProp(getString('admin.name', true), [])
+          formatProp(getString('admin.name', true), [])
+        , formatProp(getString('admin.email', false), [])
         ]
       })
     ]
+  , deps: { has: true, is: false }
   }
 , { name: 'arrays'
   , input: [
@@ -103,8 +109,9 @@ const tests = [
         children: []
       })
     ]
+  , deps: { has: false, is: false }
   }
-, { name: 'arrays'
+, { name: 'arrays with nested primitive'
   , input: [
       Prop
         .array()
@@ -113,23 +120,28 @@ const tests = [
     ]
   , output: [
       Object.assign(Prop.array().path('members').toJSON(), {
-        children: []
-      , props: Prop.uuid().required(true)
+        children: [
+          Object.assign(Prop.uuid().path('members.^__IDX__1').toJSON(), {
+            children: []
+          })
+        ]
       })
     ]
+  , deps: { has: false, is: true }
   }
 ]
 
 for (const item of tests) {
   test(`transformProps - ${item.name}`, (t) => {
     const out = transform(item.input)
+    if (item.deps) item.output.deps = item.deps
     t.deepEqual(out, item.output)
     t.end()
   })
 }
 
 function formatProp(p, kids) {
-  const out = p.toJSON()
+  const out = utils.propToJSON(p)
   out.children = kids || []
   return out
 }

@@ -9,6 +9,8 @@ if (require.main === module) {
 
 const path = require('path')
 const Module = require('module').Module
+const Prop = require('@helpdotcom/nano-prop')
+const Validator = require('../').Validator
 const dir = __dirname
 var count = 0
 
@@ -27,4 +29,16 @@ exports.createModule = function(code) {
   Module._cache[filepath] = m
   Module._pathCache[key] = filepath
   return m.exports
+}
+
+exports.getProp = function getProp(type, val) {
+  return function(name = type) {
+    return Prop[type](val).path(name)
+  }
+}
+
+exports.compile = function compile(opts) {
+  const v = new Validator(opts)
+  const code = v.generate()
+  return exports.createModule(code)
 }

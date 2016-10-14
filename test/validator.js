@@ -1,7 +1,7 @@
 'use strict'
 
 const test = require('tap').test
-const Validator = require('../lib/validator')
+const Validator = require('../').Validator
 const Prop = require('@helpdotcom/nano-prop')
 
 test('Validator', (t) => {
@@ -23,22 +23,18 @@ test('Validator', (t) => {
 
   t.throws(() => {
     new Validator({ name: 'test' })
-  }, /props is required and must be an Array/)
+  }, /type is required and must be a string/)
+
+  t.throws(() => {
+    new Validator({ name: 'test', type: 'test' })
+  }, /props is required and must be an array/)
 
   t.throws(() => {
     new Validator({
       name: 'test'
     , props: [{}]
     })
-  }, /Invalid config. `type` \(string\) is required/)
-
-  t.throws(() => {
-    new Validator({
-      name: 'test'
-    , props: [{}]
-    , type: {}
-    })
-  }, /Invalid config. `type` \(string\) is required/)
+  }, /type is required and must be a string/)
 
   t.throws(() => {
     new Validator({
@@ -46,7 +42,7 @@ test('Validator', (t) => {
     , props: [{}]
     , type: 'test'
     })
-  }, /Invalid rule. `type` is required/)
+  }, /Invalid prop. "type" must be a string/)
 
   t.throws(() => {
     new Validator({
@@ -54,7 +50,7 @@ test('Validator', (t) => {
     , props: [Prop.regex().path('a')]
     , type: 'test'
     })
-  }, /value must be defined for type: regex/)
+  }, /"value" is required for "regex" type/)
 
   t.throws(() => {
     new Validator({
@@ -62,7 +58,7 @@ test('Validator', (t) => {
     , props: [Prop.enum().path('a')]
     , type: 'test'
     })
-  }, /values must be defined for type: enum/)
+  }, /"values" is required for "enum" type/)
 
   t.throws(() => {
     new Validator({
@@ -70,7 +66,7 @@ test('Validator', (t) => {
     , props: [{ type: 14, path: 't' }]
     , type: 'test'
     })
-  }, /Invalid rule. `type` must be a string/)
+  }, /Invalid prop. "type" must be a string/)
 
   t.throws(() => {
     new Validator({
@@ -78,7 +74,7 @@ test('Validator', (t) => {
     , props: [Prop.uuid()]
     , type: 'test'
     })
-  }, /Invalid rule. `path` is required/)
+  }, /Invalid prop. "path" must be a string/)
 
   t.throws(() => {
     new Validator({
@@ -86,7 +82,7 @@ test('Validator', (t) => {
     , props: [Prop.uuid().path({})]
     , type: 'test'
     })
-  }, /Invalid rule. `path` must be a string/)
+  }, /Invalid prop. "path" must be a string/)
 
   t.end()
 })

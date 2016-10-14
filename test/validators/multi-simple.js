@@ -2,8 +2,8 @@
 
 const test = require('tap').test
 const Prop = require('@helpdotcom/nano-prop')
-const Validator = require('../../lib/validator')
-const createModule = require('./common').createModule
+const Validator = require('../../').Validator
+const createModule = require('../common').createModule
 
 const DATE = new Date().toISOString()
 
@@ -13,15 +13,15 @@ test('validator - multi, simple, required', (t) => {
   , multi: true
   , type: 'test'
   , props: [
-      Prop.boolean().path('bool').required(true)
-    , Prop.email().path('email').required(true).allowNull()
-    , Prop.string().path('string').required(true).min(1).max(10)
-    , Prop.enum(['a', 'b']).path('enuma').required(true)
-    , Prop.uuid().path('uuid').required(true)
-    , Prop.number().path('number').required(true)
-    , Prop.regex(/\d/).path('r').required(true)
-    , Prop.date().path('date').required(true)
-    , Prop.array().path('a').required(true)
+      Prop.boolean().path('bool')
+    , Prop.email().path('email').allowNull()
+    , Prop.string().path('string').min(1).max(10)
+    , Prop.enum(['a', 'b']).path('enuma')
+    , Prop.uuid().path('uuid')
+    , Prop.number().path('number')
+    , Prop.regex(/\d/).path('r')
+    , Prop.date().path('date')
+    , Prop.array().path('a')
     ]
   }
 
@@ -61,142 +61,164 @@ test('validator - multi, simple, required', (t) => {
     , name: 'invalid email'
     }
   , { input: [{ a: [], bool: false, date: DATE, email: null }]
-    , output: 'Path "enuma" must be one of ["a", "b"]'
+    , output: 'invalid param: "enuma". Must be one of ["a", "b"]'
     , name: 'missing enuma'
     }
   , { input: [{ a: [], bool: false, date: DATE, email: 'el@me.com' }]
-    , output: 'Path "enuma" must be one of ["a", "b"]'
+    , output: 'invalid param: "enuma". Must be one of ["a", "b"]'
     , name: 'missing enuma'
     }
-  , { input: [{
-        a: []
-      , bool: false
-      , date: DATE
-      , email: 'el@me.com'
-      , enuma: 'c'
-      }]
-    , output: 'Path "enuma" must be one of ["a", "b"]'
+  , {
+      input: [
+        { a: []
+        , bool: false
+        , date: DATE
+        , email: 'el@me.com'
+        , enuma: 'c'
+        }
+      ]
+    , output: 'invalid param: "enuma". Must be one of ["a", "b"]'
     , name: 'invalid enuma'
     }
-  , { input: [{
-        a: []
-      , bool: false
-      , date: DATE
-      , email: 'el@me.com'
-      , enuma: 'a'
-      }]
+  , {
+      input: [
+        { a: []
+        , bool: false
+        , date: DATE
+        , email: 'el@me.com'
+        , enuma: 'a'
+        }
+      ]
     , output: 'invalid param: "number". Expected number, got undefined'
     , name: 'missing number'
     }
-  , { input: [{
-        a: []
-      , bool: false
-      , date: DATE
-      , email: 'el@me.com'
-      , enuma: 'a'
-      , number: 'test'
-      }]
+  , {
+      input: [
+        { a: []
+        , bool: false
+        , date: DATE
+        , email: 'el@me.com'
+        , enuma: 'a'
+        , number: 'test'
+        }
+      ]
     , output: 'invalid param: "number". Expected number, got string'
     , name: 'invalid number'
     }
-  , { input: [{
-        a: []
-      , bool: false
-      , date: DATE
-      , email: 'el@me.com'
-      , enuma: 'a'
-      , number: 1
-      }]
-    , output: 'Path "r" must match /\\d/'
+  , {
+      input: [
+        { a: []
+        , bool: false
+        , date: DATE
+        , email: 'el@me.com'
+        , enuma: 'a'
+        , number: 1
+        }
+      ]
+    , output: 'invalid param: "r". Must match /\\d/'
     , name: 'missing regex'
     }
-  , { input: [{
-        a: []
-      , bool: false
-      , date: DATE
-      , email: 'el@me.com'
-      , enuma: 'a'
-      , number: 1
-      , r: 'fasdsaf'
-      }]
-    , output: 'Path "r" must match /\\d/'
+  , {
+      input: [
+        { a: []
+        , bool: false
+        , date: DATE
+        , email: 'el@me.com'
+        , enuma: 'a'
+        , number: 1
+        , r: 'fasdsaf'
+        }
+      ]
+    , output: 'invalid param: "r". Must match /\\d/'
     , name: 'invalid regex'
     }
-  , { input: [{
-        a: []
-      , bool: false
-      , date: DATE
-      , email: 'el@me.com'
-      , enuma: 'a'
-      , number: 1
-      , r: 1
-      }]
+  , {
+      input: [
+        { a: []
+        , bool: false
+        , date: DATE
+        , email: 'el@me.com'
+        , enuma: 'a'
+        , number: 1
+        , r: 1
+        }
+      ]
     , output: 'invalid param: "string". Expected string, got undefined'
     , name: 'missing string'
     }
-  , { input: [{
-        a: []
-      , bool: false
-      , date: DATE
-      , email: 'el@me.com'
-      , enuma: 'a'
-      , number: 1
-      , r: 1
-      , string: 1
-      }]
+  , {
+      input: [
+        { a: []
+        , bool: false
+        , date: DATE
+        , email: 'el@me.com'
+        , enuma: 'a'
+        , number: 1
+        , r: 1
+        , string: 1
+        }
+      ]
     , output: 'invalid param: "string". Expected string, got number'
     , name: 'invalid string'
     }
-  , { input: [{
-        a: []
-      , bool: false
-      , date: DATE
-      , email: 'el@me.com'
-      , enuma: 'a'
-      , number: 1
-      , r: 1
-      , string: '1'
-      }]
+  , {
+      input: [
+        { a: []
+        , bool: false
+        , date: DATE
+        , email: 'el@me.com'
+        , enuma: 'a'
+        , number: 1
+        , r: 1
+        , string: '1'
+        }
+      ]
     , output: 'invalid param: "uuid". Expected uuid'
     , name: 'missing uuid'
     }
-  , { input: [{
-        a: []
-      , bool: false
-      , date: DATE
-      , email: 'el@me.com'
-      , enuma: 'a'
-      , number: 1
-      , r: 1
-      , string: ''
-      }]
-    , output: 'Invalid param: "string". Length must be >= 1, got 0'
+  , {
+      input: [
+        { a: []
+        , bool: false
+        , date: DATE
+        , email: 'el@me.com'
+        , enuma: 'a'
+        , number: 1
+        , r: 1
+        , string: ''
+        }
+      ]
+    , output: 'invalid param: "string". Length must be >= 1, got 0'
     , name: 'string < min'
     }
-  , { input: [{
-        a: []
-      , bool: false
-      , date: DATE
-      , email: 'el@me.com'
-      , enuma: 'a'
-      , number: 1
-      , r: 1
-      , string: 'fasdfasdfasdfasdfasdfasdfdsfa'
-      }]
-    , output: 'Invalid param: "string". Length must be <= 10, got 29'
+  , {
+      input: [
+        { a: []
+        , bool: false
+        , date: DATE
+        , email: 'el@me.com'
+        , enuma: 'a'
+        , number: 1
+        , r: 1
+        , string: 'fasdfasdfasdfasdfasdfasdfdsfa'
+        }
+      ]
+    , output: 'invalid param: "string". Length must be <= 10, got 29'
     , name: 'string > max'
     }
-  , { input: [{
-        a: []
-      , bool: false
-      , date: DATE
-      , email: 'el@me.com'
-      , enuma: 'a'
-      , number: 1
-      , r: 1
-      , string: '1'
-      , uuid: 'test'
-      }]
+  , {
+      input: [
+        { a: []
+        , bool: false
+        , date: DATE
+        , email: 'el@me.com'
+        , enuma: 'a'
+        , number: 1
+        , r: 1
+        , string: '1'
+        , uuid: 'test'
+        }
+      ]
     , output: 'invalid param: "uuid". Expected uuid'
     , name: 'invalid uuid'
     }
@@ -206,11 +228,12 @@ test('validator - multi, simple, required', (t) => {
 
   for (const item of errorTests) {
     t.test(item.name, (tt) => {
-      tt.plan(3)
-      fn(item.input, (err) => {
+      tt.plan(4)
+      const valid = fn(item.input, (err) => {
         tt.type(err, Error)
         tt.match(err.message, item.output)
         tt.equal(err.code, 'EINVAL', 'err.code === \'EINVAL\'')
+        tt.equal(valid, false, 'returns false')
       })
     })
   }
@@ -253,64 +276,74 @@ test('validator - multi, simple, optionals', (t) => {
     , output: 'invalid param: "email". Expected email'
     , name: 'invalid email'
     }
-  , { input: [{
-        a: []
-      , bool: false
-      , date: DATE
-      , email: 'el@me.com'
-      , enuma: 'c'
-      }]
-    , output: 'Path "enuma" must be one of ["a", "b"]'
+  , {
+      input: [
+        { a: []
+        , bool: false
+        , date: DATE
+        , email: 'el@me.com'
+        , enuma: 'c'
+        }
+      ]
+    , output: 'invalid param: "enuma". Must be one of ["a", "b"]'
     , name: 'invalid enuma'
     }
-  , { input: [{
-        a: []
-      , bool: false
-      , date: DATE
-      , email: 'el@me.com'
-      , enuma: 'a'
-      , number: 'test'
-      }]
+  , {
+      input: [
+        { a: []
+        , bool: false
+        , date: DATE
+        , email: 'el@me.com'
+        , enuma: 'a'
+        , number: 'test'
+        }
+      ]
     , output: 'invalid param: "number". Expected number, got string'
     , name: 'invalid number'
     }
-  , { input: [{
-        a: []
-      , bool: false
-      , date: DATE
-      , email: 'el@me.com'
-      , enuma: 'a'
-      , number: 1
-      , string: 1
-      }]
+  , {
+      input: [
+        { a: []
+        , bool: false
+        , date: DATE
+        , email: 'el@me.com'
+        , enuma: 'a'
+        , number: 1
+        , string: 1
+        }
+      ]
     , output: 'invalid param: "string". Expected string, got number'
     , name: 'invalid string'
     }
-  , { input: [{
-        a: []
-      , bool: false
-      , date: DATE
-      , email: 'el@me.com'
-      , enuma: 'a'
-      , number: 1
-      , string: '1'
-      , uuid: 'test'
-      }]
+  , {
+      input: [
+        { a: []
+        , bool: false
+        , date: DATE
+        , email: 'el@me.com'
+        , enuma: 'a'
+        , number: 1
+        , string: '1'
+        , uuid: 'test'
+        }
+      ]
     , output: 'invalid param: "uuid". Expected uuid'
     , name: 'invalid uuid'
     }
-  , { input: [{
-        a: []
-      , bool: false
-      , date: DATE
-      , email: 'el@me.com'
-      , enuma: 'a'
-      , number: 1
-      , string: '1'
-      , uuid: 'test'
-      , r: 'biscuits'
-      }]
-    , output: 'Path "r" must match /\\d/'
+  , {
+      input: [
+        { a: []
+        , bool: false
+        , date: DATE
+        , email: 'el@me.com'
+        , enuma: 'a'
+        , number: 1
+        , string: '1'
+        , uuid: 'test'
+        , r: 'biscuits'
+        }
+      ]
+    , output: 'invalid param: "r". Must match /\\d/'
     , name: 'invalid regex'
     }
   ]
@@ -319,11 +352,12 @@ test('validator - multi, simple, optionals', (t) => {
 
   for (const item of errorTests) {
     t.test(item.name, (tt) => {
-      tt.plan(3)
-      fn(item.input, (err) => {
+      tt.plan(4)
+      const valid = fn(item.input, (err) => {
         tt.type(err, Error)
         tt.match(err.message, item.output)
         tt.equal(err.code, 'EINVAL', 'err.code === \'EINVAL\'')
+        tt.equal(valid, false, 'returns false')
       })
     })
   }

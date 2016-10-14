@@ -1,7 +1,7 @@
 'use strict'
 
 const test = require('tap').test
-const gen = require('../lib/generate').generate
+const gen = require('../lib/to-code')
 const is = require('../lib/is-helper')
 
 test('isDate', (t) => {
