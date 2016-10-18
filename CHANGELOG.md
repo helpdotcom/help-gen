@@ -1,3 +1,9 @@
+# 2016-10-18, Version 7.0.0 (Stable)
+
+* [[cbd0f7a123](https://git.help.com/common-backend/help-gen/commit/cbd0f7a123)] - **(SEMVER-MAJOR)** lib: remove all traces of doc generation code (Evan Lucas)
+* [[aa581111d0](https://git.help.com/common-backend/help-gen/commit/aa581111d0)] - **(SEMVER-MAJOR)** package: refactor to support arrays with nested objects (Evan Lucas)
+* [[baf37bc5ab](https://git.help.com/common-backend/help-gen/commit/baf37bc5ab)] - validator: remove unnecessary closure when calling callback (Evan Lucas)
+
 # 2016-09-14, Version 6.0.0 (Stable)
 
 * [[9bfca1fcfa](https://git.help.com/common-backend/help-gen/commit/9bfca1fcfa)] - **(SEMVER-MAJOR)** ci: remove support for node v5 (Evan Lucas)
