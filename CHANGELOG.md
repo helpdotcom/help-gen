@@ -1,3 +1,7 @@
+# 2016-10-20, Version 7.1.0 (Stable)
+
+* [[ff13596c36](https://git.help.com/common-backend/help-gen/commit/ff13596c36)] - **(SEMVER-MINOR)** validator: support objects (Anna Henningsen)
+
 # 2016-10-18, Version 7.0.0 (Stable)
 
 * [[cbd0f7a123](https://git.help.com/common-backend/help-gen/commit/cbd0f7a123)] - **(SEMVER-MAJOR)** lib: remove all traces of doc generation code (Evan Lucas)
