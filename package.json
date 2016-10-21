@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@helpdotcom/build-ast": "^2.1.0",
-    "@helpdotcom/nano-prop": "^2.4.0",
+    "@helpdotcom/nano-prop": "^4.0.0",
     "acorn": "~2.7.0",
     "escodegen": "~1.8.0",
     "github-slugger": "~1.0.1",
