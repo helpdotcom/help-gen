@@ -1,3 +1,7 @@
+# 2016-10-21, Version 8.0.0 (Stable)
+
+* [[512c8c68a6](https://git.help.com/common-backend/help-gen/commit/512c8c68a6)] - **(SEMVER-MAJOR)** package: update nano-prop to 4.0.0 (Anna Henningsen)
+
 # 2016-10-20, Version 7.1.0 (Stable)
 
 * [[ff13596c36](https://git.help.com/common-backend/help-gen/commit/ff13596c36)] - **(SEMVER-MINOR)** validator: support objects (Anna Henningsen)
