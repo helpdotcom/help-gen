@@ -1,3 +1,7 @@
+# 2016-10-24, Version 8.0.1 (Stable)
+
+* [[30bd3e3068](https://git.help.com/common-backend/help-gen/commit/30bd3e3068)] - lib: avoid unnecessary special-casing of array-of-objects (Anna Henningsen)
+
 # 2016-10-21, Version 8.0.0 (Stable)
 
 * [[512c8c68a6](https://git.help.com/common-backend/help-gen/commit/512c8c68a6)] - **(SEMVER-MAJOR)** package: update nano-prop to 4.0.0 (Anna Henningsen)
