@@ -25,8 +25,12 @@ const cases = new Set([
 ])
 
 const ERROR_MESSAGE = /invalid param: "number". Expected number/
-const MIN_ERROR = /invalid param: "number". Value must be >= 1, got 0/
-const MAX_ERROR = /invalid param: "number". Value must be <= 10, got 50/
+const MIN_ERROR = (n) => {
+  return new RegExp(`invalid param: "number". Value must be >= 1, got ${n}`)
+}
+const MAX_ERROR = (n) => {
+  return new RegExp(`invalid param: "number". Value must be <= 10, got ${n}`)
+}
 
 for (const prop of cases) {
   const fn = compile(prop)
@@ -80,7 +84,7 @@ for (const prop of cases) {
           number: prop._min - 1
         }, (err) => {
           tt.type(err, Error)
-          tt.match(err, MIN_ERROR)
+          tt.match(err, MIN_ERROR(prop._min - 1))
           tt.equal(valid, false, 'returns false')
           tt.end()
         })
@@ -113,7 +117,7 @@ for (const prop of cases) {
           number: prop._max + 1
         }, (err) => {
           tt.type(err, Error)
-          tt.match(err, MAX_ERROR)
+          tt.match(err, MAX_ERROR(prop._max + 1))
           tt.equal(valid, false, 'returns false')
           tt.end()
         })

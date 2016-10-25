@@ -25,7 +25,7 @@
     "@helpdotcom/is": "^1.0.9",
     "check-pkg": "^2.0.2",
     "lintit": "^4.0.0",
-    "tap": "^7.1.2"
+    "tap": "^8.0.0"
   },
   "license": "MIT",
   "author": "Evan Lucas <evanlucas@me.com>",

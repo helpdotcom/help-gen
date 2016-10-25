@@ -24,8 +24,8 @@ const cases = new Set([
 , getPropN().optional().allowNull()
 ])
 
-const ERROR_MESSAGE = /invalid param: "enum". Must be one of ["a", "b", "c"]/
-const ERROR_MESSAGE_N = /invalid param: "enum". Must be one of [1, 2, 3]/
+const ERROR_MESSAGE = /invalid param: "enum". Must be one of \["a", "b", "c"\]/
+const ERROR_MESSAGE_N = /invalid param: "enum". Must be one of \[1, 2, 3\]/
 
 for (const prop of cases) {
   const fn = compile(prop)

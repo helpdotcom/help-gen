@@ -19,7 +19,7 @@ const cases = new Set([
 , getProp().optional().allowNull()
 ])
 
-const ERROR_MESSAGE = /invalid param: "regex". Must match \/\\d+\//
+const ERROR_MESSAGE = /invalid param: "regex". Must match \/\\d\+\//
 
 for (const prop of cases) {
   const fn = compile(prop)

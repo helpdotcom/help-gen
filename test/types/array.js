@@ -49,7 +49,7 @@ test('Prop.array().props([])', (t) => {
       }
     }, (err) => {
       tt.type(err, Error)
-      tt.match(err, /invalid param: "visitor.pageviews[i].created_at"/)
+      tt.match(err, /invalid param: "visitor.pageviews\[i\].created_at"/)
       tt.equal(valid, false, 'returns false')
       tt.end()
     })
@@ -64,7 +64,7 @@ test('Prop.array().props([])', (t) => {
       }
     }, (err) => {
       tt.type(err, Error)
-      tt.match(err, /invalid param: "visitor.pageviews[i].device"/)
+      tt.match(err, /invalid param: "visitor.pageviews\[i\].device"/)
       tt.equal(valid, false, 'returns false')
       tt.end()
     })
@@ -81,7 +81,7 @@ test('Prop.array().props([])', (t) => {
       }
     }, (err) => {
       tt.type(err, Error)
-      tt.match(err, /invalid param: "visitor.pageviews[i].url"/)
+      tt.match(err, /invalid param: "visitor.pageviews\[i\].url"/)
       tt.equal(valid, false, 'returns false')
       tt.end()
     })
@@ -97,7 +97,7 @@ test('Prop.array().props([])', (t) => {
       }
     }, (err) => {
       tt.type(err, Error)
-      tt.match(err, /invalid param: "visitor.pageviews[i].visitor_id"/)
+      tt.match(err, /invalid param: "visitor.pageviews\[i\].visitor_id"/)
       tt.equal(valid, false, 'returns false')
       tt.end()
     })

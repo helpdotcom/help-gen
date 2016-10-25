@@ -13,7 +13,7 @@ const TESTS = new Set([
 
 for (const type of TESTS) {
   const getProp = common.getProp(type)
-  const ERROR_MESSAGE = new RegExp(`invalid param: "${type}. Expected ${type}"`)
+  const ERROR_MESSAGE = new RegExp(`invalid param: "${type}". Expected ${type}`)
   function compile(props) {
     return common.compile({
       name: `${type}_type`
