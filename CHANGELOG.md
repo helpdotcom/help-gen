@@ -1,3 +1,7 @@
+# 2016-10-25, Version 8.0.2 (Stable)
+
+* [[b8201b71b6](https://git.help.com/common-backend/help-gen/commit/b8201b71b6)] - lib: remove unused properties from `Validator` (Anna Henningsen)
+
 # 2016-10-24, Version 8.0.1 (Stable)
 
 * [[30bd3e3068](https://git.help.com/common-backend/help-gen/commit/30bd3e3068)] - lib: avoid unnecessary special-casing of array-of-objects (Anna Henningsen)
