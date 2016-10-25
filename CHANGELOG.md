@@ -1,3 +1,7 @@
+# 2016-10-25, Version 8.0.3 (Stable)
+
+* [[ccd3ceafdb](https://git.help.com/common-backend/help-gen/commit/ccd3ceafdb)] - test: update tap to v8.0.0 and fix tests (Anna Henningsen)
+
 # 2016-10-25, Version 8.0.2 (Stable)
 
 * [[b8201b71b6](https://git.help.com/common-backend/help-gen/commit/b8201b71b6)] - lib: remove unused properties from `Validator` (Anna Henningsen)
