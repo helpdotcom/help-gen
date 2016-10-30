@@ -1,3 +1,7 @@
+# 2016-10-30, Version 8.0.5 (Stable)
+
+* [[3a02daeecd](https://git.help.com/common-backend/help-gen/commit/3a02daeecd)] - validator: remove unused clone of `options` (Anna Henningsen)
+
 # 2016-10-28, Version 8.0.4 (Stable)
 
 * [[43a4f6e760](https://git.help.com/common-backend/help-gen/commit/43a4f6e760)] - deps: remove unused v8is (Evan Lucas)
