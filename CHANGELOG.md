@@ -1,3 +1,7 @@
+# 2016-10-31, Version 8.0.6 (Stable)
+
+* [[a3b5223b1b](https://git.help.com/common-backend/help-gen/commit/a3b5223b1b)] - lib: remove unused `paths` and `parents` properties of `Transformer` (Anna Henningsen)
+
 # 2016-10-30, Version 8.0.5 (Stable)
 
 * [[3a02daeecd](https://git.help.com/common-backend/help-gen/commit/3a02daeecd)] - validator: remove unused clone of `options` (Anna Henningsen)
