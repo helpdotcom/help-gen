@@ -1,3 +1,8 @@
+# 2016-11-09, Version 8.0.7 (Stable)
+
+* [[ffe1b5ecf3](https://git.help.com/common-backend/help-gen/commit/ffe1b5ecf3)] - lib: elide unused `Files#_props` property (Anna Henningsen)
+* [[adbbc9f17b](https://git.help.com/common-backend/help-gen/commit/adbbc9f17b)] - lib: `indexOf() !== -1` → `includes` (Anna Henningsen)
+
 # 2016-10-31, Version 8.0.6 (Stable)
 
 * [[a3b5223b1b](https://git.help.com/common-backend/help-gen/commit/a3b5223b1b)] - lib: remove unused `paths` and `parents` properties of `Transformer` (Anna Henningsen)
