@@ -2,7 +2,6 @@
 
 const test = require('tap').test
 const Validator = require('../').Validator
-const Prop = require('@helpdotcom/nano-prop')
 
 test('Validator', (t) => {
 
@@ -42,23 +41,7 @@ test('Validator', (t) => {
     , props: [{}]
     , type: 'test'
     })
-  }, /Invalid prop. "type" must be a string/)
-
-  t.throws(() => {
-    new Validator({
-      name: 'test'
-    , props: [Prop.regex().path('a')]
-    , type: 'test'
-    })
-  }, /"value" is required for "regex" type/)
-
-  t.throws(() => {
-    new Validator({
-      name: 'test'
-    , props: [Prop.enum().path('a')]
-    , type: 'test'
-    })
-  }, /"values" is required for "enum" type/)
+  }, /type is required/)
 
   t.throws(() => {
     new Validator({
@@ -66,23 +49,7 @@ test('Validator', (t) => {
     , props: [{ type: 14, path: 't' }]
     , type: 'test'
     })
-  }, /Invalid prop. "type" must be a string/)
-
-  t.throws(() => {
-    new Validator({
-      name: 'test'
-    , props: [Prop.uuid()]
-    , type: 'test'
-    })
-  }, /Invalid prop. "path" must be a string/)
-
-  t.throws(() => {
-    new Validator({
-      name: 'test'
-    , props: [Prop.uuid().path({})]
-    , type: 'test'
-    })
-  }, /Invalid prop. "path" must be a string/)
+  }, /invalid config type: "14"/)
 
   t.end()
 })
