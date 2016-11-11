@@ -1,3 +1,7 @@
+# 2016-11-11, Version 8.0.8 (Stable)
+
+* [[fc8409a206](https://git.help.com/common-backend/help-gen/commit/fc8409a206)] - lib: replace `Transform` class by manual passing of `path` (Anna Henningsen)
+
 # 2016-11-09, Version 8.0.7 (Stable)
 
 * [[ffe1b5ecf3](https://git.help.com/common-backend/help-gen/commit/ffe1b5ecf3)] - lib: elide unused `Files#_props` property (Anna Henningsen)
