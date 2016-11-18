@@ -6,8 +6,11 @@
   "scripts": {
     "lint": "lintit",
     "pretest": "lintit",
-    "test": "tap test --cov",
-    "posttest": "tap --coverage-report=text-summary"
+    "test": "nyc npm run test:all",
+    "test:all": "npm run test:standard && npm run test:strip-props",
+    "test:standard": "tap test --no-cov",
+    "test:strip-props": "env HELPGEN_STRIP_EXTRA_PROPS=1 npm run test:standard",
+    "posttest": "nyc report -r text-summary"
   },
   "dependencies": {
     "@helpdotcom/build-ast": "^2.3.1",
@@ -24,7 +27,11 @@
     "@helpdotcom/is": "^1.0.9",
     "check-pkg": "^2.0.2",
     "lintit": "^4.0.0",
+    "nyc": "^9.0.1",
     "tap": "^8.0.0"
+  },
+  "nyc": {
+    "cache": true
   },
   "license": "MIT",
   "author": "Evan Lucas <evanlucas@me.com>",

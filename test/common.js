@@ -38,6 +38,10 @@ exports.getProp = function getProp(type, val) {
 }
 
 exports.compile = function compile(opts) {
+  if (process.env.HELPGEN_STRIP_EXTRA_PROPS === '1') {
+    opts.stripExtraneousProperties = true
+  }
+
   const v = new Validator(opts)
   const code = v.generate()
   return exports.createModule(code)

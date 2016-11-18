@@ -260,11 +260,13 @@ test('validator - single, simple, required', (t) => {
     }
 
     t.test('success', (tt) => {
-      tt.plan(3)
       const valid = fn(conf, (err, out) => {
         tt.error(err)
-        tt.equal(out, conf)
+        if (process.env.HELPGEN_STRIP_EXTRA_PROPS !== '1') {
+          tt.equal(out, conf)
+        }
         tt.equal(valid, true, 'returns true')
+        tt.end()
       })
     })
   }
@@ -283,11 +285,13 @@ test('validator - single, simple, required', (t) => {
     }
 
     t.test('success, with null', (tt) => {
-      tt.plan(3)
       const valid = fn(conf, (err, out) => {
         tt.error(err)
-        tt.equal(out, conf)
+        if (process.env.HELPGEN_STRIP_EXTRA_PROPS !== '1') {
+          tt.equal(out, conf)
+        }
         tt.equal(valid, true, 'returns true')
+        tt.end()
       })
     })
   }
@@ -494,11 +498,13 @@ test('validator - single, simple, optionals', (t) => {
     }
 
     t.test('success', (tt) => {
-      tt.plan(3)
       const valid = fn(conf, (err, out) => {
         tt.error(err)
-        tt.equal(out, conf)
+        if (process.env.HELPGEN_STRIP_EXTRA_PROPS !== '1') {
+          tt.equal(out, conf)
+        }
         tt.equal(valid, true, 'returns true')
+        tt.end()
       })
     })
   }
@@ -517,11 +523,13 @@ test('validator - single, simple, optionals', (t) => {
     }
 
     t.test('success, with null', (tt) => {
-      tt.plan(3)
       const valid = fn(conf, (err, out) => {
         tt.error(err)
-        tt.equal(out, conf)
+        if (process.env.HELPGEN_STRIP_EXTRA_PROPS !== '1') {
+          tt.equal(out, conf)
+        }
         tt.equal(valid, true, 'returns true')
+        tt.end()
       })
     })
   }
