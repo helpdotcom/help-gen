@@ -2,8 +2,7 @@
 
 const test = require('tap').test
 const Prop = require('@helpdotcom/nano-prop')
-const Validator = require('../../').Validator
-const createModule = require('../common').createModule
+const { compile } = require('../common')
 
 const DATE = new Date().toISOString()
 
@@ -24,8 +23,7 @@ test('validator - single, simple, required', (t) => {
     ]
   }
 
-  const code = new Validator(input).generate()
-  const fn = createModule(code)
+  const fn = compile(input)
 
   const errorTests = [
     { input: {}
@@ -306,8 +304,7 @@ test('validator - array with string prop', (t) => {
     ]
   }
 
-  const code = new Validator(input).generate()
-  const fn = createModule(code)
+  const fn = compile(input)
 
   t.plan(9)
   fn({}, (err) => {
@@ -350,8 +347,7 @@ test('validator - single, simple, optionals', (t) => {
     ]
   }
 
-  const code = new Validator(input).generate()
-  const fn = createModule(code)
+  const fn = compile(input)
 
   const errorTests = [
     { input: { a: 'biscuits' }
