@@ -7,9 +7,10 @@
     "lint": "lintit",
     "pretest": "lintit",
     "test": "nyc npm run test:all",
-    "test:all": "npm run test:standard && npm run test:strip-props",
+    "test:all": "npm run test:standard && npm run test:strip-props && npm run test:fail-props",
     "test:standard": "tap test --no-cov",
     "test:strip-props": "env HELPGEN_STRIP_EXTRA_PROPS=1 npm run test:standard",
+    "test:fail-props": "env HELPGEN_FAIL_EXTRA_PROPS=1 npm run test:standard",
     "posttest": "nyc report -r text-summary"
   },
   "dependencies": {

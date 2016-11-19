@@ -51,5 +51,15 @@ test('Validator', (t) => {
     })
   }, /invalid config type: "14"/)
 
+  t.throws(() => {
+    new Validator({
+      name: 'test'
+    , props: [{ type: 'string' }]
+    , type: 'test'
+    , failOnExtraneousProperties: true
+    , stripExtraneousProperties: true
+    })._process()
+  }, /Stripping and failing on extraneous properties are mutually exclusive/)
+
   t.end()
 })

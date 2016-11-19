@@ -42,6 +42,10 @@ exports.compile = function compile(opts) {
     opts.stripExtraneousProperties = true
   }
 
+  if (process.env.HELPGEN_FAIL_EXTRA_PROPS === '1') {
+    opts.failOnExtraneousProperties = true
+  }
+
   const v = new Validator(opts)
   const code = v.generate()
   return exports.createModule(code)
