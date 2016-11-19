@@ -10,7 +10,7 @@
     "posttest": "tap --coverage-report=text-summary"
   },
   "dependencies": {
-    "@helpdotcom/build-ast": "^2.1.0",
+    "@helpdotcom/build-ast": "^2.3.1",
     "@helpdotcom/nano-prop": "^5.0.0",
     "acorn": "~2.7.0",
     "escodegen": "~1.8.0",
