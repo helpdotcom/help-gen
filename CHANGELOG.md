@@ -1,3 +1,23 @@
+# 2016-12-09, Version 8.1.0 (Stable)
+
+* [[0f1760fba3](https://git.help.com/common-backend/help-gen/commit/0f1760fba3)] - deps: build-ast@2.3.1 (Anna Henningsen)
+* [[198ed8f842](https://git.help.com/common-backend/help-gen/commit/198ed8f842)] - lib: split up and move `addCheck` out of `Validator` (Anna Henningsen)
+* [[dcb430134f](https://git.help.com/common-backend/help-gen/commit/dcb430134f)] - lib: make `Check` constructors take single argument (Anna Henningsen)
+* [[3325fa9794](https://git.help.com/common-backend/help-gen/commit/3325fa9794)] - lib: use display path for enum variable name determination (Anna Henningsen)
+* [[5d914c0887](https://git.help.com/common-backend/help-gen/commit/5d914c0887)] - lib: remove impossible conditional (Anna Henningsen)
+* [[02f9187447](https://git.help.com/common-backend/help-gen/commit/02f9187447)] - lib: remove unnecessary indirection of `_getHasOwnProperty` (Anna Henningsen)
+* [[157dbe1e89](https://git.help.com/common-backend/help-gen/commit/157dbe1e89)] - lib: consolidate all `_generateOptional` blocks (Anna Henningsen)
+* [[571bf18074](https://git.help.com/common-backend/help-gen/commit/571bf18074)] - lib: return generated code instead of appending to one builder (Anna Henningsen)
+* [[50722a7957](https://git.help.com/common-backend/help-gen/commit/50722a7957)] - test: bring test suite to 100 % coverage (Anna Henningsen)
+* [[cfe0533030](https://git.help.com/common-backend/help-gen/commit/cfe0533030)] - test: use `common.compile` everywhere (Anna Henningsen)
+* [[b261e57791](https://git.help.com/common-backend/help-gen/commit/b261e57791)] - utils: simplify internal utils (Anna Henningsen)
+* [[2ec3d14c2a](https://git.help.com/common-backend/help-gen/commit/2ec3d14c2a)] - **(SEMVER-MINOR)** validator: allow iterating over all check instances (Anna Henningsen)
+* [[2b55753732](https://git.help.com/common-backend/help-gen/commit/2b55753732)] - **(SEMVER-MINOR)** validator: add failOnExtraneousProperties option (Anna Henningsen)
+* [[2154fa0b2e](https://git.help.com/common-backend/help-gen/commit/2154fa0b2e)] - validator: compute loop indices based on parent Checks (Anna Henningsen)
+* [[71bd8c6039](https://git.help.com/common-backend/help-gen/commit/71bd8c6039)] - validator: pass display paths for props explicitly (Anna Henningsen)
+* [[61e75ca5a7](https://git.help.com/common-backend/help-gen/commit/61e75ca5a7)] - **(SEMVER-MINOR)** validator: add stripExtraneousProperties option (Anna Henningsen)
+* [[d157c6938e](https://git.help.com/common-backend/help-gen/commit/d157c6938e)] - validator: more compact code for small enums (Anna Henningsen)
+
 # 2016-11-11, Version 8.0.8 (Stable)
 
 * [[fc8409a206](https://git.help.com/common-backend/help-gen/commit/fc8409a206)] - lib: replace `Transform` class by manual passing of `path` (Anna Henningsen)
