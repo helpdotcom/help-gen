@@ -1,3 +1,7 @@
+# 2016-12-14, Version 8.1.2 (Stable)
+
+* [[dcb76562e4](https://git.help.com/common-backend/help-gen/commit/dcb76562e4)] - validator: don’t modify external `props` argument (Anna Henningsen)
+
 # 2016-12-13, Version 8.1.1 (Stable)
 
 * [[48f8472783](https://git.help.com/common-backend/help-gen/commit/48f8472783)] - types: don't wrap number check in extra block (Evan Lucas)
