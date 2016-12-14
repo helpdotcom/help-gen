@@ -70,3 +70,24 @@ test('assertType', (t) => {
   })
   t.end()
 })
+
+test('deepClone', (t) => {
+  {
+    const x = {}
+    x.self = x
+    const y = utils.deepClone(x)
+    t.equal(y.self, y)
+  }
+
+  {
+    const x = {
+      get a() { return 42 }
+    , set a(value) { throw new Error('set a throws') }
+    }
+
+    t.equal(utils.deepClone(x).a, 42)
+    t.throws(() => { x.a = 10 }, /set a throws/)
+  }
+
+  t.end()
+})
