@@ -63,3 +63,17 @@ test('Validator', (t) => {
 
   t.end()
 })
+
+test('callbackSuccess', (t) => {
+  const v = new (require('../lib/validator'))({
+    props: []
+  })
+
+  t.throws(() => { return v._callbackSuccess() },
+           /"args" must be an array/)
+  t.throws(() => { return v._callbackSuccess(1) },
+           /"args" must be an array/)
+  t.throws(() => { return v._callbackSuccess('foo') },
+           /"args" must be an array/)
+  t.end()
+})

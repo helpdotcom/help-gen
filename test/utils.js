@@ -29,16 +29,6 @@ test('getIsFunctionName', (t) => {
   t.end()
 })
 
-test('callbackSuccess', (t) => {
-  t.throws(() => { return utils.callbackSuccess() },
-           /"args" must be an array/)
-  t.throws(() => { return utils.callbackSuccess(1) },
-           /"args" must be an array/)
-  t.throws(() => { return utils.callbackSuccess('foo') },
-           /"args" must be an array/)
-  t.end()
-})
-
 test('isObjectPath', (t) => {
   t.equal(utils.isObjectPath(null), false)
   t.equal(utils.isObjectPath(1), false)
