@@ -61,19 +61,24 @@ test('Validator', (t) => {
     }).generate()
   }, /Stripping and failing on extraneous properties are mutually exclusive/)
 
+  t.throws(() => {
+    new Validator({
+      name: 'test'
+    , props: [{ type: 'string' }]
+    , type: 'test'
+    , synchronousReturn: 'foobar'
+    }).generate()
+  }, /synchronousReturn is required and must be a boolean/)
+
+  t.throws(() => {
+    new Validator({
+      name: 'test'
+    , props: [{ type: 'string' }]
+    , type: 'test'
+    , resultVar: 1
+    }).generate()
+  }, /resultVar is optional but must be a string/)
+
   t.end()
 })
 
-test('callbackSuccess', (t) => {
-  const v = new (require('../lib/validator'))({
-    props: []
-  })
-
-  t.throws(() => { return v._callbackSuccess() },
-           /"args" must be an array/)
-  t.throws(() => { return v._callbackSuccess(1) },
-           /"args" must be an array/)
-  t.throws(() => { return v._callbackSuccess('foo') },
-           /"args" must be an array/)
-  t.end()
-})
