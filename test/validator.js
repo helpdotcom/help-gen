@@ -58,7 +58,7 @@ test('Validator', (t) => {
     , type: 'test'
     , failOnExtraneousProperties: true
     , stripExtraneousProperties: true
-    })._process()
+    }).generate()
   }, /Stripping and failing on extraneous properties are mutually exclusive/)
 
   t.end()
