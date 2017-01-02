@@ -79,6 +79,15 @@ test('Validator', (t) => {
     }).generate()
   }, /resultVar is optional but must be a string/)
 
+  t.throws(() => {
+    new Validator({
+      name: 'test'
+    , props: [{ type: 'string' }]
+    , type: 'test'
+    , inputVar: 1
+    }).generate()
+  }, /inputVar is optional but must be a string/)
+
   t.end()
 })
 
