@@ -8,6 +8,7 @@ function compile(props) {
   return common.compile({
     name: 'number_type'
   , type: 'number_type'
+  , errorPrefix: 'error prefix:'
   , props: [props]
   })
 }
@@ -24,12 +25,12 @@ const cases = new Set([
 , getProp().optional().allowNull()
 ])
 
-const ERROR_MESSAGE = /invalid param: "number". Expected number/
+const ERROR_MESSAGE = /error prefix: "number". Expected number/
 const MIN_ERROR = (n) => {
-  return new RegExp(`invalid param: "number". Value must be >= 1, got ${n}`)
+  return new RegExp(`error prefix: "number". Value must be >= 1, got ${n}`)
 }
 const MAX_ERROR = (n) => {
-  return new RegExp(`invalid param: "number". Value must be <= 10, got ${n}`)
+  return new RegExp(`error prefix: "number". Value must be <= 10, got ${n}`)
 }
 
 for (const prop of cases) {
