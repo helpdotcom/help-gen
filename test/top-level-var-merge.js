@@ -9,7 +9,7 @@ test('top level vars - can merge the vars of multiple generate calls', (t) => {
     name: 'merge_test_1'
   , type: 'test'
   , props: [
-      Prop.regex(/\w+/).path('a')
+      Prop.regex(/^\w+$/).path('a')
     ]
   }
 
@@ -17,7 +17,7 @@ test('top level vars - can merge the vars of multiple generate calls', (t) => {
     name: 'merge_test_2'
   , type: 'test'
   , props: [
-      Prop.regex(/\w+/).path('b')
+      Prop.regex(/^\w+$/).path('b')
     ]
   }
 

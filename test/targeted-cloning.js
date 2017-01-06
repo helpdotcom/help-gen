@@ -11,7 +11,7 @@ test('validators can clone onto an existing object', (t) => {
     name: 'clone_target_test1'
   , type: 'test'
   , props: [
-      Prop.regex(/\w+/).path('a')
+      Prop.regex(/^\w+$/).path('a')
     ]
   , useObjectAssignForRoot: true
   , performDeepClone: true

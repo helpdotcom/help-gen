@@ -13,8 +13,8 @@ test('validator - can store the result in a specific variable and work sync', {
     name: 'sync_resultvar_test'
   , type: 'test'
   , props: [
-      Prop.regex(/\w+/).path('a')
-    , Prop.regex(/\w+/).path('b')
+      Prop.regex(/^\w+$/).path('a')
+    , Prop.regex(/^\w+$/).path('b')
     , Prop.string().path('c').optional()
     ]
   , synchronousReturn: true

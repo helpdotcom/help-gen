@@ -17,7 +17,7 @@ test('validator - single, nested, required', (t) => {
     , Prop.enum(['a', 'b']).path('a.enuma')
     , Prop.uuid().path('a.uuid')
     , Prop.number().path('a.number')
-    , Prop.regex(/\d/).path('a.r')
+    , Prop.regex(/^\d+$/).path('a.r')
     , Prop.date().path('a.date')
     , Prop.array().path('a.a').props(
         Prop.uuid()
@@ -119,7 +119,7 @@ test('validator - single, nested, required', (t) => {
         , number: 1
         }
       }
-    , output: 'invalid param: "a.r". Must match /\\d/'
+    , output: 'invalid param: "a.r". Must match /^\\d+$/'
     , name: 'missing regex'
     }
   , {
@@ -134,7 +134,7 @@ test('validator - single, nested, required', (t) => {
         , r: 'fasdsaf'
         }
       }
-    , output: 'invalid param: "a.r". Must match /\\d/'
+    , output: 'invalid param: "a.r". Must match /^\\d+$/'
     , name: 'invalid regex'
     }
   , {
@@ -302,7 +302,7 @@ test('validator - single, nested, optional', (t) => {
     , Prop.enum(['a', 'b']).path('a.enuma').optional()
     , Prop.uuid().path('a.uuid').optional()
     , Prop.number().path('a.number').optional()
-    , Prop.regex(/\d/).path('a.r').optional()
+    , Prop.regex(/^\d+$/).path('a.r').optional()
     , Prop.date().path('a.date').optional()
     , Prop.array().path('a.a').props(
         Prop.uuid()
@@ -396,7 +396,7 @@ test('validator - single, nested, optional', (t) => {
         , r: 'fasdsaf'
         }
       }
-    , output: 'invalid param: "a.r". Must match /\\d/'
+    , output: 'invalid param: "a.r". Must match /^\\d+$/'
     , name: 'invalid regex'
     }
   , {

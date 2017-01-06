@@ -2,7 +2,7 @@
 
 const test = require('tap').test
 const common = require('../common')
-const getProp = common.getProp('regex', /\d+/)
+const getProp = common.getProp('regex', /^\d+$/)
 
 function compile(props) {
   return common.compile({
@@ -19,7 +19,7 @@ const cases = new Set([
 , getProp().optional().allowNull()
 ])
 
-const ERROR_MESSAGE = /invalid param: "regex". Must match \/\\d\+\//
+const ERROR_MESSAGE = /invalid param: "regex". Must match \/\^\\d\+\$\//
 
 for (const prop of cases) {
   const fn = compile(prop)

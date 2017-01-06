@@ -17,7 +17,7 @@ test('validator - single, simple, required', (t) => {
     , Prop.enum(['a', 'b']).path('enuma')
     , Prop.uuid().path('u:uuid')
     , Prop.number().path('number').allowNull()
-    , Prop.regex(/\d/).path('r')
+    , Prop.regex(/^\d+$/).path('r')
     , Prop.date().path('date')
     , Prop.array().path('a')
     ]
@@ -102,7 +102,7 @@ test('validator - single, simple, required', (t) => {
       , enuma: 'a'
       , number: 1
       }
-    , output: 'invalid param: "r". Must match /\\d/'
+    , output: 'invalid param: "r". Must match /^\\d+$/'
     , name: 'missing regex'
     }
   , {
@@ -115,7 +115,7 @@ test('validator - single, simple, required', (t) => {
       , number: 1
       , r: 'fasdsaf'
       }
-    , output: 'invalid param: "r". Must match /\\d/'
+    , output: 'invalid param: "r". Must match /^\\d+$/'
     , name: 'invalid regex'
     }
   , {
@@ -345,7 +345,7 @@ test('validator - single, simple, optionals', (t) => {
     , Prop.enum(['a', 'b']).path('enuma').optional()
     , Prop.uuid().path('uuid').optional()
     , Prop.number().path('number').optional().allowNull()
-    , Prop.regex(/\d/).path('r').optional()
+    , Prop.regex(/^\d+$/).path('r').optional()
     , Prop.date().path('date').optional()
     , Prop.array().path('a').optional()
     ]
@@ -465,7 +465,7 @@ test('validator - single, simple, optionals', (t) => {
       , uuid: 'test'
       , r: 'biscuits'
       }
-    , output: 'invalid param: "r". Must match /\\d/'
+    , output: 'invalid param: "r". Must match /^\\d+$/'
     , name: 'invalid regex'
     }
   ]
