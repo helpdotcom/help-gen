@@ -1,3 +1,18 @@
+# 2017-01-06, Version 8.2.0 (Stable)
+
+* [[0ca85ed3f0](https://git.help.com/common-backend/help-gen/commit/0ca85ed3f0)] - lib: remove essentially superfluous `variableNames` map (Anna Henningsen)
+* [[352495cb80](https://git.help.com/common-backend/help-gen/commit/352495cb80)] - lib: remove unused properties (Anna Henningsen)
+* [[c9f523a775](https://git.help.com/common-backend/help-gen/commit/c9f523a775)] - lib: turn callback generators into `Validator` methods (Anna Henningsen)
+* [[a3a228eef7](https://git.help.com/common-backend/help-gen/commit/a3a228eef7)] - **(SEMVER-MINOR)** validator: more flexible handling of missing props (Anna Henningsen)
+* [[c07ea6da79](https://git.help.com/common-backend/help-gen/commit/c07ea6da79)] - **(SEMVER-MINOR)** validator: make error message prefix configurable (Anna Henningsen)
+* [[9cbd6a6ff1](https://git.help.com/common-backend/help-gen/commit/9cbd6a6ff1)] - validator: add support for `ref` props (Anna Henningsen)
+* [[db2ffdb363](https://git.help.com/common-backend/help-gen/commit/db2ffdb363)] - **(SEMVER-MINOR)** validator: enable more object cloning options (Anna Henningsen)
+* [[e8406b6de4](https://git.help.com/common-backend/help-gen/commit/e8406b6de4)] - validator: allow specifying input variable name (Anna Henningsen)
+* [[cda7ab70b6](https://git.help.com/common-backend/help-gen/commit/cda7ab70b6)] - **(SEMVER-MINOR)** validator: add simple merge method for top level var groups (Anna Henningsen)
+* [[e401c62486](https://git.help.com/common-backend/help-gen/commit/e401c62486)] - validator: expose code generation pieces (Anna Henningsen)
+* [[a93266a681](https://git.help.com/common-backend/help-gen/commit/a93266a681)] - **(SEMVER-MINOR)** validator: more flexible code generation (Anna Henningsen)
+* [[1643496cd7](https://git.help.com/common-backend/help-gen/commit/1643496cd7)] - validator: more generic interface for top-level var handling (Anna Henningsen)
+
 # 2016-12-14, Version 8.1.2 (Stable)
 
 * [[dcb76562e4](https://git.help.com/common-backend/help-gen/commit/dcb76562e4)] - validator: don’t modify external `props` argument (Anna Henningsen)
