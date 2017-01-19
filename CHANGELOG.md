@@ -1,3 +1,7 @@
+# 2017-01-19, Version 8.2.2 (Stable)
+
+* [[26d840ab82](https://git.help.com/common-backend/help-gen/commit/26d840ab82)] - object: fix allowNull for objects (Evan Lucas)
+
 # 2017-01-06, Version 8.2.1 (Stable)
 
 * [[a7e3071a7d](https://git.help.com/common-backend/help-gen/commit/a7e3071a7d)] - deps: update to nano-prop@6.0.0 (Anna Henningsen)
