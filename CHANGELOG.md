@@ -1,3 +1,7 @@
+# 2017-01-24, Version 8.2.3 (Stable)
+
+* [[c3ecf84587](https://git.help.com/common-backend/help-gen/commit/c3ecf84587)] - regex: use toString() for contentIdentifier (Evan Lucas)
+
 # 2017-01-19, Version 8.2.2 (Stable)
 
 * [[26d840ab82](https://git.help.com/common-backend/help-gen/commit/26d840ab82)] - object: fix allowNull for objects (Evan Lucas)
