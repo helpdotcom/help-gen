@@ -9,19 +9,20 @@ test('validator - object without props', (t) => {
     name: 'arraytest'
   , type: 'test'
   , props: [
-      Prop.object()
-          .path('a')
+      Prop.object().path('a')
+    , Prop.regex(/^abcd$/).path('b')
+    , Prop.regex(/^cdef$/).path('c')
     ]
   }
 
   const fn = compile(input)
 
   const tests = [
-    { input: { a: {} }
+    { input: { a: {}, b: 'abcd', c: 'cdef' }
     , error: null
     , name: 'empty object'
     }
-  , { input: { a: { foo: 'bar' } }
+  , { input: { a: { foo: 'bar' }, b: 'abcd', c: 'cdef' }
     , error: null
     , name: 'object with random field'
     }
