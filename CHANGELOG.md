@@ -1,3 +1,8 @@
+# 2017-01-30, Version 8.2.4 (Stable)
+
+* [[54f4077261](https://git.help.com/common-backend/help-gen/commit/54f4077261)] - deps: tap@10.0.0 (Evan Lucas)
+* [[b310fdde08](https://git.help.com/common-backend/help-gen/commit/b310fdde08)] - package: run tap in parallel (Evan Lucas)
+
 # 2017-01-24, Version 8.2.3 (Stable)
 
 * [[c3ecf84587](https://git.help.com/common-backend/help-gen/commit/c3ecf84587)] - regex: use toString() for contentIdentifier (Evan Lucas)
