@@ -1,3 +1,9 @@
+# 2017-03-03, Version 8.3.0 (Stable)
+
+* [[01e4eff464](https://git.help.com/common-backend/help-gen/commit/01e4eff464)] - deps: @helpdotcom/is@2.1.0 (Evan Lucas)
+* [[54f347282e](https://git.help.com/common-backend/help-gen/commit/54f347282e)] - deps: @helpdotcom/nano-prop@6.1.0 (Evan Lucas)
+* [[0c9079a2ae](https://git.help.com/common-backend/help-gen/commit/0c9079a2ae)] - **(SEMVER-MINOR)** types: support allowName() option in email type (Evan Lucas) [CHAT-2199](https://helpdotcom.atlassian.net/browse/CHAT-2199)
+
 # 2017-01-30, Version 8.2.4 (Stable)
 
 * [[54f4077261](https://git.help.com/common-backend/help-gen/commit/54f4077261)] - deps: tap@10.0.0 (Evan Lucas)
