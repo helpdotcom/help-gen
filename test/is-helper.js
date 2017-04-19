@@ -36,3 +36,14 @@ test('isUUID', (t) => {
   t.equal(gen(is.isUUID(varName)), exp)
   t.end()
 })
+
+test('isUrl', (t) => {
+  let varName = 'obj.url'
+  let exp = 'validators.isUrl(obj.url)'
+  t.equal(gen(is.isUrl(varName)), exp)
+
+  varName = 'obj'
+  exp = 'validators.isUrl(obj)'
+  t.equal(gen(is.isUrl(varName)), exp)
+  t.end()
+})
