@@ -1,3 +1,8 @@
+# 2017-04-19, Version 8.4.0 (Stable)
+
+* [[9b870bad45](https://git.help.com/common-backend/help-gen/commit/9b870bad45)] - dep: bump nano-prop to ^6.2.0 (Stephen Belanger)
+* [[b1619a7360](https://git.help.com/common-backend/help-gen/commit/b1619a7360)] - **(SEMVER-MINOR)** types: add "url" type (Stephen Belanger)
+
 # 2017-03-03, Version 8.3.0 (Stable)
 
 * [[01e4eff464](https://git.help.com/common-backend/help-gen/commit/01e4eff464)] - deps: @helpdotcom/is@2.1.0 (Evan Lucas)
