@@ -1,3 +1,9 @@
+# 2017-05-26, Version 8.4.1 (Stable)
+
+* [[6340565cd7](https://git.help.com/common-backend/help-gen/commit/6340565cd7)] - number: remove max warning (Stephen Belanger)
+* [[76709b5343](https://git.help.com/common-backend/help-gen/commit/76709b5343)] - number: remove number example warning (Stephen Belanger)
+* [[e6af98fd3b](https://git.help.com/common-backend/help-gen/commit/e6af98fd3b)] - string,number: failable warnings (Stephen Belanger)
+
 # 2017-04-19, Version 8.4.0 (Stable)
 
 * [[9b870bad45](https://git.help.com/common-backend/help-gen/commit/9b870bad45)] - dep: bump nano-prop to ^6.2.0 (Stephen Belanger)
