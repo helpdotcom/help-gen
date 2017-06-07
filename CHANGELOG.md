@@ -1,3 +1,8 @@
+# 2017-06-07, Version 8.4.2 (Stable)
+
+* [[f7efca32ed](https://git.help.com/common-backend/help-gen/commit/f7efca32ed)] - test: add missing warnings test (Stephen Belanger)
+* [[b3ac86fc23](https://git.help.com/common-backend/help-gen/commit/b3ac86fc23)] - validator: better warning messages (Stephen Belanger)
+
 # 2017-05-26, Version 8.4.1 (Stable)
 
 * [[6340565cd7](https://git.help.com/common-backend/help-gen/commit/6340565cd7)] - number: remove max warning (Stephen Belanger)
