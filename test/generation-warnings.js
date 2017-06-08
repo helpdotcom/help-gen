@@ -57,20 +57,19 @@ test('generation warnings', makeTest((tt, calls) => {
   const v = new Validator(input)
   v.generateRaw()
 
-  tt.equal(calls.length, 4, 'has expected warnings')
-
   const messages = [
     'no string example'
-  , 'no string min'
   , 'no string max'
   , 'no number min'
   ]
+
+  tt.equal(calls.length, messages.length, 'has expected warnings')
 
   for (let i = 0; i < calls.length; i++) {
     const call = calls[i]
     const message = messages[i]
     tt.match(call.message, message, `matches message "${message}"`)
-    tt.equal(call.context.path, (i < 3 ? a : b)._path, 'matches path')
+    tt.equal(call.context.path, (i < 2 ? a : b)._path, 'matches path')
   }
 
   tt.end()
@@ -84,14 +83,10 @@ test('generation errors', makeTest((tt, calls) => {
     ]
   , [
       Prop.string().path('a').example('a')
-    , 'no string min'
-    ]
-  , [
-      Prop.string().path('a').example('a').min(1)
     , 'no string max'
     ]
   , [
-      Prop.number().path('a').example(1)
+      Prop.number().path('a')
     , 'no number min'
     ]
   ]
