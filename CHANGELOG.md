@@ -1,3 +1,7 @@
+# 2017-06-08, Version 8.4.3 (Stable)
+
+* [[4d5702cd0e](https://git.help.com/common-backend/help-gen/commit/4d5702cd0e)] - number: fix min warning (Stephen Belanger)
+
 # 2017-06-07, Version 8.4.2 (Stable)
 
 * [[f7efca32ed](https://git.help.com/common-backend/help-gen/commit/f7efca32ed)] - test: add missing warnings test (Stephen Belanger)
