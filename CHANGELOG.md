@@ -1,3 +1,7 @@
+# 2017-06-12, Version 8.4.4 (Stable)
+
+* [[b1b5f22d3d](https://git.help.com/common-backend/help-gen/commit/b1b5f22d3d)] - string: fix minimum (Stephen Belanger)
+
 # 2017-06-08, Version 8.4.3 (Stable)
 
 * [[4d5702cd0e](https://git.help.com/common-backend/help-gen/commit/4d5702cd0e)] - number: fix min warning (Stephen Belanger)
