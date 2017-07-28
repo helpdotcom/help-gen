@@ -2,7 +2,11 @@
 
 const test = require('tap').test
 const common = require('../common')
+const vm = require('vm')
 const Prop = require('@helpdotcom/nano-prop')
+const Builder = require('@helpdotcom/build-ast')
+const toCode = require('../../lib/to-code')
+const Validator = require('../../').Validator
 
 const fn = common.compile({
   name: 'list_visitors_response'
@@ -21,7 +25,80 @@ const fn = common.compile({
   ]
 })
 
-test('Prop.array().props([])', (t) => {
+test('Prop.object().allowNull()', (t) => {
+  const validator = new Validator({
+    name: 'allow_null_test'
+  , type: 'response'
+  , props: [
+      Prop
+        .object()
+        .path('empty')
+        .allowNull()
+        .props([
+          Prop.string().path('test')
+        ])
+    , Prop
+        .object()
+        .path('not_empty')
+        .props([
+          Prop.string().path('test')
+        ])
+    ]
+  , useObjectAssignForRoot: true
+  , synchronousReturn: true
+  , performDeepClone: true
+  , inputVar: 'opts'
+  , resultVar: 'this'
+  })
+
+  const sandbox = {
+    setImmediate
+  , require
+  , module: {}
+  }
+  const { rawBody } = validator.generateRaw()
+  const ast = Builder()
+    .use('strict')
+    .module('test')
+    .push(Builder.function('test', [ 'opts' ], rawBody))
+    .program()
+
+  const script = new vm.Script(toCode(ast))
+  const context = new vm.createContext(sandbox)
+  script.runInContext(context)
+
+  const input = {
+    empty: null
+  , not_empty: {
+      test: 'text'
+    }
+  }
+  const output = {}
+  sandbox.module.exports.call(output, input)
+
+  const tests = [
+    { message: 'input of allowNull() field should match output when null'
+    , input: input.empty
+    , output: output.empty
+    }
+  , { message: 'null inputs should not produce undefined output'
+    , input: true
+    , output: output.empty !== undefined
+    }
+  , { message: 'input of allowNull() field should match output when not null'
+    , input: input.not_empty
+    , output: output.not_empty
+    }
+  ]
+
+  for (let test of tests) {
+    t.same(test.output, test.input, test.message)
+  }
+
+  t.end()
+})
+
+test('Prop.object().props([])', (t) => {
   t.test('empty object passes', (tt) => {
     const valid = fn({}, (err) => {
       tt.error(err)
