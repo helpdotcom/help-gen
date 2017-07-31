@@ -1,3 +1,7 @@
+# 2017-07-31, Version 8.4.5 (Stable)
+
+* [[e878e5d8dd](https://git.help.com/common-backend/help-gen/commit/e878e5d8dd)] - types: fix allowNull objects (Stephen Belanger)
+
 # 2017-06-12, Version 8.4.4 (Stable)
 
 * [[b1b5f22d3d](https://git.help.com/common-backend/help-gen/commit/b1b5f22d3d)] - string: fix minimum (Stephen Belanger)
