@@ -1,6 +1,6 @@
 {
   "name": "@helpdotcom/help-gen",
-  "version": "8.4.5",
+  "version": "9.0.0",
   "description": "Generate validators for help.com services",
   "main": "index.js",
   "scripts": {

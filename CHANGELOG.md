@@ -1,3 +1,7 @@
+# 2017-09-18, Version 9.0.0 (Stable)
+
+* [[8401306992](https://git.help.com/common-backend/help-gen/commit/8401306992)] - **(SEMVER-MAJOR)** object: add .passthrough() support (Ryan Mottley) [CHAT-3568](https://helpdotcom.atlassian.net/browse/CHAT-3568)
+
 # 2017-07-31, Version 8.4.5 (Stable)
 
 * [[e878e5d8dd](https://git.help.com/common-backend/help-gen/commit/e878e5d8dd)] - types: fix allowNull objects (Stephen Belanger)
