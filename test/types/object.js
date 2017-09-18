@@ -188,3 +188,27 @@ test('Prop.object().props([])', (t) => {
 
   t.end()
 })
+
+test('Prop.object() missing .props() and .passthrough()', (t) => {
+  const validator = new Validator({
+    name: 'allow_null_test'
+  , type: 'response'
+  , props: [
+      Prop
+        .object()
+        .path('empty')
+        .allowNull()
+    ]
+  , useObjectAssignForRoot: true
+  , synchronousReturn: true
+  , performDeepClone: true
+  , inputVar: 'opts'
+  , resultVar: 'this'
+  })
+
+  t.throws(() => {
+    validator.generate()
+  }, /empty requires either \.props or \.passthrough/)
+
+  t.end()
+})

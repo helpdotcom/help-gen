@@ -14,7 +14,7 @@ test ('validator - complicated object with props', (t) => {
     , Prop.object().path('event_content').props([
         Prop.string().path('searchable_content')
       , Prop.object().path('formatted_content').allowNull().props([
-          Prop.object().path('entityMap')
+          Prop.object().path('entityMap').passthrough()
         , Prop.array().path('blocks').props(
             Prop.object().props([
               Prop.string().path('text')

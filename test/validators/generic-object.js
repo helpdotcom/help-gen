@@ -9,7 +9,7 @@ test('validator - object without props', (t) => {
     name: 'arraytest'
   , type: 'test'
   , props: [
-      Prop.object().path('a')
+      Prop.object().path('a').passthrough()
     , Prop.regex(/^abcd$/).path('b')
     , Prop.regex(/^cdef$/).path('c')
     ]

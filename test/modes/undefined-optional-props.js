@@ -12,6 +12,7 @@ test('validator - is desired, optional properties may be `undefined`', (t) => {
       Prop.object()
           .path('a')
           .optional()
+          .passthrough()
     ]
   , optionalsMayBeUndefined: true
   }

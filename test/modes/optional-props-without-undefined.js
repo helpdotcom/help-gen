@@ -15,6 +15,7 @@ test('validator - missing props become undefined', {
       Prop.object()
           .path('a')
           .optional()
+          .passthrough()
     ]
   }
 
