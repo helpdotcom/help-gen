@@ -15,15 +15,16 @@ test('validator - always fail on extraneous properties', {
       Prop.string().path('a')
     , Prop.string().path('b')
     , Prop.string().path('c').optional()
+    , Prop.object().path('sample').passthrough()
     ]
   }
 
   const fn = compile(input)
 
   const tests = [
-    { input: { a: 'a', b: 'b', c: 'c', d: 'd' }
+    { input: { a: 'a', b: 'b', c: 'c', d: 'd', sample: { passed_prop: 4 } }
     , error: 'Missing or invalid param: "Object.keys(obj)[i]".' +
-             ' Must be one of ["a", "b", "c"]'
+             ' Must be one of ["a", "b", "c", "sample"]'
     , name: 'one extraneous property'
     }
   ]
