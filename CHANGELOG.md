@@ -1,3 +1,7 @@
+# 2017-09-21, Version 9.0.1 (Stable)
+
+* [[09e2859289](https://git.help.com/common-backend/help-gen/commit/09e2859289)] - test: add .object().passthrough() test for failOnExtraneousProperties (Ryan Mottley) [CHAT-3568](https://helpdotcom.atlassian.net/browse/CHAT-3568)
+
 # 2017-09-18, Version 9.0.0 (Stable)
 
 * [[8401306992](https://git.help.com/common-backend/help-gen/commit/8401306992)] - **(SEMVER-MAJOR)** object: add .passthrough() support (Ryan Mottley) [CHAT-3568](https://helpdotcom.atlassian.net/browse/CHAT-3568)
