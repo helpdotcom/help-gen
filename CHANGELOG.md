@@ -1,3 +1,7 @@
+# 2017-09-26, Version 9.2.0 (Stable)
+
+* [[77653d2b85](https://git.help.com/common-backend/help-gen/commit/77653d2b85)] - **(SEMVER-MINOR)** deps: update @helpdotcom/nano-prop to 6.6.2 (Ryan Mottley)
+
 # 2017-09-26, Version 9.1.0 (Stable)
 
 * [[88b7e86fcc](https://git.help.com/common-backend/help-gen/commit/88b7e86fcc)] - **(SEMVER-MINOR)** deps: update @helpdotcom/nano-prop to @6.6.1 (Ryan Mottley)
