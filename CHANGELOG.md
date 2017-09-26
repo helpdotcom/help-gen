@@ -1,3 +1,7 @@
+# 2017-09-26, Version 9.1.0 (Stable)
+
+* [[88b7e86fcc](https://git.help.com/common-backend/help-gen/commit/88b7e86fcc)] - **(SEMVER-MINOR)** deps: update @helpdotcom/nano-prop to @6.6.1 (Ryan Mottley)
+
 # 2017-09-21, Version 9.0.1 (Stable)
 
 * [[09e2859289](https://git.help.com/common-backend/help-gen/commit/09e2859289)] - test: add .object().passthrough() test for failOnExtraneousProperties (Ryan Mottley) [CHAT-3568](https://helpdotcom.atlassian.net/browse/CHAT-3568)
