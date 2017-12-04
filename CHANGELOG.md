@@ -1,3 +1,7 @@
+# 2017-12-04, Version 9.3.0 (Stable)
+
+* [[0df12d8cf9](https://git.help.com/common-backend/help-gen/commit/0df12d8cf9)] - **(SEMVER-MINOR)** types: add support for Prop.array().allowNull() (Evan Lucas)
+
 # 2017-09-26, Version 9.2.0 (Stable)
 
 * [[77653d2b85](https://git.help.com/common-backend/help-gen/commit/77653d2b85)] - **(SEMVER-MINOR)** deps: update @helpdotcom/nano-prop to 6.6.2 (Ryan Mottley)
