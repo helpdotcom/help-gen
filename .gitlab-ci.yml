@@ -13,8 +13,14 @@ test:node6:
   script:
     - npm test -- --coverage-report=text-summary
 
+test:node8:
+  image: gcr.io/help-1272/node:8
+  stage: test
+  script:
+    - npm test -- --coverage-report=text-summary
+
 release:
-  image: gcr.io/help-1272/node:release
+  image: gcr.io/help-1272/node:release8
   stage: release
   script:
     - do-release --publish
