@@ -1,0 +1,94 @@
+[
+  { "path": "id"
+  , "required": true
+  , "description": "The organization's ID"
+  , "example": "8995E072-46B6-4264-A9BD-DAA955CBC360"
+  , "type": "uuid"
+  }
+, { "path": "name"
+  , "required": true
+  , "description": "The organization name"
+  , "example": "Help.com"
+  , "type": "string"
+  , "min": null
+  , "max": null
+  }
+, { "path": "created_at"
+  , "required": false
+  , "description": "Date the organization was created"
+  , "example": "2016-02-23T22:29:13.454Z"
+  , "type": "date"
+  }
+, { "path": "modified_at"
+  , "required": false
+  , "description": "Date last modified"
+  , "example": "2016-02-23T22:29:13.454Z"
+  , "type": "date"
+  }
+, { "path": "modified_by"
+  , "required": false
+  , "description": "Member ID of the last person to modify this organization"
+  , "example": "4AEA9EDB-E043-42CE-B447-5AD77CC70314"
+  , "type": "uuid"
+  }
+, { "path": "archived"
+  , "required": true
+  , "description": "Is the organization archived?"
+  , "example": false
+  , "type": "boolean"
+  }
+, { "path": "admin.id"
+  , "required": true
+  , "description": null
+  , "example": "23EBEABD-CF0A-4FFF-BF7B-243F35D1CB2F"
+  , "type": "uuid"
+  }
+, { "path": "admin.email"
+  , "required": true
+  , "description": null
+  , "example": "help@help.com"
+  , "type": "email"
+  , "allowName": false
+  }
+, { "path": "admin.name"
+  , "required": true
+  , "description": null
+  , "example": "Jon Doe"
+  , "type": "string"
+  , "min": null
+  , "max": null
+  }
+, { "path": "admin.roles"
+  , "required": true
+  , "description": null
+  , "props": null
+  , "example": [
+      "admin"
+    ]
+  , "type": "array"
+  }
+, { "path": "team_subdomain"
+  , "required": true
+  , "description": "This team's subdomain."
+  , "example": "easyrent"
+  , "type": "string"
+  , "min": null
+  , "max": null
+  }
+, { "type": "object"
+  , "path": "information"
+  , "description": "Extra information"
+  , "example": null
+  , "required": true
+  , "props": []
+  , "passthrough": true
+  }
+, { "type": "object"
+  , "path": "null_information"
+  , "description": "Extra information"
+  , "example": null
+  , "required": true
+  , "props": null
+  , "passthrough": true
+  }
+]

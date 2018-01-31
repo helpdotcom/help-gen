@@ -1,0 +1,82 @@
+[
+  { "type": "uuid"
+  , "path": "id"
+  , "example": "8995E072-46B6-4264-A9BD-DAA955CBC360"
+  , "required": true
+  , "description": "The organization's ID"
+  }
+, { "type": "string"
+  , "path": "name"
+  , "example": "Help.com"
+  , "required": true
+  , "description": "The organization name"
+  }
+, { "type": "date"
+  , "path": "created_at"
+  , "example": "2016-02-23T22:29:13.454Z"
+  , "required": false
+  , "description": "Date the organization was created"
+  }
+, { "type": "date"
+  , "path": "modified_at"
+  , "example": "2016-02-23T22:29:13.454Z"
+  , "required": false
+  , "description": "Date last modified"
+  }
+, { "type": "uuid"
+  , "path": "modified_by"
+  , "example": "4AEA9EDB-E043-42CE-B447-5AD77CC70314"
+  , "required": false
+  , "description": "Member ID of the last person to modify this organization"
+  }
+, { "type": "boolean"
+  , "path": "archived"
+  , "example": false
+  , "required": true
+  , "description": "Is the organization archived?"
+  }
+, { "name": "admin.id"
+  , "type": "uuid"
+  , "path": "admin.id"
+  , "example": "23EBEABD-CF0A-4FFF-BF7B-243F35D1CB2F"
+  , "required": true
+  }
+, { "name": "admin.email"
+  , "type": "email"
+  , "path": "admin.email"
+  , "example": "help@help.com"
+  , "required": true
+  }
+, { "name": "admin.name"
+  , "type": "string"
+  , "path": "admin.name"
+  , "example": "Jon Doe"
+  , "required": true
+  }
+, { "name": "admin.roles"
+  , "type": "array"
+  , "path": "admin.roles"
+  , "example": ["admin"]
+  , "required": true
+  }
+, { "type": "string"
+  , "path": "team_subdomain"
+  , "required": true
+  , "description": "This team's subdomain."
+  , "example": "easyrent"
+  }
+, { "type": "object"
+  , "path": "information"
+  , "description": "Extra information"
+  , "required": true
+  , "props": []
+  , "passthrough": true
+  }
+, { "type": "object"
+  , "path": "null_information"
+  , "description": "Extra information"
+  , "required": true
+  , "props": null
+  , "passthrough": true
+  }
+]

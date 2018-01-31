@@ -1,3 +1,3 @@
 'use strict'
 
-exports.Validator = require('./lib')
+module.exports = require('./lib')

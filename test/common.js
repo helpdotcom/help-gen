@@ -11,7 +11,7 @@ const assert = require('assert')
 const path = require('path')
 const Module = require('module').Module
 const Prop = require('@helpdotcom/nano-prop')
-const Validator = require('../').Validator
+const {ModelManager, Validator} = require('../')
 const dir = __dirname
 var count = 0
 
@@ -46,7 +46,13 @@ exports.getProp = function getProp(type, val) {
   }
 }
 
-exports.compile = function compile(opts) {
+exports.getNestedProp = function getNestedProp(type, val) {
+  return function(name = type) {
+    return Prop[type](val).path(`nested.${name}`)
+  }
+}
+
+exports.compileValidator = function compileValidator(opts) {
   if (process.env.HELPGEN_STRIP_EXTRA_PROPS === '1') {
     opts.stripExtraneousProperties = true
   }
@@ -58,4 +64,47 @@ exports.compile = function compile(opts) {
   const v = new Validator(opts)
   const code = v.generate()
   return exports.createModule(code, opts)
+}
+
+// Note: won't work with ref types
+exports.compileManager = function compileManager(opts) {
+  const out = new ModelManager({
+    configs: [opts]
+  }).generate()
+  const code = out.get(opts.name).code
+  return exports.createModule(code)
+}
+
+exports.getTestName = function getTestName(prop, includePath = true) {
+  const type = prop._type
+  const s = type === 'regex'
+    ? prop._value
+    : type === 'enum'
+    ? `[${prop._values.join(',')}]`
+    : ''
+  let name = `Prop.${type}(${s})`
+  if (includePath) name += `.path('${type}')`
+
+  if (prop._required) {
+    name += '.required(true)'
+  } else {
+    name += '.optional()'
+  }
+
+  if (prop._allowNull) name += '.allowNull()'
+
+  if (prop._min && typeof prop._min === 'number') {
+    name += `.min(${prop._min})`
+  }
+
+  if (prop._max && typeof prop._max === 'number') {
+    name += `.max(${prop._max})`
+  }
+
+  if (prop._props) {
+    const str = exports.getTestName(prop._props, false)
+    name += `.props(${str})`
+  }
+
+  return name
 }
