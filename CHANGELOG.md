@@ -1,3 +1,8 @@
+# 2018-02-16, Version 10.0.0 (Stable)
+
+* [[891e75a637](https://git.help.com/common-backend/help-gen/commit/891e75a637)] - ci: build on node 8 as well as 6 (Evan Lucas)
+* [[92ae185302](https://git.help.com/common-backend/help-gen/commit/92ae185302)] - **(SEMVER-MAJOR)** package: add nano-model and nano-prop to tree (Evan Lucas)
+
 # 2017-12-04, Version 9.3.0 (Stable)
 
 * [[0df12d8cf9](https://git.help.com/common-backend/help-gen/commit/0df12d8cf9)] - **(SEMVER-MINOR)** types: add support for Prop.array().allowNull() (Evan Lucas)
