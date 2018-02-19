@@ -39,10 +39,10 @@
   "author": "Evan Lucas <evanlucas@me.com>",
   "repository": {
     "type": "git",
-    "url": "https://git.help.com/common-backend/help-gen.git"
+    "url": "https://github.com/helpdotcom/help-gen"
   },
-  "homepage": "https://git.help.com/common-backend/help-gen",
+  "homepage": "https://github.com/helpdotcom/help-gen",
   "bugs": {
-    "url": "https://git.help.com/common-backend/help-gen/issues"
+    "url": "https://github.com/helpdotcom/help-gen/issues"
   }
 }
