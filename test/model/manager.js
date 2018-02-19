@@ -1,8 +1,7 @@
 'use strict'
 
 const test = require('tap').test
-const Prop = require('@helpdotcom/nano-prop')
-const {ModelManager} = require('../../')
+const {ModelManager, Prop} = require('../../')
 
 const ALREADY_DEFINED_ERROR = 'Model "Visitor" has already been defined'
 const INVALID_NAME_ERROR = 'name is required and must be a valid identifier'

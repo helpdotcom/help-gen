@@ -1,8 +1,7 @@
 'use strict'
 
 const test = require('tap').test
-const Prop = require('@helpdotcom/nano-prop')
-const Validator = require('../../').Validator
+const {Prop, Validator} = require('../../')
 
 test('top level vars - can merge the vars of multiple generate calls', (t) => {
   const input1 = {

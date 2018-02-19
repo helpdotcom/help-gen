@@ -2,7 +2,7 @@
 
 const test = require('tap').test
 const common = require('../../common')
-const Prop = require('@helpdotcom/nano-prop')
+const {Prop} = require('../../../')
 
 const fn = common.compileValidator({
   name: 'list_visitors_response'

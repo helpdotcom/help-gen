@@ -3,10 +3,9 @@
 const test = require('tap').test
 const common = require('../../common')
 const vm = require('vm')
-const Prop = require('@helpdotcom/nano-prop')
 const Builder = require('@helpdotcom/build-ast')
 const toCode = require('../../../lib/to-code')
-const Validator = require('../../../').Validator
+const {Prop, Validator} = require('../../../')
 
 const fn = common.compileValidator({
   name: 'list_visitors_response'

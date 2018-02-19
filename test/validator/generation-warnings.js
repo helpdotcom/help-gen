@@ -1,9 +1,8 @@
 'use strict'
 
 const test = require('tap').test
-const Prop = require('@helpdotcom/nano-prop')
 const { Log } = require('kittie')
-const Validator = require('../../').Validator
+const {Prop, Validator} = require('../../')
 
 function shim(object, method, replacer) {
   const old = object[method]

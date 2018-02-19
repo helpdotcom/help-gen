@@ -1,7 +1,7 @@
 'use strict'
 
 const test = require('tap').test
-const Prop = require('@helpdotcom/nano-prop')
+const {Prop} = require('../../../')
 const { compileValidator } = require('../../common')
 
 test('validator - object without props', (t) => {

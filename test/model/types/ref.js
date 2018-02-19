@@ -5,7 +5,7 @@ const path = require('path')
 const mkdirp = require('mkdirp')
 const rimraf = require('rimraf')
 const test = require('tap').test
-const Prop = require('@helpdotcom/nano-prop')
+const {Prop} = require('../../../')
 const Manager = require('../../../').ModelManager
 const TMP = path.join(__dirname, 'fixtures')
 

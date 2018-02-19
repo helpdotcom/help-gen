@@ -2,7 +2,7 @@
 
 const test = require('tap').test
 const utils = require('../lib/utils')
-const Prop = require('@helpdotcom/nano-prop')
+const {Prop} = require('../')
 
 test('isValidIdentifier', (t) => {
   const v = utils.isValidIdentifier

@@ -1,8 +1,7 @@
 'use strict'
 
 const test = require('tap').test
-const Prop = require('@helpdotcom/nano-prop')
-const Validator = require('../../../').Validator
+const {Prop, Validator} = require('../../../')
 const { createModule } = require('../../common')
 
 test('validator - can store the result in a specific variable and work sync', {

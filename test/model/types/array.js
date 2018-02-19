@@ -1,6 +1,6 @@
 'use strict'
 
-const Prop = require('@helpdotcom/nano-prop')
+const {Prop} = require('../../../')
 const test = require('tap').test
 const common = require('../../common')
 const compile = common.compileManager

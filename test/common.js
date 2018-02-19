@@ -10,8 +10,7 @@ if (require.main === module) {
 const assert = require('assert')
 const path = require('path')
 const Module = require('module').Module
-const Prop = require('@helpdotcom/nano-prop')
-const {ModelManager, Validator} = require('../')
+const {ModelManager, Validator, Prop} = require('../')
 const dir = __dirname
 var count = 0
 

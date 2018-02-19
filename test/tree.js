@@ -1,8 +1,7 @@
 'use strict'
 
 const test = require('tap').test
-const Prop = require('@helpdotcom/nano-prop')
-const { Validator } = require('../')
+const {Prop, Validator} = require('../')
 const { propSort } = require('../lib/utils')
 
 function flattenTreeForValidator(opts) {

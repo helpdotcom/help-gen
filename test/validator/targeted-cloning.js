@@ -2,9 +2,8 @@
 
 const test = require('tap').test
 const toCode = require('../../lib/to-code')
-const Prop = require('@helpdotcom/nano-prop')
 const Builder = require('@helpdotcom/build-ast')
-const Validator = require('../../').Validator
+const {Prop, Validator} = require('../../')
 
 test('validators can clone onto an existing object', (t) => {
   const input = {
