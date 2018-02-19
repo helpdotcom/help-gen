@@ -1,3 +1,9 @@
+# 2018-02-19, Version 10.0.1 (Stable)
+
+* [[f6d797ced2](https://github.com/helpdotcom/help-gen/commit/f6d797ced2)] - deps: remove nano-prop dependency (Evan Lucas)
+* [[8ceb9df70a](https://github.com/helpdotcom/help-gen/commit/8ceb9df70a)] - deps: rimraf@2.6.2 (Evan Lucas)
+* [[8e10ca9576](https://github.com/helpdotcom/help-gen/commit/8e10ca9576)] - package: update urls to point to GitHub (Evan Lucas)
+
 # 2018-02-16, Version 10.0.0 (Stable)
 
 * [[891e75a637](https://git.help.com/common-backend/help-gen/commit/891e75a637)] - ci: build on node 8 as well as 6 (Evan Lucas)
