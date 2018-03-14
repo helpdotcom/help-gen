@@ -36,6 +36,9 @@ for (const prop of cases) {
         const valid = fn({}, (err) => {
           tt.type(err, Error)
           tt.match(err, ERROR_MESSAGE)
+          tt.deepEqual(err.meta, {
+            original: undefined
+          })
           tt.equal(valid, false, 'returns false')
           tt.end()
         })
@@ -67,6 +70,9 @@ for (const prop of cases) {
         }, (err) => {
           tt.type(err, Error)
           tt.match(err, ERROR_MESSAGE)
+          tt.deepEqual(err.meta, {
+            original: null
+          })
           tt.equal(valid, false, 'returns false')
           tt.end()
         })
@@ -85,11 +91,15 @@ for (const prop of cases) {
       })
     } else {
       t.test('email with name fails', (tt) => {
+        const email = 'Evan Lucas <evan.lucas@help.com>'
         const valid = fn({
-          email: 'Evan Lucas <evan.lucas@help.com>'
+          email
         }, (err) => {
           tt.type(err, Error)
           tt.match(err, ERROR_MESSAGE)
+          tt.deepEqual(err.meta, {
+            original: email
+          })
           tt.equal(valid, false, 'returns false')
           tt.end()
         })
