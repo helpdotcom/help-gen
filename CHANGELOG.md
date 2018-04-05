@@ -1,3 +1,7 @@
+# 2018-04-05, Version 10.1.0 (Stable)
+
+* [[6d9f9cfeaf](https://github.com/helpdotcom/help-gen/commit/6d9f9cfeaf)] - **(SEMVER-MINOR)** prop: make (de)serialization the same (Evan Lucas)
+
 # 2018-02-19, Version 10.0.1 (Stable)
 
 * [[f6d797ced2](https://github.com/helpdotcom/help-gen/commit/f6d797ced2)] - deps: remove nano-prop dependency (Evan Lucas)
