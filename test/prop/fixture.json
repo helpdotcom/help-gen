@@ -3,6 +3,8 @@
   , "path": "id"
   , "example": "8995E072-46B6-4264-A9BD-DAA955CBC360"
   , "required": true
+  , "allowNull": true
+  , "unique": true
   , "description": "The organization's ID"
   }
 , { "type": "string"

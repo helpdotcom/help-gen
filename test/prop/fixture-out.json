@@ -3,6 +3,8 @@
   , "required": true
   , "description": "The organization's ID"
   , "example": "8995E072-46B6-4264-A9BD-DAA955CBC360"
+  , "allowNull": true
+  , "unique": true
   , "type": "uuid"
   }
 , { "path": "name"

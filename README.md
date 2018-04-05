@@ -56,7 +56,9 @@ Returns `this`
 
 Returns `this`
 
-##### unique()
+##### unique(val)
+
+* `val` [`<Boolean>`][] Is this property unique?
 
 Returns `this`
 
@@ -78,9 +80,9 @@ Returns `this`
 
 Returns `this`
 
-##### allowNull()
+##### allowNull(val)
 
-Allow the property to be null
+* `val` [`<Boolean>`][] Allow the property to be null?
 
 Returns `this`
 
@@ -121,7 +123,9 @@ Returns `this`
 
 Returns `this`
 
-##### unique()
+##### unique(val)
+
+* `val` [`<Boolean>`][] Is this property unique?
 
 Returns `this`
 
@@ -143,7 +147,9 @@ Returns `this`
 
 Returns `this`
 
-##### allowNull()
+##### allowNull(val)
+
+* `val` [`<Boolean>`][] Allow the property to be null?
 
 Allow the property to be null
 
@@ -186,7 +192,9 @@ Returns `this`
 
 Returns `this`
 
-##### unique()
+##### unique(val)
+
+* `val` [`<Boolean>`][] Is this property unique?
 
 Returns `this`
 
@@ -208,7 +216,9 @@ Returns `this`
 
 Returns `this`
 
-##### allowNull()
+##### allowNull(val)
+
+* `val` [`<Boolean>`][] Allow the property to be null?
 
 Allow the property to be null
 
@@ -251,7 +261,9 @@ Returns `this`
 
 Returns `this`
 
-##### unique()
+##### unique(val)
+
+* `val` [`<Boolean>`][] Is this property unique?
 
 Returns `this`
 
@@ -273,7 +285,9 @@ Returns `this`
 
 Returns `this`
 
-##### allowNull()
+##### allowNull(val)
+
+* `val` [`<Boolean>`][] Allow the property to be null?
 
 Allow the property to be null
 
@@ -334,7 +348,9 @@ Returns `this`
 
 Returns `this`
 
-##### unique()
+##### unique(val)
+
+* `val` [`<Boolean>`][] Is this property unique?
 
 Returns `this`
 
@@ -356,7 +372,9 @@ Returns `this`
 
 Returns `this`
 
-##### allowNull()
+##### allowNull(val)
+
+* `val` [`<Boolean>`][] Allow the property to be null?
 
 Allow the property to be null
 
@@ -399,7 +417,9 @@ Returns `this`
 
 Returns `this`
 
-##### unique()
+##### unique(val)
+
+* `val` [`<Boolean>`][] Is this property unique?
 
 Returns `this`
 
@@ -421,7 +441,9 @@ Returns `this`
 
 Returns `this`
 
-##### allowNull()
+##### allowNull(val)
+
+* `val` [`<Boolean>`][] Allow the property to be null?
 
 Allow the property to be null
 
@@ -484,7 +506,9 @@ Returns `this`
 
 Returns `this`
 
-##### unique()
+##### unique(val)
+
+* `val` [`<Boolean>`][] Is this property unique?
 
 Returns `this`
 
@@ -506,7 +530,9 @@ Returns `this`
 
 Returns `this`
 
-##### allowNull()
+##### allowNull(val)
+
+* `val` [`<Boolean>`][] Allow the property to be null?
 
 Allow the property to be null
 
@@ -571,7 +597,9 @@ Returns `this`
 
 Returns `this`
 
-##### unique()
+##### unique(val)
+
+* `val` [`<Boolean>`][] Is this property unique?
 
 Returns `this`
 
@@ -587,7 +615,9 @@ Returns `this`
 
 Returns `this`
 
-##### allowNull()
+##### allowNull(val)
+
+* `val` [`<Boolean>`][] Allow the property to be null?
 
 Allow the property to be null
 
@@ -643,7 +673,9 @@ Returns `this`
 
 Returns `this`
 
-##### unique()
+##### unique(val)
+
+* `val` [`<Boolean>`][] Is this property unique?
 
 Returns `this`
 
@@ -659,7 +691,9 @@ Returns `this`
 
 Returns `this`
 
-##### allowNull()
+##### allowNull(val)
+
+* `val` [`<Boolean>`][] Allow the property to be null?
 
 Allow the property to be null
 
@@ -714,7 +748,9 @@ Returns `this`
 
 Returns `this`
 
-##### unique()
+##### unique(val)
+
+* `val` [`<Boolean>`][] Is this property unique?
 
 Returns `this`
 
@@ -736,7 +772,9 @@ Returns `this`
 
 Returns `this`
 
-##### allowNull()
+##### allowNull(val)
+
+* `val` [`<Boolean>`][] Allow the property to be null?
 
 Allow the property to be null
 
@@ -793,7 +831,9 @@ Returns `this`
 
 Returns `this`
 
-##### unique()
+##### unique(val)
+
+* `val` [`<Boolean>`][] Is this property unique?
 
 Returns `this`
 
@@ -815,7 +855,9 @@ Returns `this`
 
 Returns `this`
 
-##### allowNull()
+##### allowNull(val)
+
+* `val` [`<Boolean>`][] Allow the property to be null?
 
 Allow the property to be null
 
@@ -858,7 +900,9 @@ Returns `this`
 
 Returns `this`
 
-##### unique()
+##### unique(val)
+
+* `val` [`<Boolean>`][] Is this property unique?
 
 Returns `this`
 
@@ -880,7 +924,9 @@ Returns `this`
 
 Returns `this`
 
-##### allowNull()
+##### allowNull(val)
+
+* `val` [`<Boolean>`][] Allow the property to be null?
 
 Allow the property to be null
 
@@ -923,7 +969,9 @@ Returns `this`
 
 Returns `this`
 
-##### unique()
+##### unique(val)
+
+* `val` [`<Boolean>`][] Is this property unique?
 
 Returns `this`
 
@@ -945,7 +993,9 @@ Returns `this`
 
 Returns `this`
 
-##### allowNull()
+##### allowNull(val)
+
+* `val` [`<Boolean>`][] Allow the property to be null?
 
 Allow the property to be null
 
