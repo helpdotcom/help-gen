@@ -1,3 +1,7 @@
+# 2018-04-11, Version 10.2.0 (Stable)
+
+* [[cf9b8abae1](https://github.com/helpdotcom/help-gen/commit/cf9b8abae1)] - **(SEMVER-MINOR)** types: include original value in err.meta for emails (Evan Lucas)
+
 # 2018-04-05, Version 10.1.0 (Stable)
 
 * [[6d9f9cfeaf](https://github.com/helpdotcom/help-gen/commit/6d9f9cfeaf)] - **(SEMVER-MINOR)** prop: make (de)serialization the same (Evan Lucas)
