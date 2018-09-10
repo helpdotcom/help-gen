@@ -23,11 +23,13 @@ const cases = new Set([
 , getProp().optional().max(10)
 , getProp().optional().min(1).max(10)
 , getProp().optional().allowNull()
+, getProp().len(10)
 ])
 
 const ERROR_MESSAGE = /invalid param: "string". Expected string/
 const MIN_ERROR = /invalid param: "string". Length must be >= 1, got 0/
 const MAX_ERROR = /invalid param: "string". Length must be <= 10, got 50/
+const LEN_ERROR = /invalid param: "string". Length must be == 10, got 11/
 
 for (const prop of cases) {
   const fn = compile(prop)
@@ -96,7 +98,7 @@ for (const prop of cases) {
           tt.end()
         })
       })
-    } else {
+    } else if (prop._len === null) {
       t.test('empty string passes', (tt) => {
         const valid = fn({
           string: ''
@@ -129,7 +131,7 @@ for (const prop of cases) {
           tt.end()
         })
       })
-    } else {
+    } else if (prop._len === null) {
       const str = 'a'.repeat(60)
       t.test(`"${str}" passes`, (tt) => {
         const valid = fn({
@@ -142,16 +144,40 @@ for (const prop of cases) {
       })
     }
 
-    t.test('success', (tt) => {
-      const valid = fn({
-        string: 'abcd'
-      }, (err, out) => {
-        tt.error(err)
-        tt.deepEqual(out, { string: 'abcd' })
-        tt.equal(valid, true, 'returns true')
-        tt.end()
+    if (typeof prop._len === 'number') {
+      t.test('length !== len fails', (tt) => {
+        const valid = fn({
+          string: 'a'.repeat(11)
+        }, (err) => {
+          tt.type(err, Error)
+          tt.match(err, LEN_ERROR)
+          tt.equal(valid, false, 'returns false')
+          tt.end()
+        })
       })
-    })
+
+      t.test('success w/length', (tt) => {
+        const valid = fn({
+          string: 'x'.repeat(10)
+        }, (err, out) => {
+          tt.error(err)
+          tt.deepEqual(out, { string: 'xxxxxxxxxx' })
+          tt.equal(valid, true, 'returns true')
+          tt.end()
+        })
+      })
+    } else {
+      t.test('success', (tt) => {
+        const valid = fn({
+          string: 'abcd'
+        }, (err, out) => {
+          tt.error(err)
+          tt.deepEqual(out, { string: 'abcd' })
+          tt.equal(valid, true, 'returns true')
+          tt.end()
+        })
+      })
+    }
 
     t.end()
   })

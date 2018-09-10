@@ -805,6 +805,13 @@ Prop
   .description('Tim will have the reuben')
   .min(1)  // require length of at least 1
   .max(10) // allow length of up to 10
+
+Prop
+  .string()
+  .path('my_key')
+  .example('abc1234567')
+  .description('Our keys are always 10 characters')
+  .len(10) // .length must equal this
 ```
 
 ##### min(n)
@@ -816,6 +823,12 @@ Returns `this`
 ##### max(n)
 
 * `n` [`<Number>`][] Sets the max length of the string. Must be > the `min`.
+
+Returns `this`
+
+##### len(n)
+
+* `n` [`<Number>`][] Sets an exact length for the string. Cannot be used with min/max.
 
 Returns `this`
 

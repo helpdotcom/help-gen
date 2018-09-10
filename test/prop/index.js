@@ -111,6 +111,11 @@ function testBaseProp(name, methods) {
           t.equal(p.allowCIDR(), p, `${name} - ${method} returns this`)
           t.equal(p._allowCIDR, true, `${name} - ${method} after`)
           t.equal(p.toJSON()[method], true, `${name} - ${method} bubbles`)
+        } else if (method === 'len') {
+          const p = Prop[name]()
+          t.equal(p.len(5), p, `${name} - ${method} returns this`)
+          t.equal(p._len, 5, `${name} - ${method} after`)
+          t.equal(p.toJSON()[method], 5, `${name} - ${method} bubbles`)
         } else {
           t.equal(p[method](1), p, `${name} - ${method} returns this`)
           t.match(p[`_${method}`], 1, `${name} - ${method} (after)`)
@@ -256,7 +261,7 @@ const types = [
 , ['enum', ['values']]
 , ['number', ['min', 'max']]
 , ['regex', ['value']]
-, ['string', ['min', 'max']]
+, ['string', ['min', 'max', 'len']]
 , ['uuid', []]
 , ['url', []]
 , ['object', ['props', 'passthrough']]
@@ -332,7 +337,7 @@ test('Prop.fromConfigList()', (t) => {
   t.end()
 })
 
-test('Prop.string().{min(),max()}', (t) => {
+test('Prop.string().{min(),max(),len()}', (t) => {
   t.throws(() => {
     Prop.string().min('1')
   }, /min must be a number/)
@@ -352,6 +357,30 @@ test('Prop.string().{min(),max()}', (t) => {
   t.throws(() => {
     Prop.string().min(1).max(1)
   }, /max must be > min property/)
+
+  t.throws(() => {
+    Prop.string().len('NOPE')
+  }, /len must be a number/)
+
+  t.throws(() => {
+    Prop.string().len(0)
+  }, /len must be > 0/)
+
+  t.throws(() => {
+    Prop.string().len(5).min(2)
+  }, /len and min\/max are mutually exclusive/)
+
+  t.throws(() => {
+    Prop.string().len(5).max(20)
+  }, /len and min\/max are mutually exclusive/)
+
+  t.throws(() => {
+    Prop.string().max(20).len(5)
+  }, /len and min\/max are mutually exclusive/)
+
+  t.throws(() => {
+    Prop.string().min(2).len(5)
+  }, /len and min\/max are mutually exclusive/)
 
   t.end()
 })
