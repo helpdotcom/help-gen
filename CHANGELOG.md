@@ -1,3 +1,7 @@
+# 2018-09-11, Version 10.3.0 (Stable)
+
+* [[0297a994d3](https://github.com/helpdotcom/help-gen/commit/0297a994d3)] - **(SEMVER-MINOR)** prop, types: Add .len() to string type (Darin Spivey)
+
 # 2018-04-11, Version 10.2.0 (Stable)
 
 * [[cf9b8abae1](https://github.com/helpdotcom/help-gen/commit/cf9b8abae1)] - **(SEMVER-MINOR)** types: include original value in err.meta for emails (Evan Lucas)
