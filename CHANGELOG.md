@@ -1,3 +1,7 @@
+# 2018-09-19, Version 11.0.0 (Stable)
+
+* [[e3df14c292](https://github.com/helpdotcom/help-gen/commit/e3df14c292)] - **(SEMVER-MAJOR)** validator: properly validate Prop.regex() (Evan Lucas)
+
 # 2018-09-11, Version 10.3.0 (Stable)
 
 * [[0297a994d3](https://github.com/helpdotcom/help-gen/commit/0297a994d3)] - **(SEMVER-MINOR)** prop, types: Add .len() to string type (Darin Spivey)
