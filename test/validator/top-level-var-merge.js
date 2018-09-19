@@ -25,11 +25,11 @@ test('top level vars - can merge the vars of multiple generate calls', (t) => {
   const v2 = new Validator(input2)
   const tlv2 = v2.generateRaw().topLevelVars
 
-  t.equal(tlv1.build().length, 1)
-  t.equal(tlv2.build().length, 1)
+  t.equal(tlv1.build().length, 2)
+  t.equal(tlv2.build().length, 2)
   const mergedTLVs = tlv1.merge(tlv2)
 
-  t.equal(mergedTLVs.build().length, 1)
+  t.equal(mergedTLVs.build().length, 2)
 
   t.end()
 })
