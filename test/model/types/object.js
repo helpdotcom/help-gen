@@ -11,6 +11,7 @@ const m = {
 , props: [
     Prop.object().path('message').props([
       Prop.object().path('entityMap').passthrough()
+    , Prop.object().path('canBeNull').passthrough().allowNull()
     , Prop.array().path('blocks').props(
         Prop.object().props([
           Prop.string().path('text')
@@ -36,17 +37,22 @@ test('Nested object', (t) => {
     const opts = {
       message: {
         entityMap: {}
+      , canBeNull: {
+          foo: 'bar'
+        }
       , blocks: [
           { text: 'biscuits', depth: 1 }
         ]
       }
     }
-    new fn(opts)._validate()
+    const model = new fn(opts)._validate()
+    t.deepEqual(model.toJSON(), opts)
   })
 
   const opts = {
     message: {
       entityMap: {}
+    , canBeNull: null
     , blocks: [
         { text: 'biscuits', depth: 1 }
       ]

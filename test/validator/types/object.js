@@ -211,3 +211,49 @@ test('Prop.object() missing .props() and .passthrough()', (t) => {
 
   t.end()
 })
+
+test('Prop.object() with .passthrough() also allows null', (t) => {
+  const validator = common.compileValidator({
+    name: 'allow_passthrough_null_test'
+  , type: 'response'
+  , props: [
+      Prop
+        .object()
+        .path('can_be_null')
+        .passthrough()
+        .allowNull()
+    ]
+  })
+
+  t.test('Allows null', (tt) => {
+    tt.doesNotThrow(() => {
+      const input = {
+        can_be_null: null
+      }
+      validator(input, (err, result) => {
+        tt.error(err, 'no error')
+        tt.deepEqual(result, input, 'result is correct')
+        tt.end()
+      })
+    })
+  })
+
+  t.test('Passthrough properties are returned', (tt) => {
+    tt.doesNotThrow(() => {
+      const input = {
+        can_be_null: {
+          first: 1
+        , second: 2
+        , third: [3]
+        }
+      }
+      validator(input, (err, result) => {
+        tt.error(err, 'no error')
+        tt.deepEqual(result, input, 'result is correct')
+        tt.end()
+      })
+    })
+  })
+
+  t.end()
+})
