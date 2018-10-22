@@ -1,3 +1,7 @@
+# 2018-10-22, Version 11.0.1 (Stable)
+
+* [[2963b160df](https://github.com/helpdotcom/help-gen/commit/2963b160df)] - object: passthrough objects did not handle allowNull (Darin Spivey) [HELP-2597](https://helpdotcom.atlassian.net/browse/HELP-2597)
+
 # 2018-09-19, Version 11.0.0 (Stable)
 
 * [[e3df14c292](https://github.com/helpdotcom/help-gen/commit/e3df14c292)] - **(SEMVER-MAJOR)** validator: properly validate Prop.regex() (Evan Lucas)
