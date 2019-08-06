@@ -1,3 +1,8 @@
+# 2019-08-06, Version 11.0.2 (Stable)
+
+* [[9464dfc3d5](https://github.com/helpdotcom/help-gen/commit/9464dfc3d5)] - ci: run tests on node 8 and node 10 (Evan Lucas)
+* [[6da5365c50](https://github.com/helpdotcom/help-gen/commit/6da5365c50)] - deps: bump tap and nyc to latest (Evan Lucas)
+
 # 2018-10-22, Version 11.0.1 (Stable)
 
 * [[2963b160df](https://github.com/helpdotcom/help-gen/commit/2963b160df)] - object: passthrough objects did not handle allowNull (Darin Spivey) [HELP-2597](https://helpdotcom.atlassian.net/browse/HELP-2597)
